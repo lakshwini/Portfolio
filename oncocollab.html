@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OncoCollab | Lakshwini DANASSEGARANE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="oncocollab.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()">
+        <span class="lang-flag" id="currentFlag">🌐</span>
+        <span id="currentLangLabel">FR</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <section class="hero-oncocollab">
+    <div class="hero-oncocollab-content">
+      <div class="oncocollab-nav"><a href="index.html#projets" data-i18n="nav.back">← Retour aux projets</a></div>
+      <h1 class="hero-oncocollab-title" data-i18n="onco.title">OncoCollab — Plateforme Médicale RCP</h1>
+      <p class="hero-oncocollab-desc" data-i18n="onco.hero_desc">Une plateforme collaborative pour les équipes médicales en oncologie.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">React 18</span><span class="tech-tag-hero">NestJS</span><span class="tech-tag-hero">WebRTC</span><span class="tech-tag-hero">PostgreSQL</span><span class="tech-tag-hero">Python</span><span class="tech-tag-hero">OpenAI Whisper</span><span class="tech-tag-hero">Google Gemini</span><span class="tech-tag-hero">Qdrant</span>
+      </div>
+      <div class="image-placeholder"><span data-i18n="proj.placeholder_img">Image à intégrer</span></div>
+    </div>
+  </section>
+
+  <section id="presentation">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="onco.why_eyebrow">Le projet</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Pourquoi <em data-i18n="onco.why_title_em">OncoCollab ?</em></h2>
+      <div class="section-grid-2">
+        <div class="section-text">
+          <p data-i18n="onco.p1">En oncologie, les décisions thérapeutiques se prennent en équipe lors de réunions pluridisciplinaires.</p>
+          <p data-i18n="onco.p2">Dans la pratique, ces réunions sont difficiles à organiser : les spécialistes sont dispersés, et à la fin quelqu'un doit rédiger manuellement le compte-rendu.</p>
+          <p data-i18n="onco.p3">OncoCollab centralise tout : la visioconférence, la préparation en amont et la génération automatique du compte-rendu.</p>
+        </div>
+        <div class="image-placeholder"><span data-i18n="proj.placeholder_img">Image à intégrer</span></div>
+      </div>
+
+      <div style="margin-top:3rem;">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:1.5rem;color:var(--text);" data-i18n="onco.features_title">Ce que l'application permet</h3>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-title" data-i18n="onco.f1_title">Visioconférence intégrée</div>
+            <div class="feature-desc" data-i18n="onco.f1_desc">Les médecins se retrouvent directement dans l'app, sans outil tiers.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-title" data-i18n="onco.f2_title">Préparation avant la réunion</div>
+            <div class="feature-desc" data-i18n="onco.f2_desc">Chaque spécialiste remplit ses informations avant d'arriver.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-title" data-i18n="onco.f3_title">Compte-rendu automatique</div>
+            <div class="feature-desc" data-i18n="onco.f3_desc">La réunion est enregistrée, transcrite et exportée en PDF.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-title" data-i18n="onco.f4_title">Recherche dans les archives</div>
+            <div class="feature-desc" data-i18n="onco.f4_desc">Retrouvez un compte-rendu par le sens, pas uniquement par mot-clé exact.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-title" data-i18n="onco.f5_title">Messagerie entre médecins</div>
+            <div class="feature-desc" data-i18n="onco.f5_desc">Un chat intégré, lié à chaque réunion et archivé automatiquement.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-title" data-i18n="onco.f6_title">Dossiers patients</div>
+            <div class="feature-desc" data-i18n="onco.f6_desc">Les imageries médicales et l'historique sont accessibles depuis l'interface.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="architecture-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="onco.arch_eyebrow">Architecture</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Comment c'est <em data-i18n="onco.arch_title_em">construit</em></h2>
+      <div style="margin-top:2rem;font-size:0.95rem;color:var(--text-mid);line-height:1.85;">
+        <p style="margin-bottom:1.5rem;" data-i18n="onco.arch_p">L'application est découpée en couches indépendantes : un frontend React, un backend NestJS, un microservice Python dédié à l'IA.</p>
+        <div class="stack-category">
+          <div class="stack-category-title" data-i18n="onco.stack_ui">Interface utilisateur</div>
+          <div class="stack-items"><span class="stack-item">React 18</span><span class="stack-item">TypeScript</span><span class="stack-item">TailwindCSS</span><span class="stack-item">Socket.io</span><span class="stack-item">WebRTC</span></div>
+        </div>
+        <div class="stack-category">
+          <div class="stack-category-title" data-i18n="onco.stack_api">API & temps réel</div>
+          <div class="stack-items"><span class="stack-item">NestJS</span><span class="stack-item">PostgreSQL</span><span class="stack-item">MongoDB</span><span class="stack-item">WebSocket</span><span class="stack-item">JWT Auth</span></div>
+        </div>
+        <div class="stack-category">
+          <div class="stack-category-title" data-i18n="onco.stack_ai">Pipeline IA</div>
+          <div class="stack-items"><span class="stack-item">FastAPI</span><span class="stack-item">Whisper</span><span class="stack-item">Gemini 1.5</span><span class="stack-item">Qdrant</span></div>
+        </div>
+        <div class="stack-category">
+          <div class="stack-category-title" data-i18n="onco.stack_infra">Infrastructure</div>
+          <div class="stack-items"><span class="stack-item">Docker Compose</span><span class="stack-item">Supabase Storage</span><span class="stack-item">Nginx</span></div>
+        </div>
+      </div>
+      <div class="image-placeholder" style="margin-top:2.5rem;"><span data-i18n="proj.placeholder_img">Image à intégrer</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="onco.bdd_eyebrow">Base de données</div>
+      <div class="section-line"></div>
+      <h2 class="section-title" data-i18n="onco.bdd_title">Architecture <em data-i18n="onco.bdd_title_em">BDD</em></h2>
+      <svg viewBox="0 0 1100 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:1100px;height:auto;margin:2rem auto 0;display:block;">
+        <defs><style>.db-box{fill:#ffffff;stroke:#e8728a;stroke-width:2}.db-title{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;fill:#2d1f26}.db-text{font-family:'Jost',sans-serif;font-size:11px;fill:#6b4a56}.conn{stroke:#c97fa8;stroke-width:1.5;fill:none;marker-end:url(#ah)}.lbl{font-family:'Jost',sans-serif;font-size:9px;fill:#c97fa8;font-weight:600}</style>
+        <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#c97fa8"/></marker></defs>
+        <rect x="400" y="60" width="220" height="120" class="db-box" rx="8"/><text x="415" y="90" class="db-title">PostgreSQL</text><text x="415" y="110" class="db-text">Médecins · Patients</text><text x="415" y="127" class="db-text">Réunions · Rapports</text>
+        <rect x="40" y="20" width="180" height="80" class="db-box" rx="8"/><text x="55" y="48" class="db-title">MongoDB</text><text x="55" y="66" class="db-text">Prérequis · Formulaires</text>
+        <path class="conn" d="M 220 60 L 400 100"/><text x="300" y="75" class="lbl">meeting_id</text>
+        <rect x="800" y="20" width="180" height="80" class="db-box" rx="8"/><text x="815" y="48" class="db-title">Qdrant</text><text x="815" y="66" class="db-text">Recherche sémantique</text>
+        <path class="conn" d="M 620 100 L 800 60"/><text x="700" y="75" class="lbl">qdrant_point_id</text>
+        <rect x="40" y="240" width="180" height="80" class="db-box" rx="8"/><text x="55" y="268" class="db-title">Orthanc DICOM</text><text x="55" y="286" class="db-text">Imageries CT · MRI · PET</text>
+        <path class="conn" d="M 220 270 L 400 190"/><text x="300" y="225" class="lbl">orthanc_study_id</text>
+        <rect x="800" y="240" width="180" height="80" class="db-box" rx="8"/><text x="815" y="268" class="db-title">Supabase Storage</text><text x="815" y="286" class="db-text">PDFs · Photos profil</text>
+        <path class="conn" d="M 620 190 L 800 260"/><text x="700" y="220" class="lbl">pdf_url</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="proj.demo_eyebrow">Démonstration</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Voir <em data-i18n="onco.demo_title_em">l'application</em></h2>
+      <div class="video-container"><span data-i18n="proj.placeholder_demo">Vidéo à intégrer</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="proj.source_eyebrow">Code source</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Repository <em>GitHub</em></h2>
+      <div class="resource-card" style="max-width:350px;margin:2rem auto 0;">
+        <div class="resource-title" data-i18n="proj.source_title">Repository GitHub</div>
+        <p style="font-size:0.87rem;color:var(--text-muted);line-height:1.65;margin-bottom:1rem;" data-i18n="proj.source_desc">Code source complet.</p>
+        <a href="https://github.com/lakshwini" class="resource-link" data-i18n="proj.source_link">GitHub →</a>
+      </div>
+      <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;">
+        <a href="index.html#projets" class="back-button" data-i18n="proj.back">← Retour aux projets</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;" data-i18n="footer.made">Fait avec ♥</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){
+      const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};
+      const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');
+      if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;
+      ['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});
+      document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));
+    }
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _animS=document.createElement('style');_animS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_animS);
+    const _obs=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.07)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.feature-card,.resource-card').forEach(el=>{el.classList.add('anim');_obs.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(currentLang));
+  </script>
+</body>
+</html>

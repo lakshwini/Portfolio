@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lakshwini DANASSEGARANE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="meteorologie.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()">
+        <span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <section class="hero-meteo">
+    <div class="hero-meteo-content">
+      <div class="meteo-nav"><a href="index.html#projets" data-i18n="nav.back">← Retour aux projets</a></div>
+      <h1 class="hero-meteo-title" data-i18n="meteo.title">Mon Climat — Visualisation Météorologique</h1>
+      <p class="hero-meteo-desc" data-i18n="meteo.hero_desc">Plateforme web de visualisation des données climatiques françaises.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">PHP 8.2</span><span class="tech-tag-hero">MySQL 8.0</span><span class="tech-tag-hero">D3.js</span><span class="tech-tag-hero">Leaflet.js</span><span class="tech-tag-hero">Chart.js</span><span class="tech-tag-hero">MVC</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="presentation-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="meteo.why_eyebrow">Le projet</div>
+      <div class="section-line"></div>
+      <h2 class="section-title" data-i18n="meteo.why_title">Qu'est-ce que <em data-i18n="meteo.why_title_em">Mon Climat ?</em></h2>
+      <div class="presentation-grid">
+        <div class="presentation-text">
+          <p data-i18n="meteo.p1">Mon Climat est une application web développée en PHP/MySQL pour visualiser les données météo françaises en temps réel.</p>
+          <p data-i18n="meteo.p2">L'application s'appuie sur les données SYNOP de Météo-France, l'API OpenWeatherMap et Open-Meteo pour les prévisions.</p>
+          <p data-i18n="meteo.p3">Techniquement, c'est une architecture MVC faite maison — sans framework.</p>
+        </div>
+        <div class="presentation-highlights">
+          <div class="highlight-item"><div class="highlight-title" data-i18n="meteo.r1_title">Visiteur</div><div class="highlight-desc" data-i18n="meteo.r1_desc">Carte choroplèthe interactive des régions françaises avec données en temps réel.</div></div>
+          <div class="highlight-item"><div class="highlight-title" data-i18n="meteo.r2_title">Utilisateur connecté</div><div class="highlight-desc" data-i18n="meteo.r2_desc">Carte Leaflet avancée, dashboard analytique multi-années et prévisions détaillées.</div></div>
+          <div class="highlight-item"><div class="highlight-title" data-i18n="meteo.r3_title">Administrateur</div><div class="highlight-desc" data-i18n="meteo.r3_desc">Gestion des comptes, audit trail complet et statistiques de la plateforme.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="videos-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="meteo.roles_eyebrow">Les trois rôles</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Trois niveaux <em data-i18n="meteo.roles_title_em">d'accès</em></h2>
+      <div class="videos-grid">
+        <div class="video-card" onclick="openVideoLightbox('img/MeteoNoCompte.mp4')">
+          <div class="video-thumbnail">
+            <div class="video-play-btn">▶</div>
+          </div>
+          <div class="video-content">
+            <div class="video-title" data-i18n="meteo.r1_title">Visiteur Public</div>
+            <p class="video-desc" data-i18n="meteo.r1_desc">Carte choroplèthe interactive, données en temps réel. Accessible sans compte.</p>
+          </div>
+        </div>
+        <div class="video-card" onclick="openVideoLightbox('img/MeteoCompte.mp4')">
+          <div class="video-thumbnail">
+            <div class="video-play-btn">▶</div>
+          </div>
+          <div class="video-content">
+            <div class="video-title" data-i18n="meteo.r2_title">Utilisateur Connecté</div>
+            <p class="video-desc" data-i18n="meteo.r2_desc">Carte Leaflet avancée, dashboard analytique multi-années, prévisions détaillées.</p>
+          </div>
+        </div>
+        <div class="video-card" onclick="openVideoLightbox('img/MeteoAdmin.mp4')">
+          <div class="video-thumbnail">
+            <div class="video-play-btn">▶</div>
+          </div>
+          <div class="video-content">
+            <div class="video-title" data-i18n="meteo.r3_title">Administrateur</div>
+            <p class="video-desc" data-i18n="meteo.r3_desc">Gestion des comptes, validation des inscriptions et audit trail complet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="architecture-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="meteo.save_eyebrow">Sauvegarde automatisée</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Fiabilité de la <em data-i18n="meteo.save_title_em">plateforme</em></h2>
+      <div class="architecture-grid">
+        <div class="architecture-text">
+          <p data-i18n="meteo.save_p">Un script PHP utilise mysqldump pour créer des snapshots complets, conserve les 7 dernières sauvegardes et supprime automatiquement les plus anciennes.</p>
+          <div class="architecture-features">
+            <div class="architecture-feature"><div class="architecture-feature-title">Détection multi-plateforme</div><div class="architecture-feature-desc">Adaptation automatique à MAMP (macOS) ou WAMP (Windows).</div></div>
+            <div class="architecture-feature"><div class="architecture-feature-title">Rotation intelligente</div><div class="architecture-feature-desc">Conservation des 7 dernières sauvegardes avec suppression automatique.</div></div>
+          </div>
+        </div>
+        <div class="architecture-image-container" onclick="openImageLightbox(this.querySelector('img'))">
+          <img src="img/schemaAutoMeteo.png" alt="Schéma automatisation" />
+        </div>
+      </div>
+      <div class="additional-images">
+        <div class="image-card" onclick="openImageLightbox(this.querySelector('img'))">
+          <img src="img/MeteoSchemaBDD.png" alt="Schéma BDD" />
+          <div class="image-card-title">Schéma BDD</div>
+          <div class="image-card-desc">Architecture relationnelle MySQL.</div>
+        </div>
+        <div class="image-card" onclick="openImageLightbox(this.querySelector('img'))">
+          <img src="img/MeteoTrigers.png" alt="Triggers" />
+          <div class="image-card-title">Triggers & Procédures</div>
+          <div class="image-card-desc">Logique métier embarquée dans la base de données.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="meteo.feat_eyebrow">Fonctionnalités</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Ce que <em data-i18n="meteo.feat_title_em">l'app propose</em></h2>
+      <div class="features-grid">
+        <div class="feature-card anim"><div class="feature-title">Carte choroplèthe D3.js</div><div class="feature-desc">Affichage SVG interactif des 13 régions françaises colorées par température en temps réel.</div></div>
+        <div class="feature-card anim"><div class="feature-title">Dashboard analytique</div><div class="feature-desc">Graphiques multi-paramètres sur des périodes personnalisées.</div></div>
+        <div class="feature-card anim"><div class="feature-title">Prévisions météo</div><div class="feature-desc">Météo temps réel et prévisions à court terme par ville.</div></div>
+        <div class="feature-card anim"><div class="feature-title">Authentification multi-rôles</div><div class="feature-desc">Sessions PHP avec hashage bcrypt. Trois rôles distincts.</div></div>
+        <div class="feature-card anim"><div class="feature-title">Sauvegarde automatisée</div><div class="feature-desc">Script PHP + mysqldump, rotation 7 jours, détection MAMP/WAMP.</div></div>
+        <div class="feature-card anim"><div class="feature-title">Back-office Admin</div><div class="feature-desc">Dashboard stats, validation de comptes et historique des actions.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="proj.source_eyebrow">Code source</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Repository <em>GitHub</em></h2>
+      <div class="resource-card anim" style="max-width:400px;margin:2rem auto 0;">
+        <div class="resource-title" data-i18n="proj.source_title">Repository GitHub</div>
+        <div class="resource-desc" data-i18n="proj.source_desc">Code source complet.</div>
+        <a href="https://github.com/lakshwini" class="resource-link" data-i18n="proj.source_link">GitHub →</a>
+      </div>
+            <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;">
+        <a href="index.html#projets" class="back-button" data-i18n="proj.back">← Retour aux projets</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox-overlay" id="videoLightbox">
+    <div class="lightbox-content"><video id="lightboxVideo" controls style="width:100%;height:auto;"><source src="" type="video/mp4"></video><button class="lightbox-close" onclick="closeVideoLightbox()">&times;</button></div>
+  </div>
+  <div class="image-lightbox" id="imageLightbox">
+    <div class="image-lightbox-content"><img id="lightboxImage" src="" alt=""/><button class="image-lightbox-close" onclick="closeImageLightbox()">&times;</button></div>
+  </div>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;" data-i18n="footer.made">Fait avec ♥</p>
+  </footer>
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){
+      const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};
+      const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');
+      if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;
+      ['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});
+      document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));
+    }
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.feature-card,.result-card,.analyse-card,.insight-card,.concept-card,.flow-step,.service-card,.env-card,.dax-card,.cmd-group,.source-card,.compare-card,.viz-card,.kpi-card,.result-block,.phase-item,.pipeline-step,.skill-item,.metric-card,.resource-card').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(currentLang));
+  </script>
+  <script>
+    function openVideoLightbox(src){const l=document.getElementById('videoLightbox');document.getElementById('lightboxVideo').src=src;l.classList.add('active');document.body.style.overflow='hidden';}
+    function closeVideoLightbox(){document.getElementById('videoLightbox').classList.remove('active');document.body.style.overflow='auto';}
+    function openImageLightbox(img){const l=document.getElementById('imageLightbox');document.getElementById('lightboxImage').src=img.src;l.classList.add('active');document.body.style.overflow='hidden';}
+    function closeImageLightbox(){document.getElementById('imageLightbox').classList.remove('active');document.body.style.overflow='auto';}
+    document.getElementById('videoLightbox').addEventListener('click',e=>{if(e.target===document.getElementById('videoLightbox'))closeVideoLightbox();});
+    document.getElementById('imageLightbox').addEventListener('click',e=>{if(e.target===document.getElementById('imageLightbox'))closeImageLightbox();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideoLightbox();closeImageLightbox();}});
+  </script>
+</body>
+</html>

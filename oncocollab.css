@@ -1,0 +1,314 @@
+/* ============================================
+   oncocollab.css — styles spécifiques
+   OncoCollab - Plateforme Médicale RCP
+   ============================================ */
+
+/* --- Breadcrumb nav --- */
+.oncocollab-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--rose-pale);
+  border-radius: 100px;
+  width: fit-content;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.oncocollab-nav a {
+  text-decoration: none;
+  color: var(--rose);
+  transition: color 0.2s;
+}
+
+.oncocollab-nav a:hover {
+  color: var(--mauve);
+}
+
+/* --- Hero --- */
+.hero-oncocollab {
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+  background: linear-gradient(135deg, rgba(232, 114, 138, 0.05) 0%, rgba(201, 127, 168, 0.05) 100%);
+}
+
+.hero-oncocollab-content {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-oncocollab-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.hero-oncocollab-title em {
+  color: var(--rose);
+  font-style: italic;
+}
+
+.hero-oncocollab-desc {
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+/* --- Tech tags (hero) --- */
+.tech-tags-hero {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.tech-tag-hero {
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+}
+
+/* --- Section wrapper --- */
+.section-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- Two-column grid --- */
+.section-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.section-text {
+  line-height: 1.85;
+  color: var(--text-mid);
+  font-size: 0.97rem;
+  font-weight: 300;
+}
+
+.section-text p { margin-bottom: 1.2rem; }
+
+.section-text strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* --- Image placeholder --- */
+.image-placeholder {
+  background: linear-gradient(135deg, var(--rose-pale) 0%, var(--mauve-light) 100%);
+  border: 2px dashed rgba(232, 114, 138, 0.3);
+  border-radius: 16px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* --- Architecture section --- */
+.architecture-section {
+  background: var(--surface);
+}
+
+/* --- Features grid --- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.feature-card:hover {
+  border-color: var(--rose-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232, 114, 138, 0.08);
+}
+
+.feature-icon  { font-size: 1.8rem; margin-bottom: 0.8rem; }
+
+.feature-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.feature-desc {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* --- DB diagram placeholder --- */
+.database-diagram {
+  background: linear-gradient(135deg, var(--mauve-light) 0%, var(--peach-light) 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 1.5px solid rgba(232, 114, 138, 0.2);
+}
+
+/* --- Video section --- */
+.video-section { background: var(--bg2); }
+
+.video-container {
+  max-width: 900px;
+  margin: 2rem auto 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--rose-pale) 0%, var(--mauve-light) 100%);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* --- Resources grid --- */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.resource-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.resource-card:hover {
+  border-color: var(--rose);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(232, 114, 138, 0.1);
+}
+
+.resource-icon  { font-size: 2.5rem; margin-bottom: 1rem; }
+
+.resource-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+
+.resource-link {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: var(--rose);
+  color: #fff;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+
+.resource-link:hover {
+  background: var(--mauve);
+  transform: translateY(-2px);
+}
+
+/* --- Back button --- */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border: 1.5px solid var(--rose-light);
+  border-radius: 100px;
+  text-decoration: none;
+  color: var(--rose);
+  font-weight: 500;
+  font-size: 0.88rem;
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  background: var(--rose-pale);
+  border-color: var(--rose);
+  transform: translateY(-2px);
+}
+
+/* --- Stack categories --- */
+.stack-category { margin-bottom: 2rem; }
+
+.stack-category-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stack-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.stack-item {
+  padding: 0.4rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.87rem;
+  color: var(--text-mid);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .section-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .features-grid,
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-oncocollab { padding-top: 6rem; }
+}

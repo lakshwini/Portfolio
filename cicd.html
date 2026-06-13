@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Lakshwini DANASSEGARANE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="cicd.css"/>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()"><span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <section class="hero-cicd">
+    <div class="hero-cicd-content">
+      <div class="cicd-nav"><a href="index.html#projets" data-i18n="nav.back">← Retour aux projets</a></div>
+      <h1 class="hero-cicd-title" data-i18n="cicd.title">Chaîne CI/CD complète</h1>
+      <p class="hero-cicd-desc" data-i18n="cicd.hero_desc">J'ai mis en place une chaîne CI/CD de bout en bout — deux services containerisés, trois environnements, et une pipeline GitHub Actions automatisée.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">Spring Boot</span><span class="tech-tag-hero">Python Flask</span><span class="tech-tag-hero">Docker</span><span class="tech-tag-hero">Docker Compose</span><span class="tech-tag-hero">GitHub Actions</span><span class="tech-tag-hero">Docker Hub</span><span class="tech-tag-hero">MongoDB</span><span class="tech-tag-hero">MySQL</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pipeline-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="cicd.flow_eyebrow">La chaîne complète</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Du commit <em data-i18n="cicd.flow_title_em">à la production</em></h2>
+      <p style="color:var(--text-muted);font-size:0.88rem;margin-top:0.6rem;" data-i18n="cicd.flow_sub">Chaque étape se déclenche automatiquement à partir d'un simple push</p>
+      <div class="pipeline-flow" id="pipelineFlow">
+        <div class="pipeline-node node-commit"><div class="node-circle">✏</div><div class="node-label">Commit</div><div class="node-sublabel">git push main</div></div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-node node-build"><div class="node-circle">⚒</div><div class="node-label">Build</div><div class="node-sublabel">mvn / pip</div></div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-node node-test"><div class="node-circle">✓</div><div class="node-label">Tests</div><div class="node-sublabel">unitaires</div></div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-node node-docker"><div class="node-circle">◉</div><div class="node-label">Docker Build</div><div class="node-sublabel">image créée</div></div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-node node-push"><div class="node-circle">↑</div><div class="node-label">Docker Hub</div><div class="node-sublabel">image pushée</div></div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-node node-deploy"><div class="node-circle">□</div><div class="node-label">VM Test</div><div class="node-sublabel">intégration</div></div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-node node-prod"><div class="node-circle">▶</div><div class="node-label">Production</div><div class="node-sublabel">deploy.sh</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="cicd.ctx_eyebrow">Ce que j'ai mis en place</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Deux services, <em data-i18n="cicd.ctx_title_em">trois environnements</em></h2>
+      <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start;margin-top:2rem;">
+        <div style="font-size:0.97rem;color:var(--text-mid);line-height:1.85;font-weight:300;">
+          <p data-i18n="cicd.p1">L'objectif était de supprimer toutes les opérations manuelles entre l'écriture du code et le déploiement en production.</p>
+          <p data-i18n="cicd.p2">J'ai développé et containerisé deux services indépendants : Spring Boot + MongoDB pour l'upload d'images, et Flask + MySQL pour la gestion de profils utilisateurs.</p>
+          <p data-i18n="cicd.p3">Le point le plus délicat : les bases de données. Local et test partagent les mêmes données ; la production reste isolée.</p>
+          <div style="background:var(--surface);border:1.5px solid rgba(166,227,161,.3);border-left:4px solid #a6e3a1;border-radius:14px;padding:1.5rem;margin-top:1.5rem;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:.5rem;" data-i18n="cicd.ci_title">CI — Intégration Continue</div>
+            <div style="font-size:.85rem;color:var(--text-muted);line-height:1.7;" data-i18n="cicd.ci_desc">À chaque push sur main : build, tests, images Docker et push Docker Hub. Entièrement automatisé.</div>
+          </div>
+          <div style="background:var(--surface);border:1.5px solid rgba(244,160,122,.3);border-left:4px solid var(--peach);border-radius:14px;padding:1.5rem;margin-top:1.2rem;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:.5rem;" data-i18n="cicd.cd_title">CD — Déploiement Continu</div>
+            <div style="font-size:.85rem;color:var(--text-muted);line-height:1.7;" data-i18n="cicd.cd_desc">Déploiement via deploy.sh qui pull les images et relance les containers.</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.2rem;">
+          <div class="env-card local anim"><div class="env-header"><div class="env-dot"></div><div class="env-name">Développement local</div></div><div class="env-body"><div class="env-item">Docker Compose local</div><div class="env-item">Spring Boot :8080 · Flask :5000</div><div class="env-item">MongoDB :27017 · MySQL :3306</div></div></div>
+          <div class="env-card test anim"><div class="env-header"><div class="env-dot"></div><div class="env-name">VM de test</div></div><div class="env-body"><div class="env-item">Clone GitHub via SSH</div><div class="env-item">MongoDB partagé (même IP locale)</div><div class="env-item">Tests d'intégration identiques</div></div></div>
+          <div class="env-card prod anim"><div class="env-header"><div class="env-dot"></div><div class="env-name">VM de production</div></div><div class="env-body"><div class="env-item">Images depuis Docker Hub</div><div class="env-item">Base de données isolée</div><div class="env-item">docker-compose.prod.yml</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="cicd.srv_eyebrow">Les deux services</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Deux stacks <em data-i18n="cicd.srv_title_em">différentes</em></h2>
+      <div class="services-grid">
+        <div class="service-card springboot anim">
+          <div class="service-header"><div class="service-icon">☕</div><div><div class="service-name">Image Upload Service</div><div class="service-stack">Spring Boot · MongoDB · Java 17</div></div></div>
+          <div class="service-body">
+            <div class="service-desc">Service REST de stockage d'images. Les fichiers sont persistés en MongoDB sous forme binaire.</div>
+            <div class="service-endpoints">
+              <div class="endpoint"><span class="method post">POST</span> /api/images/upload</div>
+              <div class="endpoint"><span class="method get">GET</span> /api/images</div>
+              <div class="endpoint"><span class="method get">GET</span> /api/images/{id}</div>
+            </div>
+            <div class="service-techs"><span class="service-tech">Spring Boot</span><span class="service-tech">MongoDB</span><span class="service-tech">Maven</span><span class="service-tech">Java 17</span></div>
+          </div>
+        </div>
+        <div class="service-card flask anim">
+          <div class="service-header"><div class="service-icon">🐍</div><div><div class="service-name">GeeksProfile</div><div class="service-stack">Python Flask · MySQL · Sessions</div></div></div>
+          <div class="service-body">
+            <div class="service-desc">Application web de gestion de profils utilisateurs avec authentification complète.</div>
+            <div class="service-endpoints">
+              <div class="endpoint"><span class="method post">POST</span> /register</div>
+              <div class="endpoint"><span class="method post">POST</span> /login</div>
+              <div class="endpoint"><span class="method get">GET</span> /profile</div>
+            </div>
+            <div class="service-techs"><span class="service-tech">Flask</span><span class="service-tech">MySQL</span><span class="service-tech">Sessions</span><span class="service-tech">Port 5000</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="docker-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="cicd.docker_eyebrow">Les Dockerfiles</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Containerisation</h2>
+      <div class="docker-grid">
+        <div class="docker-card anim">
+          <div class="docker-header"><div class="docker-dot" style="background:#ff5f57;"></div><div class="docker-dot" style="background:#febc2e;"></div><div class="docker-dot" style="background:#28c840;"></div><div class="docker-filename">Dockerfile — Spring Boot</div></div>
+          <div class="docker-body"><pre><span class="dk">FROM</span> <span class="dv">openjdk:17-jdk-slim</span>
+<span class="dk">WORKDIR</span> <span class="dv">/app</span>
+<span class="dk">COPY</span> <span class="dv">target/image-upload-service.jar app.jar</span>
+<span class="dk">EXPOSE</span> <span class="dp">8080</span>
+<span class="dk">ENTRYPOINT</span> [<span class="ds">"java"</span>, <span class="ds">"-jar"</span>, <span class="ds">"app.jar"</span>]</pre></div>
+        </div>
+        <div class="docker-card anim">
+          <div class="docker-header"><div class="docker-dot" style="background:#ff5f57;"></div><div class="docker-dot" style="background:#febc2e;"></div><div class="docker-dot" style="background:#28c840;"></div><div class="docker-filename">Dockerfile — Flask</div></div>
+          <div class="docker-body"><pre><span class="dk">FROM</span> <span class="dv">python:3.11-slim</span>
+<span class="dk">WORKDIR</span> <span class="dv">/app</span>
+<span class="dk">COPY</span> <span class="dv">requirements.txt .</span>
+<span class="dk">RUN</span> <span class="dv">pip install --no-cache-dir -r requirements.txt</span>
+<span class="dk">COPY</span> <span class="dv">. .</span>
+<span class="dk">EXPOSE</span> <span class="dp">5000</span>
+<span class="dk">CMD</span> [<span class="ds">"python"</span>, <span class="ds">"app.py"</span>]</pre></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actions-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="cicd.actions_eyebrow">GitHub Actions</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">La pipeline <em data-i18n="cicd.actions_title_em">automatisée</em></h2>
+      <p style="color:var(--text-muted);font-size:0.88rem;margin-top:0.6rem;" data-i18n="cicd.actions_desc">Déclenché automatiquement à chaque push sur main</p>
+      <div class="yaml-card anim">
+        <div class="yaml-header"><div class="yaml-filename">.github/workflows/ci-cd.yml</div><div class="yaml-badge">● live on push</div></div>
+        <div class="yaml-body"><pre><span class="yk">name:</span> <span class="yv">CI/CD Pipeline</span>
+<span class="yk">on:</span>
+  <span class="yk">push:</span>
+    <span class="yk">branches:</span> [ <span class="yv">"main"</span> ]
+<span class="yk">jobs:</span>
+  <span class="yk">build:</span>
+    <span class="yk">runs-on:</span> <span class="yv">ubuntu-latest</span>
+    <span class="yk">steps:</span>
+      - <span class="yk">uses:</span> <span class="yv">actions/checkout@v3</span>
+      - <span class="yk">name:</span> <span class="yv">Login to Docker Hub</span>
+        <span class="yk">uses:</span> <span class="yv">docker/login-action@v2</span>
+        <span class="yk">with:</span>
+          <span class="yk">username:</span> <span class="ys">${ secrets.DOCKER_USERNAME }</span>
+          <span class="yk">password:</span> <span class="ys">${ secrets.DOCKER_PASSWORD }</span>
+      - <span class="yk">name:</span> <span class="yv">Build and push Spring Boot</span>
+        <span class="yk">run:</span> |
+          <span class="yv">docker build -t laksh1929/image-upload-service:latest .</span>
+          <span class="yv">docker push laksh1929/image-upload-service:latest</span></pre></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="commands-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="cicd.cmds_eyebrow">Les commandes utiles</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Commandes <em data-i18n="cicd.cmds_title_em">Docker & Git</em></h2>
+      <div class="commands-grid">
+        <div class="cmd-group anim"><div class="cmd-group-header">Docker</div><div class="cmd-group-body"><div class="cmd-line">docker build -t mon-app .</div><div class="cmd-line">docker run -p 9090:8080 mon-app</div><div class="cmd-line">docker images</div><div class="cmd-line">docker ps -a</div></div></div>
+        <div class="cmd-group anim"><div class="cmd-group-header">Docker Compose</div><div class="cmd-group-body"><div class="cmd-line">docker-compose up --build -d</div><div class="cmd-line">docker-compose ps</div><div class="cmd-line">docker-compose logs -f</div><div class="cmd-line">docker-compose down</div></div></div>
+        <div class="cmd-group anim"><div class="cmd-group-header">Docker Hub</div><div class="cmd-group-body"><div class="cmd-line">docker login -u laksh1929</div><div class="cmd-line">docker build -t laksh1929/app .</div><div class="cmd-line">docker push laksh1929/app:latest</div><div class="cmd-line">./deploy.sh</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="proj.captures">Captures</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Captures <em data-i18n="cicd.captures_title_em">et résultats</em></h2>
+      <div class="demo-placeholder"><span data-i18n="proj.placeholder_demo">Captures à intégrer</span></div>
+            <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;"><a href="index.html#projets" class="back-button" data-i18n="proj.back">← Retour aux projets</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;" data-i18n="footer.made">Fait avec ♥</p>
+  </footer>
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));}
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.feature-card,.result-card,.service-card,.env-card,.dax-card,.cmd-group,.compare-card,.resource-card,.insight-card').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(currentLang));
+  </script>
+  <script>
+    (function(){
+      const pipelineObs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){const nodes=document.querySelectorAll('.pipeline-node'),arrows=document.querySelectorAll('.pipeline-arrow');nodes.forEach((n,i)=>setTimeout(()=>n.classList.add('visible'),i*140));arrows.forEach((a,i)=>setTimeout(()=>a.classList.add('visible'),i*140+100));pipelineObs.disconnect();}},{threshold:.3});
+      const pf=document.getElementById('pipelineFlow');if(pf)pipelineObs.observe(pf);
+      document.querySelectorAll('.cmd-line').forEach(el=>{el.title='Cliquer pour copier';el.addEventListener('click',()=>{navigator.clipboard.writeText(el.textContent.trim()).then(()=>{const o=el.style.background;el.style.background='#1a3a2a';setTimeout(()=>el.style.background=o,600);});});});
+    })();
+  </script>
+</body>
+</html>
