@@ -1,9 +1,4 @@
-/* ============================================
-   cartographie.css — styles spécifiques
-   Cartographie des Cinémas en France
-   ============================================ */
-
-/* --- Breadcrumb nav --- */
+/* Page-specific styles for Cartographie */
 .cartographie-nav {
   display: flex;
   align-items: center;
@@ -27,7 +22,6 @@
   color: var(--mauve);
 }
 
-/* --- Hero --- */
 .hero-cartographie {
   padding-top: 7rem;
   padding-bottom: 3rem;
@@ -65,7 +59,6 @@
   margin-right: auto;
 }
 
-/* --- Hero image --- */
 .hero-image {
   background: linear-gradient(135deg, var(--peach-light) 0%, var(--rose-pale) 100%);
   border: 2px solid rgba(244, 160, 122, 0.3);
@@ -95,7 +88,7 @@
   transform: scale(1.02);
 }
 
-/* --- Lightbox --- */
+/* LIGHTBOX MODAL */
 .lightbox-overlay {
   display: none;
   position: fixed;
@@ -156,13 +149,12 @@
   transform: scale(1.1);
 }
 
-/* --- Section wrapper --- */
 .section-content {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-/* --- Vidéo --- */
+/* VIDEO EN TOP */
 .video-top-section {
   padding: 4rem 0;
 }
@@ -176,7 +168,7 @@
   background: #000;
 }
 
-/* --- JSON section --- */
+/* JSON SECTION */
 .json-top-section {
   padding: 4rem 0;
   background: var(--surface);
@@ -226,10 +218,21 @@
   overflow-y: auto;
 }
 
-.json-file-content code { color: #e8e8e8; }
-.json-key    { color: #65d9ef; }
-.json-string { color: #a1efe4; }
-.json-number { color: #f92672; }
+.json-file-content code {
+  color: #e8e8e8;
+}
+
+.json-key {
+  color: #65d9ef;
+}
+
+.json-string {
+  color: #a1efe4;
+}
+
+.json-number {
+  color: #f92672;
+}
 
 .json-description {
   font-size: 0.87rem;
@@ -238,7 +241,7 @@
   line-height: 1.65;
 }
 
-/* --- Image section --- */
+/* IMAGE SECTION */
 .image-top-section {
   padding: 4rem 0;
 }
@@ -264,7 +267,7 @@
   box-shadow: 0 8px 32px rgba(244, 160, 122, 0.2);
 }
 
-/* --- Skills section --- */
+/* SKILLS SECTION */
 .skills-top-section {
   padding: 4rem 0;
 }
@@ -290,7 +293,10 @@
   box-shadow: 0 8px 20px rgba(244, 160, 122, 0.08);
 }
 
-.skill-icon  { font-size: 2rem; margin-bottom: 1rem; }
+.skill-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
 
 .skill-title {
   font-family: 'Cormorant Garamond', serif;
@@ -306,7 +312,6 @@
   line-height: 1.65;
 }
 
-/* --- Features section --- */
 .features-section {
   padding: 4rem 0;
   background: var(--surface);
@@ -333,7 +338,10 @@
   box-shadow: 0 8px 24px rgba(244, 160, 122, 0.08);
 }
 
-.feature-icon  { font-size: 1.8rem; margin-bottom: 0.8rem; }
+.feature-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
 
 .feature-title {
   font-family: 'Cormorant Garamond', serif;
@@ -349,7 +357,6 @@
   line-height: 1.65;
 }
 
-/* --- Metrics --- */
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -379,7 +386,6 @@
   font-weight: 500;
 }
 
-/* --- Resource card --- */
 .resource-card {
   background: var(--surface);
   border: 2px solid var(--border);
@@ -397,7 +403,10 @@
   box-shadow: 0 12px 40px rgba(244, 160, 122, 0.1);
 }
 
-.resource-icon  { font-size: 2.5rem; margin-bottom: 1rem; }
+.resource-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
 
 .resource-title {
   font-family: 'Cormorant Garamond', serif;
@@ -425,7 +434,6 @@
   transform: translateY(-2px);
 }
 
-/* --- Back button --- */
 .back-button {
   display: inline-flex;
   align-items: center;
@@ -446,7 +454,7 @@
   transform: translateY(-2px);
 }
 
-/* --- Responsive --- */
+/* Responsive */
 @media (max-width: 900px) {
   .json-grid,
   .skills-grid,
@@ -455,7 +463,9 @@
     grid-template-columns: 1fr;
   }
 
-  .hero-cartographie { padding-top: 6rem; }
+  .hero-cartographie {
+    padding-top: 6rem;
+  }
 
   .image-showcase {
     min-height: 400px;

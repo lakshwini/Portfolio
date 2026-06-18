@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -n '1,14p' cartographie.html)",
+      "Bash(sed -n '494,$p' cartographie.html)",
+      "Bash(cat /tmp/carto_head.html /tmp/carto_body.html)",
+      "Read(//tmp/**)",
+      "Bash(cp /Users/laksh/Documents/WebPortfolio/cartographie.html /tmp/cartographie.html.bak)",
+      "Bash(cp /tmp/carto_final.html /Users/laksh/Documents/WebPortfolio/cartographie.html)"
+    ]
+  }
+}
