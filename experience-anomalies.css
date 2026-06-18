@@ -1,0 +1,227 @@
+/* ============================================
+   experience-anomalies.css — styles spécifiques
+   Détection automatisée d'anomalies de catalogue
+   (contenu anonymisé)
+   ============================================ */
+
+.section-content { max-width: 1000px; margin: 0 auto; }
+
+/* --- Breadcrumb --- */
+.anom-nav {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.7rem 1.4rem;
+  background: rgba(201, 127, 168, 0.08);
+  border-radius: 100px; width: fit-content;
+  font-size: 0.82rem; font-weight: 500; margin-bottom: 1.4rem;
+}
+.anom-nav a { text-decoration: none; color: var(--mauve); transition: color 0.2s; }
+.anom-nav a:hover { color: var(--rose); }
+
+/* --- Hero --- */
+.hero-anom {
+  padding-top: 7rem; padding-bottom: 3.5rem;
+  background: linear-gradient(135deg, rgba(201,127,168,0.07) 0%, rgba(232,114,138,0.04) 100%);
+}
+.hero-anom-content { max-width: 880px; margin: 0 auto; text-align: center; }
+
+.anom-confid {
+  display: inline-block;
+  font-size: 0.76rem; font-weight: 500;
+  color: var(--text-mid);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.4rem 1rem; margin-bottom: 1.2rem;
+}
+
+.hero-anom-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  font-weight: 600; letter-spacing: -0.01em;
+  margin-bottom: 1rem; color: var(--text); line-height: 1.15;
+}
+.hero-anom-title em { color: var(--mauve); font-style: italic; }
+
+.hero-anom-desc {
+  font-size: 1.02rem; color: var(--text-mid);
+  line-height: 1.8; font-weight: 300;
+  max-width: 720px; margin: 0 auto 1.5rem;
+}
+
+.tech-tags-hero {
+  display: flex; gap: 0.6rem; flex-wrap: wrap;
+  justify-content: center;
+}
+.tech-tag-hero {
+  padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.75rem;
+  font-weight: 500; background: var(--surface); border: 1px solid var(--border); color: var(--text-mid);
+}
+
+/* --- Blocks --- */
+.anom-block { padding: 4rem 1.5rem; }
+.anom-block.alt { background: var(--bg2); }
+.anom-sub { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.6rem; margin-bottom: 0.5rem; font-weight: 300; }
+
+.anom-text { margin-top: 1.4rem; max-width: 760px; }
+.anom-text p { font-size: 0.97rem; color: var(--text-mid); line-height: 1.85; font-weight: 300; margin-bottom: 1rem; }
+
+/* --- Liste des types d'anomalies --- */
+.anom-anomalies {
+  display: flex; flex-direction: column; gap: 0.7rem;
+  margin-top: 1.8rem; max-width: 720px;
+}
+.anom-pill {
+  display: flex; align-items: center; gap: 0.8rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 4px solid var(--rose-light);
+  border-radius: 12px; padding: 0.85rem 1.1rem;
+  font-size: 0.9rem; color: var(--text-mid);
+}
+.anom-pill-icon {
+  flex-shrink: 0; width: 26px; height: 26px;
+  display: grid; place-items: center;
+  border-radius: 50%; background: var(--rose-pale);
+  color: var(--rose); font-size: 0.85rem; font-weight: 700;
+}
+
+/* --- Étapes --- */
+.anom-steps {
+  display: grid; gap: 1.2rem; margin-top: 2rem;
+}
+.anom-step {
+  display: flex; gap: 1.2rem; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 1.5rem 1.6rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.anom-step:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(201,127,168,0.1); }
+.anom-step-num {
+  flex-shrink: 0; width: 42px; height: 42px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  color: #fff; font-weight: 600; font-size: 1.1rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+.anom-step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem;
+}
+.anom-step-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.75; font-weight: 300; }
+
+/* --- Cartes défis --- */
+.anom-cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem; margin-top: 2rem;
+}
+.anom-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 1.6rem;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.anom-card:hover { transform: translateY(-4px); border-color: var(--mauve-light); box-shadow: 0 14px 40px rgba(201,127,168,0.1); }
+.anom-card-icon {
+  width: 48px; height: 48px; display: grid; place-items: center;
+  border-radius: 14px; font-size: 1.4rem; margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--mauve-light), var(--peach-light));
+}
+.anom-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+.anom-card-desc { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
+
+/* --- Liste contribution --- */
+.anom-list { list-style: none; margin-top: 1.8rem; display: grid; gap: 0.7rem; max-width: 760px; }
+.anom-list li {
+  position: relative; padding-left: 1.8rem;
+  font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; font-weight: 300;
+}
+.anom-list li::before {
+  content: '✦'; position: absolute; left: 0; top: 0;
+  color: var(--rose); font-size: 0.85rem;
+}
+
+/* --- Stats résultats --- */
+.anom-stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem; margin-top: 2rem;
+}
+.anom-stat {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 1.8rem 1.4rem; text-align: center;
+}
+.anom-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; line-height: 1;
+}
+.anom-stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.6rem; line-height: 1.5; }
+
+/* --- Zones images (placeholders) --- */
+.anom-figure { margin-top: 2.4rem; }
+.img-placeholder {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(201,127,168,0.06) 0%, rgba(244,160,122,0.05) 100%);
+  border: 2px dashed rgba(201,127,168,0.35); border-radius: 16px;
+  padding: 3rem 2rem; text-align: center; color: var(--text-muted);
+  font-size: 0.92rem; line-height: 1.6;
+}
+.img-placeholder-icon { font-size: 2rem; }
+.img-placeholder small { font-size: 0.78rem; color: var(--rose); opacity: 0.85; }
+
+.anom-image-container {
+  background: linear-gradient(135deg, rgba(201,127,168,0.06) 0%, rgba(244,160,122,0.05) 100%);
+  border: 1.5px solid rgba(201,127,168,0.25);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.anom-image-container:hover {
+  border-color: var(--rose);
+  box-shadow: 0 8px 24px rgba(201,127,168,0.12);
+}
+.anom-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(201,127,168,0.12);
+}
+
+/* --- Lightbox image --- */
+.image-lightbox {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85); z-index: 2000;
+  align-items: center; justify-content: center; backdrop-filter: blur(4px);
+}
+.image-lightbox.active { display: flex; }
+.image-lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; background: var(--bg); border-radius: 16px; overflow: hidden; }
+.image-lightbox-content img { width: 100%; height: auto; display: block; }
+.image-lightbox-close {
+  position: absolute; top: 1.5rem; right: 1.5rem; width: 45px; height: 45px;
+  background: rgba(0,0,0,0.7); border: none; border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white;
+  transition: all 0.2s; z-index: 2001;
+}
+.image-lightbox-close:hover { background: rgba(0,0,0,0.95); transform: scale(1.1); }
+
+/* --- Back button --- */
+.anom-backwrap { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+.back-button {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.8rem; border: 1.5px solid rgba(201,127,168,0.35);
+  border-radius: 100px; text-decoration: none; color: var(--mauve);
+  font-weight: 500; font-size: 0.88rem; transition: all 0.2s;
+}
+.back-button:hover { background: rgba(201,127,168,0.08); border-color: var(--mauve); transform: translateY(-2px); }
+
+/* --- Responsive --- */
+@media (max-width: 700px) {
+  .hero-anom { padding-top: 6rem; }
+  .anom-block { padding: 3rem 1.2rem; }
+  .anom-step { flex-direction: row; padding: 1.2rem; }
+  .anom-stat-num { font-size: 2rem; }
+}

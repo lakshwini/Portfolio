@@ -19,34 +19,37 @@
       <li><a href="#apropos" data-i18n="nav.about">À propos</a></li>
       <li><a href="#competences" data-i18n="nav.skills">Compétences</a></li>
       <li><a href="#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="#experiences" data-i18n="nav.experience">Expériences</a></li>
       <li><a href="#projets" data-i18n="nav.projects">Projets</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
-    <div class="lang-dropdown" id="langDropdown">
-      <button class="lang-toggle" onclick="toggleLangMenu()" aria-label="Changer la langue">
-        <span class="lang-flag" id="currentFlag">🌐</span>
-        <span id="currentLangLabel">FR</span>
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-      </button>
-      <div class="lang-menu" id="langMenu">
-        <button class="lang-option active" data-lang="fr" onclick="setLang('fr')">
-          <span class="lang-option-flag">🇫🇷</span> Français
-          <span class="lang-option-check" id="check-fr">✓</span>
+    <div class="nav-actions">
+      <a href="docs/DANASSEGARANE_CV.pdf" class="nav-cv" download data-i18n="nav.cv">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Télécharger CV
+      </a>
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-toggle" onclick="toggleLangMenu()" aria-label="Changer la langue">
+          <span class="lang-flag" id="currentFlag">🌐</span>
+          <span id="currentLangLabel">FR</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <button class="lang-option" data-lang="en" onclick="setLang('en')">
-          <span class="lang-option-flag">🇬🇧</span> English
-          <span class="lang-option-check" id="check-en" style="display:none">✓</span>
-        </button>
-        <button class="lang-option" data-lang="ta" onclick="setLang('ta')">
-          <span class="lang-option-flag">🇮🇳</span> தமிழ்
-          <span class="lang-option-check" id="check-ta" style="display:none">✓</span>
-        </button>
+        <div class="lang-menu" id="langMenu">
+          <button class="lang-option active" data-lang="fr" onclick="setLang('fr')">
+            <span class="lang-option-flag">🇫🇷</span> Français
+            <span class="lang-option-check" id="check-fr">✓</span>
+          </button>
+          <button class="lang-option" data-lang="en" onclick="setLang('en')">
+            <span class="lang-option-flag">🇬🇧</span> English
+            <span class="lang-option-check" id="check-en" style="display:none">✓</span>
+          </button>
+          <button class="lang-option" data-lang="ta" onclick="setLang('ta')">
+            <span class="lang-option-flag">🇮🇳</span> தமிழ்
+            <span class="lang-option-check" id="check-ta" style="display:none">✓</span>
+          </button>
+        </div>
       </div>
     </div>
-    <a href="#" class="nav-cv" download data-i18n="nav.cv">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Télécharger CV
-    </a>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -58,6 +61,7 @@
       <li><a href="#apropos" data-i18n="nav.about">À propos</a></li>
       <li><a href="#competences" data-i18n="nav.skills">Compétences</a></li>
       <li><a href="#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="#experiences" data-i18n="nav.experience">Expériences</a></li>
       <li><a href="#projets" data-i18n="nav.projects">Projets</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -66,9 +70,7 @@
       <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
       <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
     </div>
-    <a href="#" class="nav-mobile-cv" download data-i18n="nav.cv">Télécharger CV</a>
-  </div>
-    <a href="#" class="nav-mobile-cv" download data-i18n="nav.cv">Télécharger CV</a>
+    <a href="docs/DANASSEGARANE_CV.pdf" class="nav-mobile-cv" download data-i18n="nav.cv">Télécharger CV</a>
   </div>
 
   <!-- ══ HERO ══ -->
@@ -90,10 +92,10 @@
         <a href="#contact" class="btn-secondary" data-i18n="hero.btn_contact">Me contacter</a>
       </div>
       <div class="hero-socials">
-        <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+        <a href="https://www.linkedin.com/in/lakshwini-danassegarane-11b5b32b3/" target="_blank" rel="noopener" title="LinkedIn">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
-        <a href="https://github.com" target="_blank" title="GitHub">
+        <a href="https://github.com/lakshwini" target="_blank" rel="noopener" title="GitHub">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         </a>
         <a href="mailto:lakshwini.danassegarane@outlook.com" title="Email">
@@ -237,6 +239,104 @@
     </div>
   </section>
 
+  <!-- ══ EXPÉRIENCES PROFESSIONNELLES ══ -->
+  <section id="experiences">
+    <div class="section-eyebrow" data-i18n="exp.eyebrow">En entreprise</div>
+    <div class="section-line"></div>
+    <h2 class="section-title">Réalisations en <em data-i18n="exp.title_em">entreprise</em></h2>
+    <p class="section-desc" data-i18n="exp.desc">Projets menés durant mon alternance. Par souci de confidentialité, les noms de clients, données internes et systèmes propriétaires ont été anonymisés ; l'accent est mis sur les problématiques techniques et les solutions apportées.</p>
+
+    <div class="carousel-wrapper">
+      <button class="carousel-arrow carousel-prev" id="expCarouselPrev" aria-label="Précédent">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-viewport" id="expCarouselViewport">
+        <div class="carousel-track" id="expCarouselTrack">
+
+          <a href="experience-anomalies.html" class="exp-card carousel-card">
+            <div class="exp-card-top">
+              <span class="exp-badge" data-i18n="exp.badge_data">Data · C# / SQL</span>
+              <span class="exp-card-icon">🔍</span>
+            </div>
+            <div class="exp-card-body">
+              <h4 class="exp-card-title" data-i18n="exp.anomalies_title">Détection automatisée d'anomalies de catalogue</h4>
+              <p class="exp-card-desc" data-i18n="exp.anomalies_desc">Application console C# (principes SOLID) comparant un catalogue de référence aux données réellement disponibles en production, pour détecter et fiabiliser les incohérences sur un catalogue à très forte volumétrie.</p>
+              <div class="exp-card-techs">
+                <span class="exp-tech">C#</span><span class="exp-tech">.NET</span><span class="exp-tech">SQL</span><span class="exp-tech">SOLID</span><span class="exp-tech">Excel</span>
+              </div>
+              <span class="exp-card-link" data-i18n="exp.see_more">Voir le détail →</span>
+            </div>
+          </a>
+
+          <a href="experience-etl.html" class="exp-card carousel-card">
+            <div class="exp-card-top">
+              <span class="exp-badge" data-i18n="exp.badge_etl">Data Engineering · C# / XML</span>
+              <span class="exp-card-icon">🔁</span>
+            </div>
+            <div class="exp-card-body">
+              <h4 class="exp-card-title" data-i18n="exp.etl_title">Chaîne de traitement &amp; intégration de données</h4>
+              <p class="exp-card-desc" data-i18n="exp.etl_desc">Intervention sur un pipeline ETL complet (récupération, transformation, enrichissement, intégration) traitant des métadonnées éditoriales multi-formats : intégration de nouvelles sources, ajout de métadonnées et contrôle qualité.</p>
+              <div class="exp-card-techs">
+                <span class="exp-tech">C#</span><span class="exp-tech">ETL</span><span class="exp-tech">XML / ONIX</span><span class="exp-tech">FTP</span><span class="exp-tech">SQL Server</span>
+              </div>
+              <span class="exp-card-link" data-i18n="exp.see_more">Voir le détail →</span>
+            </div>
+          </a>
+
+          <a href="experience-export.html" class="exp-card carousel-card">
+            <div class="exp-card-top">
+              <span class="exp-badge" data-i18n="exp.badge_export">Data Engineering · C# / SFTP</span>
+              <span class="exp-card-icon">📤</span>
+            </div>
+            <div class="exp-card-body">
+              <h4 class="exp-card-title" data-i18n="exp.export_title">Diffusion &amp; export de catalogue vers des plateformes partenaires</h4>
+              <p class="exp-card-desc" data-i18n="exp.export_desc">Intégration de nouveaux flux d'export : envoi automatisé du catalogue (métadonnées ONIX, fichiers et couvertures) vers des plateformes de distribution, avec adaptation par partenaire et dépôt sécurisé en FTP/SFTP.</p>
+              <div class="exp-card-techs">
+                <span class="exp-tech">C#</span><span class="exp-tech">.NET</span><span class="exp-tech">SFTP / SSH.NET</span><span class="exp-tech">OAI · ONIX 3</span><span class="exp-tech">SQL Server</span>
+              </div>
+              <span class="exp-card-link" data-i18n="exp.see_more">Voir le détail →</span>
+            </div>
+          </a>
+
+          <a href="experience-reddition.html" class="exp-card carousel-card">
+            <div class="exp-card-top">
+              <span class="exp-badge" data-i18n="exp.badge_red">Full-stack · C# / ASP.NET MVC</span>
+              <span class="exp-card-icon">📈</span>
+            </div>
+            <div class="exp-card-body">
+              <h4 class="exp-card-title" data-i18n="exp.red_title">Intégration &amp; restitution des données de vente</h4>
+              <p class="exp-card-desc" data-i18n="exp.red_desc">Application web (ASP.NET MVC) qui importe les rapports de vente de partenaires revendeurs (CSV/XLSX/XML), les consolide avec calcul des montants HT/TTC multi-devises, et restitue les données comptables via un portail sécurisé.</p>
+              <div class="exp-card-techs">
+                <span class="exp-tech">C#</span><span class="exp-tech">ASP.NET MVC</span><span class="exp-tech">Entity Framework</span><span class="exp-tech">SQL Server</span><span class="exp-tech">JS</span>
+              </div>
+              <span class="exp-card-link" data-i18n="exp.see_more">Voir le détail →</span>
+            </div>
+          </a>
+
+          <a href="experience-lcp.html" class="exp-card carousel-card">
+            <div class="exp-card-top">
+              <span class="exp-badge" data-i18n="exp.badge_lcp">DRM · Go / C#</span>
+              <span class="exp-card-icon">🛡️</span>
+            </div>
+            <div class="exp-card-body">
+              <h4 class="exp-card-title" data-i18n="exp.lcp_title">Adaptation du système DRM LCP / LSD</h4>
+              <p class="exp-card-desc" data-i18n="exp.lcp_desc">Enrichissement automatisé des fichiers protégés (métadonnées &amp; couverture), reproduction du checksum SHA256 de Go vers C#, et mise à niveau de l'intégration LCP/LSD (dynamic links, certificat, déploiement en production).</p>
+              <div class="exp-card-techs">
+                <span class="exp-tech">Go</span><span class="exp-tech">C#</span><span class="exp-tech">LCP / LSD</span><span class="exp-tech">Readium</span><span class="exp-tech">SHA256</span>
+              </div>
+              <span class="exp-card-link" data-i18n="exp.see_more">Voir le détail →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+      <button class="carousel-arrow carousel-next" id="expCarouselNext" aria-label="Suivant">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="carousel-dots" id="expCarouselDots"></div>
+  </section>
+
   <!-- ══ PROJETS ══ -->
   <section id="projets">
     <div class="section-eyebrow" data-i18n="projects.eyebrow">Ce que j'ai construit</div>
@@ -361,25 +461,12 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           lakshwini.danassegarane@outlook.com
         </a>
-        <a href="tel:0698389113" class="contact-link">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          06 98 38 91 13
-        </a>
       </div>
     </div>
   </section>
 
   <footer>
-    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;" data-i18n="footer.made">Fait avec ♥</p>
-  </footer>
-
-</section>
-
-  <footer>
-    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;" data-i18n="footer.made">Fait avec ♥</p>
-  </footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>  </footer>
 
   <script src="i18n.js"></script>
   <script>
@@ -476,15 +563,15 @@
         if (e.isIntersecting) { e.target.style.transitionDelay = (i * .07) + 's'; e.target.classList.add('visible'); }
       });
     }, { threshold: .1 });
-    document.querySelectorAll('.skill-card,.timeline-item,.about-card').forEach(el => { el.classList.add('anim'); obs.observe(el); });
+    document.querySelectorAll('.skill-card,.timeline-item,.about-card,.exp-card').forEach(el => { el.classList.add('anim'); obs.observe(el); });
 
     /* ══ CAROUSEL ══ */
-    (function () {
-      const track    = document.getElementById('carouselTrack');
-      const viewport = document.getElementById('carouselViewport');
-      const btnPrev  = document.getElementById('carouselPrev');
-      const btnNext  = document.getElementById('carouselNext');
-      const dotsEl   = document.getElementById('carouselDots');
+    function initCarousel(ids) {
+      const track    = document.getElementById(ids.track);
+      const viewport = document.getElementById(ids.viewport);
+      const btnPrev  = document.getElementById(ids.prev);
+      const btnNext  = document.getElementById(ids.next);
+      const dotsEl   = document.getElementById(ids.dots);
       const cards    = Array.from(track.querySelectorAll('.carousel-card'));
       const VISIBLE  = () => window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
       const GAP = 24;
@@ -529,7 +616,9 @@
       });
       window.addEventListener('resize', () => { buildDots(); goTo(current); });
       buildDots(); goTo(0); startAuto();
-    })();
+    }
+    initCarousel({ track: 'carouselTrack', viewport: 'carouselViewport', prev: 'carouselPrev', next: 'carouselNext', dots: 'carouselDots' });
+    initCarousel({ track: 'expCarouselTrack', viewport: 'expCarouselViewport', prev: 'expCarouselPrev', next: 'expCarouselNext', dots: 'expCarouselDots' });
   </script>
 </body>
 </html>

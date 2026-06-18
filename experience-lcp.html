@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Lakshwini DANASSEGARANE | Sécurisation DRM LCP / LSD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="experience-lcp.css"/>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()"><span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero-lcp">
+    <div class="hero-lcp-content">
+      <div class="lcp-nav"><a href="index.html#experiences" data-i18n="anom.back">← Retour aux expériences</a></div>
+     
+      <h1 class="hero-lcp-title" data-i18n="lcp.title">Sécurisation des contenus : adaptation du DRM <em>LCP / LSD</em></h1>
+      <p class="hero-lcp-desc" data-i18n="lcp.hero_desc">Intervention sur plusieurs aspects d'un système de protection de contenus numériques : enrichissement automatisé des fichiers chiffrés, reproduction d'un calcul cryptographique entre deux langages, mise à niveau de l'intégration LCP/LSD et déploiement en production.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">Go</span><span class="tech-tag-hero">C#</span><span class="tech-tag-hero">LCP</span><span class="tech-tag-hero">LSD</span><span class="tech-tag-hero">Readium</span><span class="tech-tag-hero">EPUB / PDF</span><span class="tech-tag-hero">SHA256</span><span class="tech-tag-hero">JSON / HTTP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ C'EST QUOI LCP & LSD ══ -->
+  <section class="lcp-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="lcp.def_eyebrow">Comprendre le contexte</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">C'est quoi <em data-i18n="lcp.def_title_em">LCP et LSD ?</em></h2>
+      <p class="lcp-sub" data-i18n="lcp.def_sub">Deux briques complémentaires du consortium Readium, formant un écosystème open-source de gestion des droits numériques (DRM) conçu pour les contenus éditoriaux.</p>
+      <div class="lcp-defs">
+        <div class="lcp-def">
+          <div class="lcp-def-tag">LCP</div>
+          <h3 class="lcp-def-title" data-i18n="lcp.lcp_title">Licensed Content Protection</h3>
+          <p class="lcp-def-desc" data-i18n="lcp.lcp_desc">Une solution DRM open-source (écrite en Go) spécialisée dans le chiffrement des fichiers EPUB et PDF. Elle sépare clairement le contenu protégé des informations de licence : le fichier chiffré ne contient que les données protégées, tandis que les droits d'accès et les métadonnées de protection sont gérés dans des structures dédiées au format JSON.</p>
+        </div>
+        <div class="lcp-def">
+          <div class="lcp-def-tag">LSD</div>
+          <h3 class="lcp-def-title" data-i18n="lcp.lsd_title">License Status Document</h3>
+          <p class="lcp-def-desc" data-i18n="lcp.lsd_desc">Un serveur qui gère dynamiquement l'état des licences (prêt, retour, révocation…), permettant un contrôle en temps réel des autorisations d'accès. Là où LCP chiffre et protège les fichiers, LSD pilote le cycle de vie des licences et notifie les applications clientes via des callbacks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROBLÈME ══ -->
+  <section class="lcp-block alt">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="lcp.ctx_eyebrow">Le problème</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Des fichiers protégés mais <em data-i18n="lcp.ctx_title_em">pauvres en métadonnées</em></h2>
+      <div class="lcp-text">
+        <p data-i18n="lcp.ctx_p1">Une fois chiffrés, les fichiers ne contenaient que les données de base, sans les métadonnées enrichies nécessaires à une distribution optimale. Les plateformes de diffusion ne pouvaient donc pas afficher correctement les informations des ouvrages (titre, auteur, couverture, éditeur).</p>
+        <p data-i18n="lcp.ctx_p2">L'objectif était double : développer un processus automatisé pour ajouter les métadonnées et la couverture dans les fichiers protégés, puis envoyer ces fichiers enrichis au serveur pour qu'ils soient immédiatement distribuables — en conciliant exigences de sécurité et besoins fonctionnels des plateformes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MES INTERVENTIONS (multi-aspects) ══ -->
+  <section class="lcp-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="lcp.work_eyebrow">Mon rôle</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Une intervention sur <em data-i18n="lcp.work_title_em">plusieurs aspects</em></h2>
+      <div class="lcp-cards">
+        <div class="lcp-card">
+          <div class="lcp-card-icon">🧪</div>
+          <h3 class="lcp-card-title" data-i18n="lcp.w1_title">Prise en main de Go &amp; chiffrement</h3>
+          <p class="lcp-card-desc" data-i18n="lcp.w1_desc">Montée en compétence sur Go, compilation de l'outil de chiffrement, et tests de chiffrement de fichiers EPUB/PDF pour comprendre la structure du fichier de licence JSON généré.</p>
+        </div>
+        <div class="lcp-card">
+          <div class="lcp-card-icon">🏷️</div>
+          <h3 class="lcp-card-title" data-i18n="lcp.w2_title">Enrichissement des métadonnées</h3>
+          <p class="lcp-card-desc" data-i18n="lcp.w2_desc">Programme C# qui extrait sélectivement le manifeste de l'archive chiffrée, y ajoute titre, auteur, éditeur et couverture, puis reconstruit l'archive sans altérer les autres composants ni les propriétés de chiffrement.</p>
+        </div>
+        <div class="lcp-card">
+          <div class="lcp-card-icon">🔢</div>
+          <h3 class="lcp-card-title" data-i18n="lcp.w3_title">Reproduction du SHA256 (Go → C#)</h3>
+          <p class="lcp-card-desc" data-i18n="lcp.w3_desc">L'aspect le plus délicat : recalculer en C# exactement le même checksum SHA256 que celui produit côté Go, en ajustant l'encodage et la lecture binaire jusqu'à une correspondance parfaite, validée sur un échantillon représentatif.</p>
+        </div>
+        <div class="lcp-card">
+          <div class="lcp-card-icon">📡</div>
+          <h3 class="lcp-card-title" data-i18n="lcp.w4_title">Communication serveur</h3>
+          <p class="lcp-card-desc" data-i18n="lcp.w4_desc">Module d'envoi du fichier enrichi au serveur via requête HTTP PUT : préparation du payload JSON, configuration des en-têtes d'authentification et vérification préalable de l'accessibilité réseau.</p>
+        </div>
+        <div class="lcp-card">
+          <div class="lcp-card-icon">🔗</div>
+          <h3 class="lcp-card-title" data-i18n="lcp.w5_title">Refonte des dynamic links</h3>
+          <p class="lcp-card-desc" data-i18n="lcp.w5_desc">Analyse des écarts entre versions, suppression et refonte des « dynamic links » et reprise de la gestion des callbacks pour une notification en temps réel de l'état des licences, en conformité avec les spécifications Readium.</p>
+        </div>
+        <div class="lcp-card">
+          <div class="lcp-card-icon">🚀</div>
+          <h3 class="lcp-card-title" data-i18n="lcp.w6_title">Nouvelle version, certificat &amp; prod</h3>
+          <p class="lcp-card-desc" data-i18n="lcp.w6_desc">Adaptation à la nouvelle version du système, mise à jour du certificat, puis déploiement en production selon une procédure documentée (coordination serveurs/bases/clients, surveillance renforcée et validation opérationnelle).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DÉFIS ══ -->
+  <section class="lcp-block alt">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="lcp.chal_eyebrow">Ce qui était difficile</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Défis <em data-i18n="lcp.chal_title_em">techniques</em></h2>
+      <ul class="lcp-list">
+        <li data-i18n="lcp.chal1">Interopérabilité Go / C# : garantir que les calculs cryptographiques produisent des résultats strictement identiques malgré les différences de gestion des types et de hachage entre les deux langages.</li>
+        <li data-i18n="lcp.chal2">Préserver l'intégrité du fichier chiffré tout en modifiant son manifeste — la moindre altération invalide le contrôle d'intégrité côté serveur.</li>
+        <li data-i18n="lcp.chal3">Repenser l'architecture de communication (callbacks, dynamic links) sans déstabiliser l'existant, avec une veille constante sur les standards Readium.</li>
+        <li data-i18n="lcp.chal4">Valider l'ensemble sur un environnement de qualification dédié avant un déploiement en production maîtrisé et tracé.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ RÉSULTATS ══ -->
+  <section class="lcp-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="lcp.res_eyebrow">L'impact</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Résultats &amp; <em data-i18n="lcp.res_title_em">impact</em></h2>
+      <div class="lcp-text">
+        <p data-i18n="lcp.res_p1">Les fichiers protégés sont désormais enrichis automatiquement (titre, auteur, couverture, éditeur) et immédiatement prêts à être distribués sur les plateformes. La mise à niveau de l'intégration LCP/LSD a été validée en qualification puis déployée en production, accompagnée d'une documentation technique et d'un transfert de compétences. Cette mission m'a apporté une réelle expertise sur Readium et la gestion des droits LCP/LSD, et une méthodologie réutilisable pour d'autres projets complexes.</p>
+      </div>
+
+      <div class="lcp-related">
+        <a href="experience-export.html" class="lcp-related-link" data-i18n="lcp.related1">→ Projet lié : diffusion &amp; export de catalogue</a>
+        <a href="experience-etl.html" class="lcp-related-link" data-i18n="lcp.related2">→ Projet lié : chaîne de traitement &amp; intégration</a>
+      </div>
+
+      <div class="lcp-backwrap"><a href="index.html#experiences" class="back-button" data-i18n="anom.back">← Retour aux expériences</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));}
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.lcp-def,.lcp-card,.lcp-list li').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(typeof currentLang!=='undefined'?currentLang:'fr'));
+  </script>
+</body>
+</html>

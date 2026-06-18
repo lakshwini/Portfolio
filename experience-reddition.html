@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Lakshwini DANASSEGARANE | Intégration & restitution des ventes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="experience-reddition.css"/>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()"><span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero-rd">
+    <div class="hero-rd-content">
+      <div class="rd-nav"><a href="index.html#experiences" data-i18n="anom.back">← Retour aux expériences</a></div>
+      
+      <h1 class="hero-rd-title" data-i18n="red.title">Intégration &amp; restitution des <em>données de vente</em></h1>
+      <p class="hero-rd-desc" data-i18n="red.hero_desc">Application web (ASP.NET MVC) qui importe les rapports de vente transmis par des partenaires revendeurs, consolide les chiffres avec calcul des montants HT/TTC multi-devises, et restitue les données comptables aux acteurs de la chaîne via un portail sécurisé.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">C#</span><span class="tech-tag-hero">.NET</span><span class="tech-tag-hero">ASP.NET MVC</span><span class="tech-tag-hero">Entity Framework</span><span class="tech-tag-hero">SQL Server</span><span class="tech-tag-hero">JavaScript</span><span class="tech-tag-hero">Bootstrap</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTEXTE ══ -->
+  <section class="rd-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="red.ctx_eyebrow">Qu'est-ce que la reddition ?</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Des ventes brutes à l'<em data-i18n="red.ctx_title_em">information comptable</em></h2>
+      <div class="rd-text">
+        <p data-i18n="red.ctx_p1">La « reddition » est un système de gestion et de publication des données de vente. Son rôle est de centraliser les chiffres de vente issus de différents canaux et partenaires revendeurs, de les consolider, puis de générer des documents comptables et informatifs à partir de ces données agrégées.</p>
+        <p data-i18n="red.ctx_p2">Ces informations sont ensuite restituées via un portail web sécurisé aux différents acteurs de la chaîne de valeur. Le système assure ainsi la fiabilité et la traçabilité des ventes externes, transformant des données brutes en informations précieuses pour la gestion commerciale et l'analyse du chiffre d'affaires.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PIPELINE — 3 ÉTAPES ══ -->
+  <section class="rd-block alt">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="red.flow_eyebrow">Le processus</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Un import en <em data-i18n="red.flow_title_em">trois étapes</em></h2>
+      <p class="rd-sub" data-i18n="red.flow_sub">Du fichier brut transmis par un partenaire (CSV, XLSX, XML) à une vente intégrée et calculée en base.</p>
+      <div class="rd-steps">
+        <div class="rd-step">
+          <div class="rd-step-num">1</div>
+          <div class="rd-step-body">
+            <h3 class="rd-step-title" data-i18n="red.step1_title">Réception &amp; contrôle du fichier</h3>
+            <p class="rd-step-desc" data-i18n="red.step1_desc">Upload du fichier de vente, vérification qu'il n'a pas déjà été importé (archive physique + base), archivage sécurisé et création d'une entrée de suivi avec un statut initial.</p>
+          </div>
+        </div>
+        <div class="rd-step">
+          <div class="rd-step-num">2</div>
+          <div class="rd-step-body">
+            <h3 class="rd-step-title" data-i18n="red.step2_title">Analyse &amp; validation</h3>
+            <p class="rd-step-desc" data-i18n="red.step2_desc">Parsing du fichier selon le format du partenaire, extraction des lignes (date de vente, prix, ISBN, titre…) et contrôle de validité de chaque ligne (champs obligatoires, formats).</p>
+          </div>
+        </div>
+        <div class="rd-step">
+          <div class="rd-step-num">3</div>
+          <div class="rd-step-body">
+            <h3 class="rd-step-title" data-i18n="red.step3_title">Intégration en base</h3>
+            <p class="rd-step-desc" data-i18n="red.step3_desc">Association de chaque ligne à un produit du catalogue (matching par ISBN), puis création d'un détail de commande calculé contenant les montants finaux utilisés pour la reddition.</p>
+          </div>
+        </div>
+      </div>
+
+     
+  </section>
+
+  <!-- ══ POINTS DÉLICATS ══ -->
+  <section class="rd-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="red.chal_eyebrow">Les points délicats</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Là où c'était <em data-i18n="red.chal_title_em">complexe</em></h2>
+      <div class="rd-cards">
+        <div class="rd-card">
+          <div class="rd-card-icon">💱</div>
+          <h3 class="rd-card-title" data-i18n="red.chal1_title">Prix multi-devises &amp; TVA</h3>
+          <p class="rd-card-desc" data-i18n="red.chal1_desc">Normaliser des prix transmis dans différentes devises et formats (HT/TTC), appliquer les taux de change et gérer deux taux de TVA : celui du point de vente et celui réellement appliqué selon le pays du client (ventes intracommunautaires).</p>
+        </div>
+        <div class="rd-card">
+          <div class="rd-card-icon">🔗</div>
+          <h3 class="rd-card-title" data-i18n="red.chal2_title">Matching produit</h3>
+          <p class="rd-card-desc" data-i18n="red.chal2_desc">Relier l'identifiant du revendeur au produit interne : tentative par ISBN numérique, puis ISBN papier, puis titre et éditeur ; association automatique si une seule correspondance, sinon rapprochement manuel via l'interface.</p>
+        </div>
+        <div class="rd-card">
+          <div class="rd-card-icon">🏪</div>
+          <h3 class="rd-card-title" data-i18n="red.chal3_title">Points de vente &amp; règles</h3>
+          <p class="rd-card-desc" data-i18n="red.chal3_desc">Organiser les revendeurs en regroupements qui portent les règles de calcul (taux de reddition, type de contrat, TVA par défaut), avec création automatique d'un nouveau point de vente héritant des règles de son groupe.</p>
+        </div>
+        <div class="rd-card">
+          <div class="rd-card-icon">🪵</div>
+          <h3 class="rd-card-title" data-i18n="red.chal4_title">Fiabilité &amp; débogage</h3>
+          <p class="rd-card-desc" data-i18n="red.chal4_desc">Fiabiliser un traitement ORM complexe : journalisation détaillée des exceptions (message complet et exception interne), validation des données avant sauvegarde et tests sur des jeux de données réduits et connus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MA CONTRIBUTION ══ -->
+  <section class="rd-block alt">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="red.contrib_eyebrow">Mon rôle</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Intégrer un <em data-i18n="red.contrib_title_em">nouveau partenaire revendeur</em></h2>
+      <p class="rd-sub" data-i18n="red.contrib_sub">De la modélisation des données jusqu'aux vues, en passant par la logique de calcul et les tests de cohérence.</p>
+      <ul class="rd-list">
+        <li data-i18n="red.contrib1">Analyse des données sources et modélisation : création des tables d'import (fichier &amp; lignes) et mise à jour du modèle de données (entités).</li>
+        <li data-i18n="red.contrib2">Développement d'un calculateur de détail de commande dédié, étendant une classe de base, avec la logique de calcul propre au partenaire.</li>
+        <li data-i18n="red.contrib3">Parsing du fichier : définition de la structure, mapping des colonnes et validation des données.</li>
+        <li data-i18n="red.contrib4">Couche service &amp; configuration : contrat de service, modèles (analyse, gestion, affichage) et paramétrage du partenaire.</li>
+        <li data-i18n="red.contrib5">Interface MVC : actions du contrôleur, modèle de vue et vues spécifiques au partenaire.</li>
+        <li data-i18n="red.contrib6">Référencement en base du point de vente, de son regroupement et de ses règles financières, puis canaux de vente.</li>
+        <li data-i18n="red.contrib7">Tests de bout en bout : parsing, intégration, validité et cohérence des données affichées.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ RÉSULTATS ══ -->
+  <section class="rd-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="red.res_eyebrow">L'impact</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Résultats &amp; <em data-i18n="red.res_title_em">impact</em></h2>
+      <div class="rd-text">
+        <p data-i18n="red.res_p1">De nouveaux partenaires revendeurs ont pu être intégrés à la chaîne de reddition, avec une consolidation automatisée des ventes et un calcul fiable des montants destinés à la comptabilité. L'architecture modulaire (un module par partenaire) facilite l'ajout des suivants, et la restitution via le portail offre aux acteurs une vision fiable et traçable du chiffre d'affaires.</p>
+      </div>
+
+      <div class="rd-related">
+        <a href="experience-export.html" class="rd-related-link" data-i18n="red.related1">→ Projet lié : diffusion &amp; export de catalogue</a>
+        <a href="experience-anomalies.html" class="rd-related-link" data-i18n="red.related2">→ Projet lié : détection automatisée d'anomalies</a>
+      </div>
+
+      <div class="rd-backwrap"><a href="index.html#experiences" class="back-button" data-i18n="anom.back">← Retour aux expériences</a></div>
+    </div>
+  </section>
+
+  <div class="image-lightbox" id="rdLightbox">
+    <div class="image-lightbox-content"><img id="rdLightboxImage" src="" alt=""/><button class="image-lightbox-close" onclick="closeRdLightbox()">&times;</button></div>
+  </div>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));}
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.rd-step,.rd-card,.rd-list li').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(typeof currentLang!=='undefined'?currentLang:'fr'));
+    function openRdLightbox(img){const l=document.getElementById('rdLightbox');document.getElementById('rdLightboxImage').src=img.src;l.classList.add('active');document.body.style.overflow='hidden';}
+    function closeRdLightbox(){document.getElementById('rdLightbox').classList.remove('active');document.body.style.overflow='auto';}
+    document.getElementById('rdLightbox').addEventListener('click',e=>{if(e.target===document.getElementById('rdLightbox'))closeRdLightbox();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeRdLightbox();});
+  </script>
+</body>
+</html>

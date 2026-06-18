@@ -99,6 +99,14 @@ nav {
   color: #fff;
 }
 
+.nav-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
 .nav-cv {
   display: flex;
   align-items: center;
@@ -500,6 +508,89 @@ footer p { font-size: 0.8rem; color: var(--text-muted); }
 ::-webkit-scrollbar-thumb { background: var(--rose-light); border-radius: 2px; }
 
 /* ══════════════════════════════════
+   EXPÉRIENCES PROFESSIONNELLES
+══════════════════════════════════ */
+#experiences { background: var(--bg); }
+
+.exp-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.exp-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--rose-light);
+  box-shadow: 0 16px 50px rgba(232, 114, 138, 0.12);
+}
+
+.exp-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.3rem;
+  background: linear-gradient(135deg, var(--rose-pale), var(--mauve-light));
+}
+.exp-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rose);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+}
+.exp-card-icon { font-size: 1.5rem; }
+
+.exp-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.3rem;
+  flex: 1;
+}
+.exp-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+}
+.exp-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  font-weight: 300;
+}
+.exp-card-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.3rem;
+}
+.exp-tech {
+  padding: 0.2rem 0.65rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.exp-card-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--rose);
+  letter-spacing: 0.02em;
+}
+
+/* ══════════════════════════════════
    RESPONSIVE — Tablet 900px
 ══════════════════════════════════ */
 @media (max-width: 900px) {
@@ -560,6 +651,7 @@ footer p { font-size: 0.8rem; color: var(--text-muted); }
 
   .section-title { font-size: 1.8rem; }
   .contact-links { flex-direction: column; align-items: center; gap: 1rem; }
+
 }
 
 /* ══════════════════════════════════

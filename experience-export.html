@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Lakshwini DANASSEGARANE | Diffusion & export de catalogue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="experience-export.css"/>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()"><span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero-xp">
+    <div class="hero-xp-content">
+      <div class="xp-nav"><a href="index.html#experiences" data-i18n="anom.back">← Retour aux expériences</a></div>
+     
+      <h1 class="hero-xp-title" data-i18n="xport.title">Diffusion &amp; export de catalogue vers des <em>plateformes partenaires</em></h1>
+      <p class="hero-xp-desc" data-i18n="xport.hero_desc">Conception et intégration de nouveaux flux d'export : envoi automatisé du catalogue (métadonnées, fichiers et couvertures) vers des plateformes de distribution externes, avec une adaptation spécifique à chaque partenaire et un dépôt sécurisé en FTP/SFTP.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">C#</span><span class="tech-tag-hero">.NET</span><span class="tech-tag-hero">SQL Server</span><span class="tech-tag-hero">OAI-PMH</span><span class="tech-tag-hero">XML / ONIX 3</span><span class="tech-tag-hero">FTP / SFTP</span><span class="tech-tag-hero">SSH.NET</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTEXTE ══ -->
+  <section class="xp-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="xport.ctx_eyebrow">Le besoin</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Le flux <em data-i18n="xport.ctx_title_em">inverse de l'import</em></h2>
+      <div class="xp-text">
+        <p data-i18n="xport.ctx_p1">En complément de la chaîne qui intègre les données entrantes, il existe un flux sortant : l'export. Son rôle est de diffuser le catalogue (livres numériques, métadonnées et couvertures) vers des plateformes de distribution partenaires afin qu'elles commercialisent les produits.</p>
+        <p data-i18n="xport.ctx_p2">La difficulté : chaque partenaire impose ses propres spécificités — format des métadonnées, filtres de sélection, structure des fichiers et protocole de dépôt. Un module d'export dédié doit donc être conçu et configuré pour chaque nouvelle plateforme.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FLUX ══ -->
+  <section class="xp-block alt">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="xport.flow_eyebrow">Le flux d'export</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Du catalogue interne à la <em data-i18n="xport.flow_title_em">plateforme partenaire</em></h2>
+      <p class="xp-sub" data-i18n="xport.flow_sub">Métadonnées générées au format standard, fichiers associés, adaptation par partenaire, puis dépôt sécurisé.</p>
+
+      <div class="xp-flow" id="xpFlow">
+        <div class="xp-node">
+          <div class="xp-node-icon">🗂️</div>
+          <div class="xp-node-label" data-i18n="xport.n1_label">Catalogue interne</div>
+          <div class="xp-node-sub" data-i18n="xport.n1_sub">Sélection des produits à diffuser</div>
+        </div>
+        <div class="xp-arrow">→</div>
+        <div class="xp-node">
+          <div class="xp-node-icon">🏷️</div>
+          <div class="xp-node-label" data-i18n="xport.n2_label">Métadonnées</div>
+          <div class="xp-node-sub" data-i18n="xport.n2_sub">Génération XML / ONIX 3 via serveur OAI</div>
+        </div>
+        <div class="xp-arrow">→</div>
+        <div class="xp-node">
+          <div class="xp-node-icon">📚</div>
+          <div class="xp-node-label" data-i18n="xport.n3_label">Association fichiers</div>
+          <div class="xp-node-sub" data-i18n="xport.n3_sub">Ebooks &amp; couvertures liés aux métadonnées</div>
+        </div>
+        <div class="xp-arrow">→</div>
+        <div class="xp-node">
+          <div class="xp-node-icon">🎛️</div>
+          <div class="xp-node-label" data-i18n="xport.n4_label">Adaptation partenaire</div>
+          <div class="xp-node-sub" data-i18n="xport.n4_sub">Filtres, formatage &amp; structure spécifiques</div>
+        </div>
+        <div class="xp-arrow">→</div>
+        <div class="xp-node">
+          <div class="xp-node-icon">🔐</div>
+          <div class="xp-node-label" data-i18n="xport.n5_label">Dépôt FTP / SFTP</div>
+          <div class="xp-node-sub" data-i18n="xport.n5_sub">Envoi sécurisé vers la plateforme</div>
+        </div>
+      </div>
+
+  
+  </section>
+
+  <!-- ══ CE QUE FAIT LE CODE ══ -->
+  <section class="xp-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="xport.code_eyebrow">Concrètement</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Ce que fait le <em data-i18n="xport.code_title_em">module d'export</em></h2>
+      <div class="xp-ops">
+        <div class="xp-op"><div class="xp-op-num">1</div><div><h3 class="xp-op-title" data-i18n="xport.op1_title">Récupère</h3><p class="xp-op-desc" data-i18n="xport.op1_desc">Extrait les produits à diffuser depuis le référentiel interne via des requêtes paramétrées.</p></div></div>
+        <div class="xp-op"><div class="xp-op-num">2</div><div><h3 class="xp-op-title" data-i18n="xport.op2_title">Adapte</h3><p class="xp-op-desc" data-i18n="xport.op2_desc">Applique les filtres et formats spécifiques attendus par chaque partenaire.</p></div></div>
+        <div class="xp-op"><div class="xp-op-num">3</div><div><h3 class="xp-op-title" data-i18n="xport.op3_title">Prépare</h3><p class="xp-op-desc" data-i18n="xport.op3_desc">Assemble les fichiers : métadonnées ONIX, couvertures et contenus numériques.</p></div></div>
+        <div class="xp-op"><div class="xp-op-num">4</div><div><h3 class="xp-op-title" data-i18n="xport.op4_title">Envoie</h3><p class="xp-op-desc" data-i18n="xport.op4_desc">Dépose les fichiers sur le serveur du partenaire via FTP/SFTP sécurisé.</p></div></div>
+        <div class="xp-op"><div class="xp-op-num">5</div><div><h3 class="xp-op-title" data-i18n="xport.op5_title">Trace</h3><p class="xp-op-desc" data-i18n="xport.op5_desc">Enregistre chaque lot d'envoi pour assurer la traçabilité et le suivi des exports.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MA CONTRIBUTION ══ -->
+  <section class="xp-block alt">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="xport.contrib_eyebrow">Mon rôle</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Intégrer un <em data-i18n="xport.contrib_title_em">nouveau partenaire</em></h2>
+      <p class="xp-sub" data-i18n="xport.contrib_sub">De bout en bout, depuis la création des projets jusqu'aux tests de dépôt en environnement dédié.</p>
+      <ul class="xp-list">
+        <li data-i18n="xport.contrib1">Mise en place des projets (application console + bibliothèque de traitement) à partir d'un modèle de partenaire existant.</li>
+        <li data-i18n="xport.contrib2">Référencement du partenaire et de la sélection de catalogue à diffuser dans la base de données.</li>
+        <li data-i18n="xport.contrib3">Configuration dédiée : source des métadonnées (serveur OAI, modèle ONIX 3), répertoires de travail et accès de dépôt sécurisés.</li>
+        <li data-i18n="xport.contrib4">Adaptation du code aux spécificités du partenaire (filtres, formatage, structure des fichiers).</li>
+        <li data-i18n="xport.contrib5">Intégration de l'envoi en SFTP via une librairie SSH, puis tests sur un environnement dédié avec des jeux de données réduits.</li>
+        <li data-i18n="xport.contrib6">Résolution de problèmes : conflits de nommage, gestion de version et dépendances de packages.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ DÉFIS ══ -->
+  <section class="xp-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="xport.chal_eyebrow">Ce qui était difficile</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Défis <em data-i18n="xport.chal_title_em">techniques</em></h2>
+      <div class="xp-cards">
+        <div class="xp-card">
+          <div class="xp-card-icon">🧩</div>
+          <h3 class="xp-card-title" data-i18n="xport.chal1_title">Hétérogénéité des partenaires</h3>
+          <p class="xp-card-desc" data-i18n="xport.chal1_desc">Chaque plateforme impose ses formats, filtres et structures : il faut une architecture modulaire, configurable partenaire par partenaire.</p>
+        </div>
+        <div class="xp-card">
+          <div class="xp-card-icon">🔐</div>
+          <h3 class="xp-card-title" data-i18n="xport.chal2_title">Dépôt sécurisé</h3>
+          <p class="xp-card-desc" data-i18n="xport.chal2_desc">Mettre en place un envoi fiable en SFTP, avec gestion des accès et des secrets en dehors du code.</p>
+        </div>
+        <div class="xp-card">
+          <div class="xp-card-icon">🎯</div>
+          <h3 class="xp-card-title" data-i18n="xport.chal3_title">Sélection ciblée</h3>
+          <p class="xp-card-desc" data-i18n="xport.chal3_desc">N'exporter que le périmètre de catalogue prévu pour chaque partenaire, en s'appuyant sur des règles de sélection en base.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RÉSULTATS ══ -->
+  <section class="xp-block alt">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="xport.res_eyebrow">L'impact</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Résultats &amp; <em data-i18n="xport.res_title_em">impact</em></h2>
+      <div class="xp-text">
+        <p data-i18n="xport.res_p1">De nouveaux partenaires de diffusion ont été intégrés, avec un envoi du catalogue automatisé, sécurisé et tracé. La structure modulaire mise en place facilite l'ajout des prochains partenaires, et la sélection fine du catalogue garantit que chaque plateforme ne reçoit que le périmètre prévu.</p>
+      </div>
+
+      <div class="xp-related">
+        <a href="experience-etl.html" class="xp-related-link" data-i18n="xport.related1">→ Projet lié : chaîne de traitement &amp; intégration (import)</a>
+        <a href="experience-anomalies.html" class="xp-related-link" data-i18n="xport.related2">→ Projet lié : détection automatisée d'anomalies</a>
+      </div>
+
+      <div class="xp-backwrap"><a href="index.html#experiences" class="back-button" data-i18n="anom.back">← Retour aux expériences</a></div>
+    </div>
+  </section>
+
+  <div class="image-lightbox" id="xpLightbox">
+    <div class="image-lightbox-content"><img id="xpLightboxImage" src="" alt=""/><button class="image-lightbox-close" onclick="closeXpLightbox()">&times;</button></div>
+  </div>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));}
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.xp-op,.xp-card,.xp-list li').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(typeof currentLang!=='undefined'?currentLang:'fr'));
+    (function(){
+      const obs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){const nodes=document.querySelectorAll('.xp-node'),arrows=document.querySelectorAll('.xp-arrow');nodes.forEach((n,i)=>setTimeout(()=>n.classList.add('visible'),i*150));arrows.forEach((a,i)=>setTimeout(()=>a.classList.add('visible'),i*150+120));obs.disconnect();}},{threshold:.3});
+      const f=document.getElementById('xpFlow');if(f)obs.observe(f);
+    })();
+    function openXpLightbox(img){const l=document.getElementById('xpLightbox');document.getElementById('xpLightboxImage').src=img.src;l.classList.add('active');document.body.style.overflow='hidden';}
+    function closeXpLightbox(){document.getElementById('xpLightbox').classList.remove('active');document.body.style.overflow='auto';}
+    document.getElementById('xpLightbox').addEventListener('click',e=>{if(e.target===document.getElementById('xpLightbox'))closeXpLightbox();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeXpLightbox();});
+  </script>
+</body>
+</html>

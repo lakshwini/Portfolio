@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Lakshwini DANASSEGARANE | Chaîne de traitement de données</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="experience-etl.css"/>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()"><span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero-etl">
+    <div class="hero-etl-content">
+      <div class="etl-nav"><a href="index.html#experiences" data-i18n="anom.back">← Retour aux expériences</a></div>
+     
+      <h1 class="hero-etl-title" data-i18n="etl.title">Chaîne de traitement &amp; <em>intégration de données</em></h1>
+      <p class="hero-etl-desc" data-i18n="etl.hero_desc">Intervention sur un pipeline ETL complet qui récupère, transforme, enrichit et intègre des métadonnées éditoriales issues de sources externes hétérogènes vers un référentiel interne, puis les publie sur des plateformes de distribution.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">C#</span><span class="tech-tag-hero">.NET</span><span class="tech-tag-hero">ETL</span><span class="tech-tag-hero">XML / ONIX</span><span class="tech-tag-hero">FTP</span><span class="tech-tag-hero">SQL Server</span><span class="tech-tag-hero">Tests</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTEXTE ══ -->
+  <section class="etl-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="etl.ctx_eyebrow">Le contexte métier</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Un cycle de vie <em data-i18n="etl.ctx_title_em">complet de la donnée</em></h2>
+      <div class="etl-text">
+        <p data-i18n="etl.ctx_p1">Ce projet s'inscrit dans un environnement de traitement et d'intégration de données éditoriales provenant de différentes sources externes. Le système dispose d'une chaîne de traitement permettant de récupérer, transformer, enrichir et intégrer ces informations dans un référentiel interne.</p>
+        <p data-i18n="etl.ctx_p2">Comprendre finement cette architecture était un prérequis indispensable avant tout développement : il fallait identifier les flux de données et les points d'intervention possibles sans risque de régression sur les processus existants, qui traitent quotidiennement des milliers de références issues de nombreux partenaires.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PIPELINE — 4 ÉTAPES ══ -->
+  <section class="etl-block alt">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="etl.flow_eyebrow">La chaîne de traitement</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Quatre grandes <em data-i18n="etl.flow_title_em">étapes</em></h2>
+      <p class="etl-sub" data-i18n="etl.flow_sub">Une architecture modulaire et séquentielle qui garantit la traçabilité de la donnée brute jusqu'à sa publication.</p>
+
+      <div class="etl-flow" id="etlFlow">
+        <div class="etl-node">
+          <div class="etl-node-icon">📥</div>
+          <div class="etl-node-label" data-i18n="etl.s1_label">Picker</div>
+          <div class="etl-node-sub" data-i18n="etl.s1_sub">Récupération &amp; normalisation des fichiers et métadonnées</div>
+        </div>
+        <div class="etl-arrow">→</div>
+        <div class="etl-node">
+          <div class="etl-node-icon">🗄️</div>
+          <div class="etl-node-label" data-i18n="etl.s2_label">Import</div>
+          <div class="etl-node-sub" data-i18n="etl.s2_sub">Intégration structurée dans la base de données centrale</div>
+        </div>
+        <div class="etl-arrow">→</div>
+        <div class="etl-node">
+          <div class="etl-node-icon">🔗</div>
+          <div class="etl-node-label" data-i18n="etl.s3_label">Workflow</div>
+          <div class="etl-node-sub" data-i18n="etl.s3_sub">Liaison fichiers/métadonnées, contrôle &amp; enrichissement</div>
+        </div>
+        <div class="etl-arrow">→</div>
+        <div class="etl-node">
+          <div class="etl-node-icon">🚀</div>
+          <div class="etl-node-label" data-i18n="etl.s4_label">Déploiement</div>
+          <div class="etl-node-sub" data-i18n="etl.s4_sub">Publication sur les différentes plateformes de distribution</div>
+        </div>
+      </div>
+
+      <!-- Zone image : schéma anonymisé de la chaîne -->
+      <div class="etl-figure">
+        <div class="etl-image-container" onclick="openEtlLightbox(this.querySelector('img'))">
+          <img src="img/chainetraitement.png" alt="Schéma de la chaîne de traitement de données" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOCUS PICKER ══ -->
+  <section class="etl-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="etl.picker_eyebrow">L'étape la plus critique</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Focus : le <em data-i18n="etl.picker_title_em">Picker</em></h2>
+      <p class="etl-sub" data-i18n="etl.picker_sub">Outil C# qui doit absorber l'hétérogénéité des formats transmis par les partenaires — certains catalogues en ONIX 2.1, d'autres en ONIX 3.0, voire un mélange des deux. Un picker dédié est adapté à chaque structure de données.</p>
+      <div class="etl-ops">
+        <div class="etl-op">
+          <div class="etl-op-num">1</div>
+          <div>
+            <h3 class="etl-op-title" data-i18n="etl.op1_title">Récupération automatisée</h3>
+            <p class="etl-op-desc" data-i18n="etl.op1_desc">Collecte des fichiers via protocole FTP depuis les sources partenaires.</p>
+          </div>
+        </div>
+        <div class="etl-op">
+          <div class="etl-op-num">2</div>
+          <div>
+            <h3 class="etl-op-title" data-i18n="etl.op2_title">Parsing XML</h3>
+            <p class="etl-op-desc" data-i18n="etl.op2_desc">Lecture et analyse structurelle des fichiers ONIX pour extraire les métadonnées selon leur schéma spécifique.</p>
+          </div>
+        </div>
+        <div class="etl-op">
+          <div class="etl-op-num">3</div>
+          <div>
+            <h3 class="etl-op-title" data-i18n="etl.op3_title">Nettoyage &amp; filtrage</h3>
+            <p class="etl-op-desc" data-i18n="etl.op3_desc">Normalisation des données selon des standards internes pour garantir leur cohérence.</p>
+          </div>
+        </div>
+        <div class="etl-op">
+          <div class="etl-op-num">4</div>
+          <div>
+            <h3 class="etl-op-title" data-i18n="etl.op4_title">Génération XML interne</h3>
+            <p class="etl-op-desc" data-i18n="etl.op4_desc">Production de fichiers XML normalisés, compatibles avec les processus d'import du référentiel central.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MA CONTRIBUTION ══ -->
+  <section class="etl-block alt">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="etl.contrib_eyebrow">Mon rôle</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Ma <em data-i18n="etl.contrib_title_em">contribution</em></h2>
+      <ul class="etl-list">
+        <li data-i18n="etl.contrib1">Étude et compréhension fine des différentes étapes du pipeline de traitement.</li>
+        <li data-i18n="etl.contrib2">Facilitation de l'intégration de nouveaux partenaires et de nouvelles sources de données.</li>
+        <li data-i18n="etl.contrib3">Ajout de la récupération et de l'intégration de nouvelles métadonnées dans le système.</li>
+        <li data-i18n="etl.contrib4">Développement de traitements pour valider, enrichir, transformer ou réécrire des données selon des règles métier définies.</li>
+        <li data-i18n="etl.contrib5">Réalisation de tests pour garantir la qualité et la cohérence des données traitées.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ ENJEUX ══ -->
+  <section class="etl-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="etl.stakes_eyebrow">Les enjeux</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Qualité, automatisation &amp; <em data-i18n="etl.stakes_title_em">fiabilité</em></h2>
+      <div class="etl-cards">
+        <div class="etl-card">
+          <div class="etl-card-icon">✅</div>
+          <h3 class="etl-card-title" data-i18n="etl.stake1_title">Qualité des données</h3>
+          <p class="etl-card-desc" data-i18n="etl.stake1_desc">Validation, enrichissement et normalisation pour garantir des métadonnées cohérentes et exploitables tout au long de la chaîne.</p>
+        </div>
+        <div class="etl-card">
+          <div class="etl-card-icon">⚙️</div>
+          <h3 class="etl-card-title" data-i18n="etl.stake2_title">Automatisation</h3>
+          <p class="etl-card-desc" data-i18n="etl.stake2_desc">Réduire les interventions manuelles sur des traitements répétitifs, du téléchargement des fichiers jusqu'à la publication.</p>
+        </div>
+        <div class="etl-card">
+          <div class="etl-card-icon">🛡️</div>
+          <h3 class="etl-card-title" data-i18n="etl.stake3_title">Fiabilité du système</h3>
+          <p class="etl-card-desc" data-i18n="etl.stake3_desc">Intervenir sur un système critique sans régression, en s'appuyant sur des tests et une bonne compréhension des flux.</p>
+        </div>
+      </div>
+
+      <div class="etl-text" style="margin-top:1.8rem;">
+        <p data-i18n="etl.stakes_p1">Cette compréhension du cycle complet de vie de la donnée m'a aussi permis de concevoir des outils de contrôle qualité, comme l'application de détection d'anomalies entre un catalogue de référence et les données réellement intégrées.</p>
+      </div>
+
+      <div class="etl-related">
+        <a href="experience-anomalies.html" class="etl-related-link" data-i18n="etl.related">→ Voir le projet lié : détection automatisée d'anomalies</a>
+      </div>
+
+      <div class="etl-backwrap"><a href="index.html#experiences" class="back-button" data-i18n="anom.back">← Retour aux expériences</a></div>
+    </div>
+  </section>
+
+  <div class="image-lightbox" id="etlLightbox">
+    <div class="image-lightbox-content"><img id="etlLightboxImage" src="" alt=""/><button class="image-lightbox-close" onclick="closeEtlLightbox()">&times;</button></div>
+  </div>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));}
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.etl-op,.etl-card,.etl-list li').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(typeof currentLang!=='undefined'?currentLang:'fr'));
+    /* Animation séquentielle du pipeline */
+    (function(){
+      const obs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){const nodes=document.querySelectorAll('.etl-node'),arrows=document.querySelectorAll('.etl-arrow');nodes.forEach((n,i)=>setTimeout(()=>n.classList.add('visible'),i*150));arrows.forEach((a,i)=>setTimeout(()=>a.classList.add('visible'),i*150+120));obs.disconnect();}},{threshold:.3});
+      const f=document.getElementById('etlFlow');if(f)obs.observe(f);
+    })();
+    /* Lightbox (pour images anonymisées à venir) */
+    function openEtlLightbox(img){const l=document.getElementById('etlLightbox');document.getElementById('etlLightboxImage').src=img.src;l.classList.add('active');document.body.style.overflow='hidden';}
+    function closeEtlLightbox(){document.getElementById('etlLightbox').classList.remove('active');document.body.style.overflow='auto';}
+    document.getElementById('etlLightbox').addEventListener('click',e=>{if(e.target===document.getElementById('etlLightbox'))closeEtlLightbox();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeEtlLightbox();});
+  </script>
+</body>
+</html>
