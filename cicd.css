@@ -1,0 +1,286 @@
+/* ============================================
+   cicd.css — styles spécifiques
+   Chaîne CI/CD — Spring Boot, Flask, Docker, GitHub Actions
+   ============================================ */
+
+/* --- Breadcrumb --- */
+.cicd-nav {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(244, 160, 122, 0.08);
+  border-radius: 100px; width: fit-content;
+  font-size: 0.82rem; font-weight: 500; margin-bottom: 2rem;
+}
+.cicd-nav a { text-decoration: none; color: var(--peach); transition: color 0.2s; }
+.cicd-nav a:hover { color: var(--rose); }
+
+/* --- Hero --- */
+.hero-cicd {
+  padding-top: 7rem; padding-bottom: 3.5rem;
+  background: linear-gradient(135deg, rgba(244,160,122,0.06) 0%, rgba(201,127,168,0.04) 100%);
+}
+.hero-cicd-content { max-width: 960px; margin: 0 auto; text-align: center; }
+
+.hero-cicd-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 600; letter-spacing: -0.01em;
+  margin-bottom: 1rem; color: var(--text);
+}
+.hero-cicd-title em { color: var(--peach); font-style: italic; }
+
+.hero-cicd-desc {
+  font-size: 1.05rem; color: var(--text-mid);
+  line-height: 1.8; font-weight: 300;
+  max-width: 740px; margin: 0 auto 1.5rem;
+}
+
+.tech-tags-hero {
+  display: flex; gap: 0.6rem; flex-wrap: wrap;
+  justify-content: center; margin-bottom: 2rem;
+}
+.tech-tag-hero {
+  padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.75rem;
+  font-weight: 500; background: var(--surface); border: 1px solid var(--border); color: var(--text-mid);
+}
+
+/* --- Section wrapper --- */
+.section-content { max-width: 1100px; margin: 0 auto; }
+
+/* ══ PIPELINE ANIMÉE ══ */
+.pipeline-section { padding: 4rem 0; background: var(--bg2); }
+
+.pipeline-flow {
+  display: flex; align-items: center; gap: 0;
+  overflow-x: auto; padding: 1rem 0; margin-top: 2rem;
+  scrollbar-width: thin;
+}
+
+.pipeline-node {
+  flex-shrink: 0; text-align: center; width: 130px;
+  opacity: 0; transform: translateX(-12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.pipeline-node.visible { opacity: 1; transform: none; }
+
+.node-circle {
+  width: 60px; height: 60px; border-radius: 50%;
+  margin: 0 auto 0.7rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  transition: all 0.3s;
+  cursor: default;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.pipeline-node:hover .node-circle {
+  transform: scale(1.1);
+  border-color: var(--peach);
+  box-shadow: 0 8px 24px rgba(244,160,122,0.2);
+}
+
+.node-label { font-size: 0.75rem; font-weight: 600; color: var(--text-mid); line-height: 1.3; }
+.node-sublabel { font-size: 0.67rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+.pipeline-arrow {
+  flex-shrink: 0; color: var(--peach);
+  font-size: 1.2rem; padding: 0 0.3rem;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.pipeline-arrow.visible { opacity: 1; }
+
+/* Active states */
+.node-commit .node-circle   { background: linear-gradient(135deg, #fde8dc, #fef4ee); border-color: var(--peach); }
+.node-build .node-circle    { background: linear-gradient(135deg, #e8f4fd, #f0f8ff); border-color: #74c7ec; }
+.node-test .node-circle     { background: linear-gradient(135deg, #f0fbf0, #e8f5e8); border-color: #a6e3a1; }
+.node-docker .node-circle   { background: linear-gradient(135deg, #e8f0fd, #edf4ff); border-color: #89b4fa; }
+.node-push .node-circle     { background: linear-gradient(135deg, #fde8f0, #fef0f5); border-color: var(--rose); }
+.node-deploy .node-circle   { background: linear-gradient(135deg, #f0d9eb, #f8edf5); border-color: var(--mauve); }
+.node-prod .node-circle     { background: linear-gradient(135deg, #d9f0e8, #e8f8f0); border-color: #40c074; }
+
+/* ══ SERVICES GRID ══ */
+.services-section { padding: 4rem 0; }
+
+.services-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2rem; margin-top: 2rem;
+}
+
+.service-card {
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 20px; overflow: hidden; transition: all 0.2s;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(244,160,122,0.1);
+}
+
+.service-header {
+  padding: 1.5rem 1.8rem; display: flex; align-items: center; gap: 1rem;
+}
+.service-card.springboot .service-header { background: linear-gradient(135deg, rgba(116,199,236,0.12), rgba(137,180,250,0.08)); border-bottom: 1px solid rgba(116,199,236,0.2); }
+.service-card.flask .service-header { background: linear-gradient(135deg, rgba(244,160,122,0.1), rgba(201,127,168,0.06)); border-bottom: 1px solid rgba(244,160,122,0.2); }
+
+.service-icon { font-size: 2rem; }
+.service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--text); }
+.service-stack { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; margin-top: 0.15rem; }
+
+.service-body { padding: 1.5rem 1.8rem; }
+.service-desc { font-size: 0.88rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1rem; font-weight: 300; }
+
+.service-endpoints { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.2rem; }
+.endpoint {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.77rem; font-family: 'Courier New', monospace;
+  background: var(--bg2); border-radius: 8px; padding: 0.4rem 0.8rem;
+}
+.method {
+  padding: 0.15rem 0.5rem; border-radius: 4px;
+  font-weight: 700; font-size: 0.68rem;
+}
+.method.post { background: rgba(166,227,161,0.2); color: #40a050; }
+.method.get  { background: rgba(137,180,250,0.2); color: #4a7fd4; }
+
+.service-techs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.service-tech {
+  padding: 0.2rem 0.65rem; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 100px; font-size: 0.72rem; color: var(--text-muted);
+}
+
+/* ══ ENVIRONMENTS ══ */
+.envs-section { padding: 4rem 0; background: var(--surface); }
+
+.envs-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; margin-top: 2rem;
+}
+
+.env-card {
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 18px; overflow: hidden; transition: all 0.2s;
+}
+.env-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(244,160,122,0.1); }
+
+.env-header {
+  padding: 1.2rem 1.5rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.env-card.local .env-header { background: linear-gradient(135deg, rgba(166,227,161,0.15), rgba(166,227,161,0.05)); border-bottom: 1px solid rgba(166,227,161,0.3); }
+.env-card.test  .env-header { background: linear-gradient(135deg, rgba(137,180,250,0.15), rgba(137,180,250,0.05)); border-bottom: 1px solid rgba(137,180,250,0.3); }
+.env-card.prod  .env-header { background: linear-gradient(135deg, rgba(244,160,122,0.15), rgba(244,160,122,0.05)); border-bottom: 1px solid rgba(244,160,122,0.3); }
+
+.env-dot { width: 10px; height: 10px; border-radius: 50%; }
+.env-card.local .env-dot { background: #a6e3a1; box-shadow: 0 0 0 3px rgba(166,227,161,0.3); }
+.env-card.test  .env-dot { background: #89b4fa; box-shadow: 0 0 0 3px rgba(137,180,250,0.3); }
+.env-card.prod  .env-dot { background: var(--peach); box-shadow: 0 0 0 3px rgba(244,160,122,0.3); }
+
+.env-name { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--text); }
+
+.env-body { padding: 1.2rem 1.5rem; }
+.env-item {
+  font-size: 0.82rem; color: var(--text-muted); padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem;
+}
+.env-item:last-child { border-bottom: none; }
+.env-item-icon { font-size: 0.9rem; }
+
+/* ══ DOCKERFILE CARDS ══ */
+.docker-section { padding: 4rem 0; background: var(--bg2); }
+
+.docker-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+
+.docker-card { background: #1e1e2e; border-radius: 16px; overflow: hidden; border: 1.5px solid #313244; }
+.docker-header {
+  padding: 0.8rem 1.2rem; background: #2a2a3e;
+  display: flex; align-items: center; gap: 0.8rem;
+  border-bottom: 1px solid #313244;
+}
+.docker-dot { width: 11px; height: 11px; border-radius: 50%; }
+.docker-filename { font-size: 0.78rem; font-weight: 600; color: #cdd6f4; }
+.docker-body { padding: 1.5rem; overflow-x: auto; }
+.docker-body pre { font-family: 'Courier New', monospace; font-size: 0.78rem; line-height: 1.75; color: #cdd6f4; white-space: pre; }
+
+/* syntax */
+.dk  { color: #cba6f7; } /* keyword FROM, RUN, etc */
+.dv  { color: #a6e3a1; } /* value/path */
+.dc  { color: #585b70; font-style: italic; } /* comment */
+.dp  { color: #fab387; } /* port/number */
+.ds  { color: #89dceb; } /* string */
+
+/* ══ GITHUB ACTIONS ══ */
+.actions-section { padding: 4rem 0; }
+
+.yaml-card { background: #1e1e2e; border-radius: 16px; overflow: hidden; border: 1.5px solid #313244; margin-top: 2rem; }
+.yaml-header {
+  padding: 0.8rem 1.5rem; background: #2a2a3e;
+  display: flex; align-items: center; gap: 1rem;
+  border-bottom: 1px solid #313244;
+}
+.yaml-filename { font-size: 0.8rem; font-weight: 600; color: #cdd6f4; }
+.yaml-badge {
+  padding: 0.2rem 0.7rem; border-radius: 100px;
+  background: rgba(166,227,161,0.15); color: #a6e3a1;
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.yaml-body { padding: 1.5rem; overflow-x: auto; }
+.yaml-body pre { font-family: 'Courier New', monospace; font-size: 0.76rem; line-height: 1.75; color: #cdd6f4; white-space: pre; }
+.yk  { color: #cba6f7; }
+.yv  { color: #a6e3a1; }
+.yc  { color: #585b70; font-style: italic; }
+.ys  { color: #89dceb; }
+.yn  { color: #fab387; }
+
+/* ══ COMMANDS SECTION ══ */
+.commands-section { padding: 4rem 0; background: var(--surface); }
+
+.commands-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; margin-top: 2rem;
+}
+.cmd-group { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.cmd-group-header {
+  padding: 0.8rem 1.2rem; background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem; font-weight: 600; color: var(--text-mid);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.cmd-group-body { padding: 0.8rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.cmd-line {
+  font-family: 'Courier New', monospace; font-size: 0.74rem;
+  background: #1e1e2e; color: #a6e3a1;
+  padding: 0.5rem 0.8rem; border-radius: 7px;
+  cursor: pointer; transition: opacity 0.15s;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.cmd-line:hover { opacity: 0.8; }
+.cmd-line::before { content: '$'; color: #585b70; flex-shrink: 0; }
+
+/* ══ PLACEHOLDER ══ */
+.demo-placeholder {
+  background: linear-gradient(135deg, rgba(244,160,122,0.07) 0%, rgba(201,127,168,0.05) 100%);
+  border: 2px dashed rgba(244,160,122,0.3); border-radius: 16px;
+  padding: 3rem 2rem; text-align: center; color: var(--text-muted);
+  font-size: 0.9rem; line-height: 1.7; margin-top: 2rem;
+}
+
+/* --- Back button --- */
+.back-button {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.8rem; border: 1.5px solid rgba(244,160,122,0.3);
+  border-radius: 100px; text-decoration: none; color: var(--peach);
+  font-weight: 500; font-size: 0.88rem; transition: all 0.2s;
+}
+.back-button:hover { background: rgba(244,160,122,0.08); border-color: var(--peach); transform: translateY(-2px); }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .services-grid, .docker-grid, .commands-grid { grid-template-columns: 1fr; }
+  .envs-grid { grid-template-columns: 1fr; }
+  .hero-cicd { padding-top: 6rem; }
+}
+@media (max-width: 700px) {
+  .pipeline-flow { gap: 0; }
+  .pipeline-node { width: 90px; }
+  .node-circle { width: 46px; height: 46px; font-size: 1rem; }
+}

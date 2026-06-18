@@ -1,0 +1,528 @@
+/* ============================================
+   oncocollab.css — styles spécifiques
+   OncoCollab - Plateforme Médicale RCP
+   ============================================ */
+
+/* --- Breadcrumb nav --- */
+.oncocollab-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--rose-pale);
+  border-radius: 100px;
+  width: fit-content;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.oncocollab-nav a {
+  text-decoration: none;
+  color: var(--rose);
+  transition: color 0.2s;
+}
+
+.oncocollab-nav a:hover {
+  color: var(--mauve);
+}
+
+/* --- Hero --- */
+.hero-oncocollab {
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+  background: linear-gradient(135deg, rgba(232, 114, 138, 0.05) 0%, rgba(201, 127, 168, 0.05) 100%);
+}
+
+.hero-oncocollab-content {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-oncocollab-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.hero-oncocollab-title em {
+  color: var(--rose);
+  font-style: italic;
+}
+
+.hero-oncocollab-desc {
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+/* --- Tech tags (hero) --- */
+.tech-tags-hero {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.tech-tag-hero {
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+}
+
+/* --- Section wrapper --- */
+.section-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- Two-column grid --- */
+.section-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.section-text {
+  line-height: 1.85;
+  color: var(--text-mid);
+  font-size: 0.97rem;
+  font-weight: 300;
+}
+
+.section-text p { margin-bottom: 1.2rem; }
+
+.section-text strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* --- Image placeholder --- */
+.image-placeholder {
+  background: linear-gradient(135deg, var(--rose-pale) 0%, var(--mauve-light) 100%);
+  border: 2px dashed rgba(232, 114, 138, 0.3);
+  border-radius: 16px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* --- Hero logo --- */
+.hero-logo-container {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Architecture section --- */
+.architecture-section {
+  background: var(--surface);
+}
+
+.architecture-image-container {
+  background: linear-gradient(135deg, rgba(232, 114, 138, 0.05) 0%, rgba(201, 127, 168, 0.05) 100%);
+  border: 1.5px solid rgba(232, 114, 138, 0.15);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.architecture-image-container:hover {
+  border-color: var(--rose);
+  box-shadow: 0 8px 24px rgba(232, 114, 138, 0.1);
+}
+
+.architecture-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(232, 114, 138, 0.1);
+}
+
+/* --- Lightbox image --- */
+.image-lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.image-lightbox.active { display: flex; }
+
+.image-lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: var(--bg);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.image-lightbox-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 45px;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  transition: all 0.2s;
+  z-index: 2001;
+}
+
+.image-lightbox-close:hover {
+  background: rgba(0, 0, 0, 0.95);
+  transform: scale(1.1);
+}
+
+/* --- Features grid --- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.feature-card:hover {
+  border-color: var(--rose-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232, 114, 138, 0.08);
+}
+
+.feature-icon  { font-size: 1.8rem; margin-bottom: 0.8rem; }
+
+.feature-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.feature-desc {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* --- DB diagram placeholder --- */
+.database-diagram {
+  background: linear-gradient(135deg, var(--mauve-light) 0%, var(--peach-light) 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 1.5px solid rgba(232, 114, 138, 0.2);
+}
+
+/* --- Vidéos section --- */
+.videos-section {
+  padding: 4rem 0;
+  background: var(--bg2);
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.video-card {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.video-card:hover {
+  border-color: var(--rose);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(232, 114, 138, 0.1);
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(135deg, rgba(232, 114, 138, 0.1) 0%, rgba(201, 127, 168, 0.1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-play-btn {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgba(232, 114, 138, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.video-card:hover .video-play-btn {
+  background: var(--rose);
+  transform: scale(1.1);
+}
+
+.video-content { padding: 1.8rem; }
+
+.video-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+
+.video-desc {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+/* --- Lightbox vidéo --- */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.lightbox-overlay.active { display: flex; }
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: var(--bg);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.lightbox-content video {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 45px;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  transition: all 0.2s;
+  z-index: 2001;
+}
+
+.lightbox-close:hover {
+  background: rgba(0, 0, 0, 0.95);
+  transform: scale(1.1);
+}
+
+/* --- Resources grid --- */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.resource-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.resource-card:hover {
+  border-color: var(--rose);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(232, 114, 138, 0.1);
+}
+
+.resource-icon  { font-size: 2.5rem; margin-bottom: 1rem; }
+
+.resource-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+}
+
+.resource-link {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: var(--rose);
+  color: #fff;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+
+.resource-link:hover {
+  background: var(--mauve);
+  transform: translateY(-2px);
+}
+
+/* --- Back button --- */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border: 1.5px solid var(--rose-light);
+  border-radius: 100px;
+  text-decoration: none;
+  color: var(--rose);
+  font-weight: 500;
+  font-size: 0.88rem;
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  background: var(--rose-pale);
+  border-color: var(--rose);
+  transform: translateY(-2px);
+}
+
+/* --- Stack categories --- */
+.stack-category { margin-bottom: 2rem; }
+
+.stack-category-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stack-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.stack-item {
+  padding: 0.4rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.87rem;
+  color: var(--text-mid);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .section-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .features-grid,
+  .resources-grid,
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-oncocollab { padding-top: 6rem; }
+}

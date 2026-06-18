@@ -1,0 +1,483 @@
+/* ============================================
+   neurone.css — styles spécifiques
+   Détection de Couleur par Perceptron
+   ============================================ */
+
+/* --- Breadcrumb nav --- */
+.neurone-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(201, 127, 168, 0.1);
+  border-radius: 100px;
+  width: fit-content;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+.neurone-nav a {
+  text-decoration: none;
+  color: var(--mauve);
+  transition: color 0.2s;
+}
+.neurone-nav a:hover { color: var(--rose); }
+
+/* --- Hero --- */
+.hero-neurone {
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+  background: linear-gradient(135deg, rgba(201,127,168,0.06) 0%, rgba(232,114,138,0.04) 100%);
+}
+
+.hero-neurone-content {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-neurone-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+.hero-neurone-title em { color: var(--mauve); font-style: italic; }
+
+.hero-neurone-desc {
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* --- Tech tags --- */
+.tech-tags-hero {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.tech-tag-hero {
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+}
+
+/* --- Section wrapper --- */
+.section-content { max-width: 1100px; margin: 0 auto; }
+
+/* --- Neurone interactive demo (SVG) --- */
+.neurone-visual {
+  background: linear-gradient(135deg, rgba(201,127,168,0.07) 0%, rgba(244,160,122,0.05) 100%);
+  border: 1.5px solid rgba(201,127,168,0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin: 2.5rem auto 0;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.neurone-visual-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+}
+
+/* --- Color sliders --- */
+.color-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.color-slider-group { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.color-slider-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-mid);
+  display: flex;
+  justify-content: space-between;
+}
+
+.color-slider-label span { color: var(--mauve); font-weight: 700; }
+
+input[type="range"].color-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 100px;
+  outline: none;
+  cursor: pointer;
+  background: var(--border);
+}
+input[type="range"].color-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--mauve);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(201,127,168,0.3);
+}
+
+/* --- Color preview + result --- */
+.color-preview-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.color-swatch {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.neurone-result {
+  text-align: center;
+}
+
+.result-badge {
+  display: inline-block;
+  padding: 0.5rem 1.4rem;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.result-badge.rouge {
+  background: rgba(232, 60, 60, 0.12);
+  color: #c0392b;
+  border: 1.5px solid rgba(232, 60, 60, 0.3);
+}
+
+.result-badge.pas-rouge {
+  background: rgba(100,100,140,0.1);
+  color: var(--text-mid);
+  border: 1.5px solid rgba(100,100,140,0.2);
+}
+
+.neurone-state {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* --- 2-col grid --- */
+.section-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.section-text {
+  font-size: 0.97rem;
+  color: var(--text-mid);
+  line-height: 1.85;
+  font-weight: 300;
+}
+.section-text p { margin-bottom: 1.2rem; }
+.section-text strong { color: var(--text); font-weight: 600; }
+
+/* --- Concept cards --- */
+.concept-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.concept-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem;
+  transition: all 0.2s;
+}
+.concept-card:hover {
+  border-color: var(--mauve);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201,127,168,0.08);
+}
+
+.concept-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.concept-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* --- Code block --- */
+.code-section { padding: 4rem 0; background: var(--surface); }
+
+.code-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.code-tab {
+  padding: 0.45rem 1.1rem;
+  border-radius: 8px 8px 0 0;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  border-bottom: none;
+}
+
+.code-tab.active {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-color: #1e1e2e;
+}
+
+.code-panel {
+  display: none;
+  background: #1e1e2e;
+  border-radius: 0 12px 12px 12px;
+  padding: 2rem;
+  overflow-x: auto;
+  border: 1.5px solid #313244;
+}
+
+.code-panel.active { display: block; }
+
+.code-panel pre {
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #cdd6f4;
+  white-space: pre;
+}
+
+/* Syntax colors */
+.kw  { color: #cba6f7; } /* keyword */
+.fn  { color: #89b4fa; } /* function */
+.st  { color: #a6e3a1; } /* string */
+.cm  { color: #585b70; font-style: italic; } /* comment */
+.nb  { color: #fab387; } /* number */
+.py  { color: #f38ba8; } /* param */
+
+/* --- Learning flow steps --- */
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.flow-step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.flow-step:hover {
+  border-color: var(--mauve);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(201,127,168,0.1);
+}
+
+.flow-step-num {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, var(--mauve), var(--rose));
+  border-radius: 50%;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.8rem;
+}
+
+.flow-step-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
+
+.flow-step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.flow-step-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* --- Results section --- */
+.results-section { padding: 4rem 0; background: var(--bg2); }
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.result-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.8rem;
+  text-align: center;
+  transition: all 0.2s;
+}
+.result-card:hover {
+  border-color: var(--mauve);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(201,127,168,0.1);
+}
+
+.result-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--mauve);
+  margin-bottom: 0.4rem;
+}
+
+.result-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* --- Color test palette --- */
+.palette-section { padding: 4rem 0; }
+
+.test-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.palette-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.chip-swatch {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  border: 2px solid white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.chip-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-align: center;
+}
+
+.chip-verdict {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+}
+.chip-verdict.rouge-v { background: rgba(232,60,60,0.1); color: #c0392b; }
+.chip-verdict.non-v   { background: rgba(100,100,140,0.1); color: var(--text-muted); }
+
+/* --- Placeholder boxes --- */
+.demo-placeholder {
+  background: linear-gradient(135deg, rgba(201,127,168,0.07) 0%, rgba(232,114,138,0.05) 100%);
+  border: 2px dashed rgba(201,127,168,0.3);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-top: 2rem;
+}
+
+/* --- Back button --- */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border: 1.5px solid rgba(201,127,168,0.35);
+  border-radius: 100px;
+  text-decoration: none;
+  color: var(--mauve);
+  font-weight: 500;
+  font-size: 0.88rem;
+  transition: all 0.2s;
+}
+.back-button:hover {
+  background: rgba(201,127,168,0.1);
+  border-color: var(--mauve);
+  transform: translateY(-2px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .section-grid-2 { grid-template-columns: 1fr; gap: 2.5rem; }
+  .flow-steps { grid-template-columns: repeat(2, 1fr); }
+  .results-grid { grid-template-columns: 1fr 1fr; }
+  .color-controls { grid-template-columns: 1fr; max-width: 300px; }
+  .hero-neurone { padding-top: 6rem; }
+}
+
+@media (max-width: 600px) {
+  .flow-steps { grid-template-columns: 1fr; }
+  .results-grid { grid-template-columns: 1fr; }
+}

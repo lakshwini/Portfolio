@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Lakshwini DANASSEGARANE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="ecoles.css"/>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()">
+        <span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <section class="hero-ecoles">
+    <div class="hero-ecoles-content">
+      <div class="ecoles-nav"><a href="index.html#projets" data-i18n="nav.back">← Retour aux projets</a></div>
+      <h1 class="hero-ecoles-title" data-i18n="ecoles.title">Tableau de bord Effectifs Scolaires</h1>
+      <p class="hero-ecoles-desc" data-i18n="ecoles.hero_desc">Un dashboard Excel interactif sur les données ouvertes du ministère de l'Éducation nationale.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">Excel</span><span class="tech-tag-hero">TCD</span><span class="tech-tag-hero">Power Query</span><span class="tech-tag-hero">Slicers</span><span class="tech-tag-hero">Open Data</span>
+      </div>
+      <div class="stats-ticker">
+        <div class="ticker-item"><div class="ticker-number" id="cnt-ecoles">0</div><div class="ticker-label">écoles</div></div>
+        <div class="ticker-item"><div class="ticker-number" id="cnt-eleves">0</div><div class="ticker-label">élèves</div></div>
+        <div class="ticker-item"><div class="ticker-number" id="cnt-annees">0</div><div class="ticker-label">rentrées</div></div>
+        <div class="ticker-item"><div class="ticker-number" id="cnt-regions">0</div><div class="ticker-label">académies</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="ecoles.proj_eyebrow">Le projet</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Un dashboard pour <em data-i18n="ecoles.proj_title_em">les données scolaires</em></h2>
+      <div class="section-grid-2">
+        <div class="section-text">
+          <p data-i18n="ecoles.p1">J'ai travaillé sur les données ouvertes du ministère de l'Éducation nationale — plus de 240 000 lignes couvrant cinq années de rentrées scolaires dans toutes les écoles primaires de France.</p>
+          <p data-i18n="ecoles.p2">L'objectif était de construire un outil où on peut répondre en quelques clics : les classes sont-elles plus chargées dans certaines académies ? Où se concentrent les zones d'éducation prioritaire ?</p>
+          <p data-i18n="ecoles.p3">Le dashboard intègre 8 analyses avec des filtres croisés — tout est interactif, sans une ligne de code pour l'utilisateur.</p>
+        </div>
+        <div>
+          <div class="phases-timeline">
+            <div class="phase-item anim"><div class="phase-dot">1</div><div class="phase-content"><div class="phase-title">Import & nettoyage</div><div class="phase-desc">Chargement du CSV via Power Query, gestion des types.</div></div></div>
+            <div class="phase-item anim"><div class="phase-dot">2</div><div class="phase-content"><div class="phase-title">Tableaux croisés</div><div class="phase-desc">TCD par région, académie, département et zone REP.</div></div></div>
+            <div class="phase-item anim"><div class="phase-dot">3</div><div class="phase-content"><div class="phase-title">Graphiques</div><div class="phase-desc">Histogrammes, courbes d'évolution, camemberts liés aux TCD.</div></div></div>
+            <div class="phase-item anim"><div class="phase-dot">4</div><div class="phase-content"><div class="phase-title">Filtres croisés</div><div class="phase-desc">Slicers : rentrée, région, secteur public/privé, zone REP.</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dashboard-preview-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="ecoles.sim_eyebrow">Aperçu du dashboard</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Simuler <em data-i18n="ecoles.sim_title_em">les filtres</em></h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:0.8rem;margin-bottom:0;" data-i18n="ecoles.sim_desc">Clique sur une région pour voir les effectifs changer.</p>
+      <div class="dashboard-mockup">
+        <div class="mockup-topbar">
+          <div class="mockup-dot" style="background:#ff5f57;"></div>
+          <div class="mockup-dot" style="background:#febc2e;"></div>
+          <div class="mockup-dot" style="background:#28c840;"></div>
+          <div class="mockup-title">Tableau_de_bord_Effectifs_Scolaires.xlsx</div>
+        </div>
+        <div class="mockup-body">
+          <div class="mini-chart-title" id="chartTitle">Effectifs totaux — Île-de-France (2022)</div>
+          <div class="mini-bars" id="miniBars"></div>
+          <div style="height:18px;"></div>
+          <div class="slicer-row">
+            <span class="slicer-label">Région :</span>
+            <button class="slicer-chip active" data-region="IDF" onclick="setRegion(this)">Île-de-France</button>
+            <button class="slicer-chip" data-region="HDF" onclick="setRegion(this)">Hauts-de-France</button>
+            <button class="slicer-chip" data-region="ARA" onclick="setRegion(this)">Auvergne-Rhône-Alpes</button>
+            <button class="slicer-chip" data-region="NAQ" onclick="setRegion(this)">Nouvelle-Aquitaine</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="analyses-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="ecoles.anal_eyebrow">Ce qu'on peut explorer</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">8 angles <em data-i18n="ecoles.anal_title_em">d'analyse</em></h2>
+      <div class="analyses-grid">
+        <div class="analyse-card anim"><div class="analyse-title">Évolution sur 5 ans</div><div class="analyse-desc">Courbe des effectifs par région de 2019 à 2023.</div><span class="analyse-tag">Courbe</span></div>
+        <div class="analyse-card anim"><div class="analyse-title">Répartition par académie</div><div class="analyse-desc">Nombre d'élèves par académie et département.</div><span class="analyse-tag">Histogramme</span></div>
+        <div class="analyse-card anim"><div class="analyse-title">Niveaux scolaires</div><div class="analyse-desc">Répartition CP / CE1 / CE2 / CM1 / CM2 / ULIS.</div><span class="analyse-tag">Camembert</span></div>
+        <div class="analyse-card anim"><div class="analyse-title">Score de surcharge</div><div class="analyse-desc">Nombre moyen d'élèves par classe par académie.</div><span class="analyse-tag">Indicateur</span></div>
+        <div class="analyse-card anim"><div class="analyse-title">Analyse REP / REP+</div><div class="analyse-desc">Part des effectifs en zone d'éducation prioritaire.</div><span class="analyse-tag">TCD</span></div>
+        <div class="analyse-card anim"><div class="analyse-title">Public vs Privé</div><div class="analyse-desc">Répartition institutionnelle par région académique.</div><span class="analyse-tag">Camembert</span></div>
+        <div class="analyse-card anim"><div class="analyse-title">Moyenne par département</div><div class="analyse-desc">Nombre moyen d'élèves par classe dans l'académie choisie.</div><span class="analyse-tag">Histogramme</span></div>
+        <div class="analyse-card anim"><div class="analyse-title">Analyse croisée</div><div class="analyse-desc">Combinaison de plusieurs filtres simultanés.</div><span class="analyse-tag">Slicers croisés</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="insights-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="ecoles.ins_eyebrow">Ce que j'ai trouvé</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Ce qui <em data-i18n="ecoles.ins_title_em">ressort</em></h2>
+      <div class="insights-grid">
+        <div class="insight-card anim"><div class="insight-title">Île-de-France, poids lourd</div><div class="insight-desc">Plus de 33 000 entrées sur 5 ans — environ 13,7 % de l'ensemble des écoles.</div></div>
+        <div class="insight-card anim"><div class="insight-title">Déclin 2019–2023</div><div class="insight-desc">Légère tendance à la baisse des effectifs dans plusieurs régions, cohérente avec la baisse de natalité.</div></div>
+        <div class="insight-card anim"><div class="insight-title">REP : 13,6 % des écoles</div><div class="insight-desc">33 139 entrées sur 242 689 concernent des établissements classés REP ou REP+.</div></div>
+        <div class="insight-card anim"><div class="insight-title">Privé ancré à l'Ouest</div><div class="insight-desc">Le secteur privé représente 9,6 % des écoles, mais avec de fortes disparités régionales.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="proj.captures">Captures</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Captures <em data-i18n="ecoles.captures_title_em">du dashboard</em></h2>
+      <div class="demo-placeholder"><span data-i18n="proj.placeholder_demo">Captures à intégrer</span></div>
+            <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;">
+        <a href="index.html#projets" class="back-button" data-i18n="proj.back">← Retour aux projets</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;" data-i18n="footer.made">Fait avec ♥</p>
+  </footer>
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){
+      const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};
+      const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');
+      if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;
+      ['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});
+      document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));
+    }
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.feature-card,.result-card,.analyse-card,.insight-card,.concept-card,.flow-step,.service-card,.env-card,.dax-card,.cmd-group,.source-card,.compare-card,.viz-card,.kpi-card,.result-block,.phase-item,.pipeline-step,.skill-item,.metric-card,.resource-card,.json-file-card').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(currentLang));
+  </script>
+  <script>
+    (function(){
+      const statsObs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){
+        function cnt(id,target,dur){const el=document.getElementById(id);if(!el)return;const s=performance.now();function step(n){const p=Math.min((n-s)/dur,1),ease=1-Math.pow(1-p,3);el.textContent=Math.round(ease*target).toLocaleString('fr-FR');if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+        cnt('cnt-ecoles',48538,1800);cnt('cnt-eleves',6492703,2200);cnt('cnt-annees',5,900);cnt('cnt-regions',25,900);statsObs.disconnect();
+      }},{threshold:.4});
+      const t=document.querySelector('.stats-ticker');if(t)statsObs.observe(t);
+      const regionData={IDF:{label:"Île-de-France (2022)",bars:[{n:"Paris",v:82},{n:"Val-de-M.",v:71},{n:"Seine-St-D.",v:95},{n:"Hauts-Seine",v:68},{n:"Val-d'Oise",v:55}]},HDF:{label:"Hauts-de-France (2022)",bars:[{n:"Nord",v:100},{n:"Pas-de-Cal.",v:72},{n:"Somme",v:38},{n:"Aisne",v:30},{n:"Oise",v:48}]},ARA:{label:"Auvergne-Rhône-Alpes (2022)",bars:[{n:"Rhône",v:88},{n:"Isère",v:60},{n:"Ain",v:38},{n:"Drôme",v:31}]},NAQ:{label:"Nouvelle-Aquitaine (2022)",bars:[{n:"Gironde",v:72},{n:"Charente-M.",v:28},{n:"Dordogne",v:22}]}};
+      function setRegion(btn){document.querySelectorAll('.slicer-chip').forEach(c=>c.classList.remove('active'));btn.classList.add('active');const d=regionData[btn.dataset.region];document.getElementById('chartTitle').textContent='Effectifs totaux — '+d.label;const c=document.getElementById('miniBars');c.innerHTML='';const mx=Math.max(...d.bars.map(b=>b.v));d.bars.forEach(b=>{const el=document.createElement('div');el.className='mini-bar';el.style.height=Math.round(b.v/mx*88)+'px';el.innerHTML='<div class="mini-bar-tooltip">'+b.v+'k élèves</div><div class="mini-bar-label">'+b.n+'</div>';c.appendChild(el);});}
+      window.setRegion=setRegion;setRegion(document.querySelector('[data-region="IDF"]'));
+    })();
+  </script>
+</body>
+</html>

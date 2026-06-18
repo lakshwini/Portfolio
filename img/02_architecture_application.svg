@@ -1,0 +1,198 @@
+<svg viewBox="0 0 1320 1170" xmlns="http://www.w3.org/2000/svg" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">OncoCollab — Architecture applicative</title>
+  <desc id="d">Architecture complète d'OncoCollab en quatre couches : Client, Application, IA et Données, avec les flux principaux et la chaîne RAG.</desc>
+  <defs>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#be185d" flood-opacity="0.15"/></filter>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#db2777"/></marker>
+    <marker id="ab" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#0284c7"/></marker>
+    <marker id="ap" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#9333ea"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="1320" height="1170" fill="#fff5f8"/>
+
+  <rect x="0" y="0" width="1320" height="98" fill="#be185d"/>
+  <text x="44" y="44" fill="#ffffff" font-size="29" font-weight="700">OncoCollab — Architecture applicative</text>
+  <text x="44" y="76" fill="#fbcfe8" font-size="15.5">Plateforme RCP oncologie · visio WebRTC · transcription &amp; comptes-rendus IA · recherche sémantique (RAG)</text>
+  <g font-size="12.5" font-weight="600">
+    <circle cx="930" cy="40" r="6" fill="#db2777"/><text x="942" y="45" fill="#fde7f1">Client</text>
+    <circle cx="1010" cy="40" r="6" fill="#e11d48"/><text x="1022" y="45" fill="#fde7f1">Application</text>
+    <circle cx="1118" cy="40" r="6" fill="#9333ea"/><text x="1130" y="45" fill="#fde7f1">IA</text>
+    <circle cx="1170" cy="40" r="6" fill="#0ea5e9"/><text x="1182" y="45" fill="#fde7f1">Données</text>
+  </g>
+
+  <!-- ======= CLIENT BAND ======= -->
+  <rect x="32" y="120" width="1256" height="138" rx="16" fill="#fce7f3" stroke="#f9a8d4"/>
+  <rect x="48" y="134" width="160" height="28" rx="14" fill="#db2777"/>
+  <text x="128" y="153" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">COUCHE CLIENT</text>
+  <g filter="url(#s)">
+    <rect x="60" y="172" width="360" height="74" rx="13" fill="#ffffff" stroke="#f472b6" stroke-width="1.5"/>
+    <rect x="480" y="172" width="360" height="74" rx="13" fill="#ffffff" stroke="#f472b6" stroke-width="1.5"/>
+    <rect x="900" y="172" width="360" height="74" rx="13" fill="#ffffff" stroke="#f472b6" stroke-width="1.5"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="240" y="204" font-size="17" font-weight="700" fill="#9d174d">OncoCollab Frontend</text>
+    <text x="240" y="227" font-size="13" fill="#be185d">React · Vite · Radix UI · i18next</text>
+    <text x="660" y="204" font-size="17" font-weight="700" fill="#9d174d">OncoVision</text>
+    <text x="660" y="227" font-size="13" fill="#be185d">Annotation de lames · iframe</text>
+    <text x="1080" y="204" font-size="17" font-weight="700" fill="#9d174d">Olga Designer / Admin</text>
+    <text x="1080" y="227" font-size="13" fill="#be185d">Conception de formulaires</text>
+  </g>
+
+  <!-- ======= APPLICATION BAND ======= -->
+  <rect x="32" y="300" width="1256" height="300" rx="16" fill="#fbe4ef" stroke="#f5a8c8"/>
+  <rect x="48" y="314" width="190" height="28" rx="14" fill="#e11d48"/>
+  <text x="143" y="333" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">COUCHE APPLICATION</text>
+  <!-- backend featured -->
+  <g filter="url(#s)"><rect x="330" y="350" width="660" height="92" rx="14" fill="#be185d"/></g>
+  <text x="660" y="386" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">Backend OncoCollab — NestJS · :3002</text>
+  <text x="660" y="410" font-size="13.5" fill="#fbcfe8" text-anchor="middle">Orchestrateur central · ~17 modules métier</text>
+  <text x="660" y="430" font-size="11.5" fill="#f9a8d4" text-anchor="middle">auth · meetings · video/WebRTC · prerequisites · reports · qdrant · documents …</text>
+  <!-- services row -->
+  <g filter="url(#s)">
+    <rect x="48" y="476" width="190" height="100" rx="13" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+    <rect x="256" y="476" width="190" height="100" rx="13" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+    <rect x="464" y="476" width="190" height="100" rx="13" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+    <rect x="672" y="476" width="190" height="100" rx="13" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+    <rect x="880" y="476" width="190" height="100" rx="13" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+    <rect x="1088" y="476" width="190" height="100" rx="13" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="143" y="512" font-size="15" font-weight="700" fill="#9f1239">Python Pipeline</text>
+    <text x="143" y="533" font-size="12" fill="#e11d48">FastAPI · :8003</text>
+    <text x="143" y="553" font-size="11" fill="#9f1239">Whisper→Gemini→PDF</text>
+    <text x="351" y="512" font-size="15" font-weight="700" fill="#9f1239">SpeechCore WS</text>
+    <text x="351" y="533" font-size="12" fill="#e11d48">:8000</text>
+    <text x="351" y="553" font-size="11" fill="#9f1239">transcription live</text>
+    <text x="559" y="512" font-size="15" font-weight="700" fill="#9f1239">SpeechCore</text>
+    <text x="559" y="531" font-size="13" font-weight="700" fill="#9f1239">Completion</text>
+    <text x="559" y="553" font-size="12" fill="#e11d48">:8001 · formulaires</text>
+    <text x="767" y="512" font-size="15" font-weight="700" fill="#9f1239">Imagerie REST</text>
+    <text x="767" y="533" font-size="12" fill="#e11d48">FastAPI · :8010</text>
+    <text x="767" y="553" font-size="11" fill="#9f1239">module OncoVision</text>
+    <text x="975" y="512" font-size="15" font-weight="700" fill="#9f1239">Olga API</text>
+    <text x="975" y="533" font-size="12" fill="#e11d48">:9091</text>
+    <text x="975" y="553" font-size="11" fill="#9f1239">backend formulaires</text>
+    <text x="1183" y="512" font-size="15" font-weight="700" fill="#9f1239">Coturn TURN</text>
+    <text x="1183" y="533" font-size="12" fill="#e11d48">:3478</text>
+    <text x="1183" y="553" font-size="11" fill="#9f1239">relais WebRTC</text>
+  </g>
+
+  <!-- ======= IA BAND ======= -->
+  <rect x="32" y="642" width="1256" height="158" rx="16" fill="#f5e8ff" stroke="#e0b3f7"/>
+  <rect x="48" y="656" width="120" height="28" rx="14" fill="#9333ea"/>
+  <text x="108" y="675" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">COUCHE IA</text>
+  <g filter="url(#s)">
+    <rect x="48" y="694" width="228" height="92" rx="13" fill="#ffffff" stroke="#c084fc" stroke-width="1.5"/>
+    <rect x="296" y="694" width="228" height="92" rx="13" fill="#ffffff" stroke="#c084fc" stroke-width="1.5"/>
+    <rect x="544" y="694" width="228" height="92" rx="13" fill="#ffffff" stroke="#9333ea" stroke-width="2"/>
+    <rect x="792" y="694" width="228" height="92" rx="13" fill="#ffffff" stroke="#c084fc" stroke-width="1.5"/>
+    <rect x="1040" y="694" width="228" height="92" rx="13" fill="#ffffff" stroke="#c084fc" stroke-width="1.5"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="162" y="730" font-size="15.5" font-weight="700" fill="#6b21a8">Whisper</text>
+    <text x="162" y="752" font-size="12.5" fill="#9333ea">Transcription audio</text>
+    <text x="162" y="772" font-size="11" font-style="italic" fill="#a855f7">← Pipeline</text>
+    <text x="410" y="730" font-size="15.5" font-weight="700" fill="#6b21a8">Google Gemini</text>
+    <text x="410" y="752" font-size="12.5" fill="#9333ea">Structuration</text>
+    <text x="410" y="772" font-size="11" font-style="italic" fill="#a855f7">← Pipeline (cloud)</text>
+    <text x="658" y="728" font-size="15.5" font-weight="700" fill="#6b21a8">Embeddings</text>
+    <text x="658" y="749" font-size="12.5" fill="#9333ea">MiniLM · 384d</text>
+    <text x="658" y="770" font-size="11" font-style="italic" fill="#a855f7">← Pipeline → Qdrant</text>
+    <text x="906" y="730" font-size="15.5" font-weight="700" fill="#6b21a8">Ollama · Mistral</text>
+    <text x="906" y="752" font-size="12.5" fill="#9333ea">LLM local (4 Go)</text>
+    <text x="906" y="772" font-size="11" font-style="italic" fill="#a855f7">← SpeechCore</text>
+    <text x="1154" y="730" font-size="15.5" font-weight="700" fill="#6b21a8">Vosk·Gladia·Groq</text>
+    <text x="1154" y="752" font-size="12.5" fill="#9333ea">STT temps réel</text>
+    <text x="1154" y="772" font-size="11" font-style="italic" fill="#a855f7">← SpeechCore</text>
+  </g>
+
+  <!-- ======= DATA BAND ======= -->
+  <rect x="32" y="842" width="1256" height="300" rx="16" fill="#ffe9f1" stroke="#fbc4da"/>
+  <rect x="48" y="856" width="150" height="28" rx="14" fill="#0ea5e9"/>
+  <text x="123" y="875" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">COUCHE DONNÉES</text>
+  <g filter="url(#s)">
+    <rect x="48" y="894" width="285" height="110" rx="13" fill="#ffffff" stroke="#f472b6" stroke-width="1.5"/>
+    <rect x="358" y="894" width="285" height="110" rx="13" fill="#ffffff" stroke="#f472b6" stroke-width="1.5"/>
+    <rect x="668" y="894" width="285" height="110" rx="13" fill="#ffffff" stroke="#9333ea" stroke-width="2"/>
+    <rect x="978" y="894" width="285" height="110" rx="13" fill="#ffffff" stroke="#38bdf8" stroke-width="1.5"/>
+    <rect x="48" y="1016" width="285" height="110" rx="13" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+    <rect x="358" y="1016" width="285" height="110" rx="13" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+    <rect x="668" y="1016" width="285" height="110" rx="13" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+    <rect x="978" y="1016" width="285" height="110" rx="13" fill="#ffffff" stroke="#fb7185" stroke-width="1.5"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="190" y="932" font-size="16" font-weight="700" fill="#9d174d">PostgreSQL</text>
+    <text x="190" y="955" font-size="12.5" fill="#be185d">Cœur métier relationnel · :5433</text>
+    <text x="190" y="980" font-size="11.5" font-style="italic" fill="#db2777">← Backend NestJS</text>
+    <text x="500" y="932" font-size="16" font-weight="700" fill="#9d174d">MongoDB</text>
+    <text x="500" y="955" font-size="12.5" fill="#be185d">Prérequis RCP · :27018</text>
+    <text x="500" y="980" font-size="11.5" font-style="italic" fill="#db2777">← Backend NestJS</text>
+    <text x="810" y="932" font-size="16" font-weight="700" fill="#6b21a8">Qdrant</text>
+    <text x="810" y="955" font-size="12.5" fill="#9333ea">Vectoriel · RAG · :6333</text>
+    <text x="810" y="980" font-size="11.5" font-style="italic" fill="#a855f7">← Backend · Pipeline</text>
+    <text x="1120" y="932" font-size="16" font-weight="700" fill="#075985">Supabase</text>
+    <text x="1120" y="955" font-size="12.5" fill="#0284c7">Auth JWT + Storage PDF</text>
+    <text x="1120" y="980" font-size="11.5" font-style="italic" fill="#0ea5e9">← Backend · Frontend</text>
+
+    <text x="190" y="1054" font-size="16" font-weight="700" fill="#9f1239">Olga MySQL</text>
+    <text x="190" y="1077" font-size="12.5" fill="#e11d48">Formulaires · :3307</text>
+    <text x="190" y="1102" font-size="11.5" font-style="italic" fill="#fb7185">← Olga API</text>
+    <text x="500" y="1054" font-size="16" font-weight="700" fill="#9f1239">Imagerie MySQL</text>
+    <text x="500" y="1077" font-size="12.5" fill="#e11d48">Métadonnées images</text>
+    <text x="500" y="1102" font-size="11.5" font-style="italic" fill="#fb7185">← Imagerie REST</text>
+    <text x="810" y="1054" font-size="16" font-weight="700" fill="#9f1239">Imagerie MongoDB</text>
+    <text x="810" y="1077" font-size="12.5" fill="#e11d48">Rooms d'annotation</text>
+    <text x="810" y="1102" font-size="11.5" font-style="italic" fill="#fb7185">← Imagerie REST</text>
+    <text x="1120" y="1054" font-size="16" font-weight="700" fill="#9f1239">MinIO / S3</text>
+    <text x="1120" y="1077" font-size="12.5" fill="#e11d48">Fichiers images · :9000</text>
+    <text x="1120" y="1102" font-size="11.5" font-style="italic" fill="#fb7185">← Imagerie REST</text>
+  </g>
+
+  <!-- ======= ARROWS ======= -->
+  <!-- FE -> Backend -->
+  <path d="M240,246 L240,300 Q240,326 360,360" fill="none" stroke="#db2777" stroke-width="2" marker-end="url(#a)"/>
+  <text x="250" y="288" font-size="11.5" fill="#db2777" font-style="italic">REST · WebSocket</text>
+  <!-- iframe dashed -->
+  <path d="M660,246 L660,350" fill="none" stroke="#db2777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="668" y="300" font-size="11" fill="#db2777" font-style="italic">embed iframe</text>
+  <path d="M1080,246 Q1080,300 990,360" fill="none" stroke="#db2777" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <!-- FE -> Supabase auth (right gutter) -->
+  <path d="M420,200 Q1295,180 1295,560 Q1295,894 1265,930" fill="none" stroke="#0284c7" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#ab)"/>
+  <text x="1288" y="560" font-size="12" fill="#0284c7" font-style="italic" text-anchor="end" transform="rotate(90 1288 560)">Auth JWT (login)</text>
+  <!-- Backend -> services -->
+  <g fill="none" stroke="#db2777" stroke-width="1.7" marker-end="url(#a)">
+    <path d="M380,442 Q200,455 143,476"/>
+    <path d="M520,442 Q420,458 351,476"/>
+    <path d="M760,442 Q765,458 767,476"/>
+    <path d="M900,442 Q960,458 975,476"/>
+  </g>
+  <!-- Pipeline -> IA -->
+  <g fill="none" stroke="#9333ea" stroke-width="1.7" marker-end="url(#ap)">
+    <path d="M143,576 Q150,640 162,694"/>
+    <path d="M170,576 Q300,640 410,694"/>
+  </g>
+  <!-- Embeddings RAG : Pipeline -> Embeddings -> Qdrant -->
+  <path d="M200,576 Q500,640 658,694" fill="none" stroke="#9333ea" stroke-width="1.7" marker-end="url(#ap)"/>
+  <path d="M700,786 Q780,830 810,894" fill="none" stroke="#9333ea" stroke-width="2.4" marker-end="url(#ap)"/>
+  <text x="724" y="836" font-size="12" fill="#9333ea" font-weight="700">vecteur 384d (RAG)</text>
+  <!-- SpeechCore -> Ollama / STT -->
+  <g fill="none" stroke="#9333ea" stroke-width="1.6" marker-end="url(#ap)">
+    <path d="M380,576 Q700,620 880,694"/>
+    <path d="M559,576 Q750,630 906,694"/>
+    <path d="M380,576 Q800,610 1130,694"/>
+  </g>
+
+  <!-- ======= ANIMATED FLOW DOTS (SMIL) ======= -->
+  <g fill="#ec4899">
+    <circle r="5" cx="660" cy="270"><animate attributeName="cy" values="262;292" dur="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle r="5" cx="660" cy="616"><animate attributeName="cy" values="606;636" dur="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle r="5" cx="410" cy="616"><animate attributeName="cy" values="606;636" dur="1.6s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="1.6s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <circle r="5" cx="910" cy="616"><animate attributeName="cy" values="606;636" dur="1.6s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="1.6s" begin="1s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#a855f7">
+    <circle r="5" cx="500" cy="816"><animate attributeName="cy" values="806;836" dur="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle r="5" cx="810" cy="816"><animate attributeName="cy" values="806;836" dur="1.6s" begin="0.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle r="5" cx="190" cy="816"><animate attributeName="cy" values="806;836" dur="1.6s" begin="1.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="1.6s" begin="1.1s" repeatCount="indefinite"/></circle>
+  </g>
+
+</svg>

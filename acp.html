@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Lakshwini DANASSEGARANE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="acp.css"/>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()">
+        <span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <section class="hero-acp">
+    <div class="hero-acp-content">
+      <div class="acp-nav"><a href="index.html#projets" data-i18n="nav.back">← Retour aux projets</a></div>
+      <h1 class="hero-acp-title" data-i18n="acp.title">Réduction de dimension avec l'ACP</h1>
+      <p class="hero-acp-desc" data-i18n="acp.hero_desc">Même technique, trois datasets différents : feuilles de plantes, vins italiens, habitudes alimentaires UK.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">Python</span><span class="tech-tag-hero">scikit-learn</span><span class="tech-tag-hero">PCA</span><span class="tech-tag-hero">pandas</span><span class="tech-tag-hero">matplotlib</span><span class="tech-tag-hero">seaborn</span>
+      </div>
+      <div class="datasets-row">
+        <div class="dataset-pill"><span class="pill-stat">340</span> spécimens · 40 espèces · 14 variables</div>
+        <div class="dataset-pill"><span class="pill-stat">178</span> échantillons · 3 cépages · 13 variables</div>
+        <div class="dataset-pill"><span class="pill-stat">4</span> nations UK · 17 catégories d'aliments</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="concept-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="acp.why_eyebrow">Le principe</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">À quoi sert <em data-i18n="acp.why_title_em">l'ACP ?</em></h2>
+      <div class="concept-grid">
+        <div class="section-text">
+          <p data-i18n="acp.p1">Impossible de visualiser un tableau à 14 variables — on ne peut pas tracer de graphiques en 14 dimensions. L'ACP résout ça en trouvant de nouveaux axes qui résument l'essentiel de l'information.</p>
+          <p data-i18n="acp.p2">La première composante (PC1) capte le maximum de variance, la deuxième (PC2) le maximum du reste. On peut souvent résumer 80 % de l'information en 2 ou 3 axes.</p>
+          <p data-i18n="acp.p3">La règle : toujours centrer et réduire les données avant de lancer une ACP. Sans ça, une variable exprimée en milliers dominerait tout.</p>
+        </div>
+        <div class="pipeline">
+          <div class="pipeline-step anim"><div class="pipe-dot">1</div><div class="pipe-content"><div class="pipe-title">Chargement & séparation</div><div class="pipe-desc">Import CSV/Excel, séparation labels et features.</div></div></div>
+          <div class="pipeline-step anim"><div class="pipe-dot">2</div><div class="pipe-content"><div class="pipe-title">Centrage-réduction (StandardScaler)</div><div class="pipe-desc">Chaque variable devient de moyenne 0 et d'écart-type 1.</div></div></div>
+          <div class="pipeline-step anim"><div class="pipe-dot">3</div><div class="pipe-content"><div class="pipe-title">Calcul de l'ACP (PCA)</div><div class="pipe-desc">sklearn.decomposition.PCA calcule les vecteurs propres.</div></div></div>
+          <div class="pipeline-step anim"><div class="pipe-dot">4</div><div class="pipe-content"><div class="pipe-title">Graphique de décroissance</div><div class="pipe-desc">Le scree plot montre la variance expliquée par composante.</div></div></div>
+          <div class="pipeline-step anim"><div class="pipe-dot">5</div><div class="pipe-content"><div class="pipe-title">Projection 2D / 3D</div><div class="pipe-desc">Les données projetées sur 2 ou 3 premières composantes.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tabs-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="acp.data_eyebrow">Les trois datasets</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Résultats par <em data-i18n="acp.data_title_em">dataset</em></h2>
+      <div class="tab-nav" style="margin-top:2rem;">
+        <button class="tab-btn active" onclick="showTab('leaves',this)">Feuilles</button>
+        <button class="tab-btn" onclick="showTab('wine',this)">Vins italiens</button>
+        <button class="tab-btn" onclick="showTab('uk',this)">Alimentation UK</button>
+      </div>
+      <div class="tab-panel active" id="panel-leaves">
+        <div class="results-grid">
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Décroissance des valeurs propres</div></div><div class="result-block-body"><div class="variance-badge">PC1 : 40.6% — PC2 : 30.1% — PC3 : 15.2%</div><img src="acp_leaf_variance.jpg" alt="Variance feuilles" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">Le coude est net après la PC3 — les trois premiers axes expliquent ~86% de la variance totale.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 2D (PC1 vs PC2)</div></div><div class="result-block-body"><div class="variance-badge">70.7% de variance capturée</div><img src="acp_leaf_2d.jpg" alt="Projection 2D feuilles" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">Des groupes émergent mais restent diffus — 40 espèces dans un plan à 2D, c'est beaucoup.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 3D</div></div><div class="result-block-body"><div class="variance-badge">+15% de variance avec PC3</div><img src="acp_leaf_3d.jpg" alt="Projection 3D feuilles" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">La troisième dimension améliore nettement la séparation visuelle.</div></div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel-wine">
+        <div class="results-grid">
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Décroissance des valeurs propres</div></div><div class="result-block-body"><div class="variance-badge">PC1 : 36.2% — PC2 : 19.3%</div><img src="acp_wine_variance.jpg" alt="Variance vins" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">Décroissance plus progressive — les 13 variables chimiques apportent toutes une information utile.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 2D — résultat fort</div></div><div class="result-block-body"><div class="variance-badge">Séparation nette des 3 cépages</div><img src="acp_wine_2d.jpg" alt="Projection 2D vins" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">Les trois cépages se séparent clairement dès la projection en 2D. La composition chimique encode vraiment l'origine.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 3D</div></div><div class="result-block-body"><div class="variance-badge">67.3% avec les 3 axes</div><img src="acp_wine_3d.jpg" alt="Projection 3D vins" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">La troisième dimension consolide la séparation des cépages.</div></div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel-uk">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-top:0.5rem;">
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection des pays</div></div><div class="result-block-body"><div class="variance-badge">PC1 : 62% — PC2 : 29%</div><div class="demo-placeholder"><span data-i18n="proj.placeholder_img">Capture à intégrer</span></div><div class="result-block-insight">L'Irlande du Nord se distingue nettement sur l'axe PC1.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Cercle de corrélation</div></div><div class="result-block-body"><div class="variance-badge">17 variables projetées</div><div class="demo-placeholder"><span data-i18n="proj.placeholder_img">Capture à intégrer</span></div><div class="result-block-insight">"Graisses et huiles" et "Pommes de terre fraîches" jouent un rôle clé sur PC1.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="acp.sim_eyebrow">Simulation</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Avant et après <em data-i18n="acp.sim_title_em">l'ACP</em></h2>
+      <div class="scatter-widget">
+        <div class="scatter-title">L'ACP réoriente les axes pour maximiser la séparation</div>
+        <div class="scatter-controls">
+          <button class="scatter-btn active" onclick="setScatterMode('raw',this)">Données brutes</button>
+          <button class="scatter-btn" onclick="setScatterMode('pca',this)">Après ACP</button>
+          <button class="scatter-btn" onclick="setScatterMode('wine',this)">Cas vins</button>
+        </div>
+        <canvas id="scatterCanvas"></canvas>
+        <p id="scatterCaption" style="font-size:0.8rem;color:var(--text-muted);margin-top:1rem;text-align:center;"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="insights-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="acp.obs_eyebrow">Ce que j'en retiens</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">3 observations <em data-i18n="acp.obs_title_em">clés</em></h2>
+      <div class="insights-grid">
+        <div class="insight-card anim"><div class="insight-title" data-i18n="acp.o1_title">Centrer-réduire, toujours</div><div class="insight-desc" data-i18n="acp.o1_desc">Sans StandardScaler, une variable comme la proline dans les vins dominerait complètement l'ACP.</div></div>
+        <div class="insight-card anim"><div class="insight-title" data-i18n="acp.o2_title">La chimie encode le cépage</div><div class="insight-desc" data-i18n="acp.o2_desc">La projection 2D des vins montre une séparation nette des 3 cépages avec seulement 56% de variance capturée.</div></div>
+        <div class="insight-card anim"><div class="insight-title" data-i18n="acp.o3_title">L'Irlande du Nord, cas à part</div><div class="insight-desc" data-i18n="acp.o3_desc">Dans l'analyse UK, l'Irlande du Nord se démarque fortement sur PC1. Forte consommation de pommes de terre.</div></div>
+      </div>
+            <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;">
+        <a href="index.html#projets" class="back-button" data-i18n="proj.back">← Retour aux projets</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;" data-i18n="footer.made">Fait avec ♥</p>
+  </footer>
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){
+      const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};
+      const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');
+      if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;
+      ['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});
+      document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));
+    }
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.feature-card,.result-card,.analyse-card,.insight-card,.concept-card,.flow-step,.service-card,.env-card,.dax-card,.cmd-group,.source-card,.compare-card,.viz-card,.kpi-card,.result-block,.phase-item,.pipeline-step,.skill-item,.metric-card,.resource-card').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(currentLang));
+  </script>
+  <script>
+    function showTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active');btn.classList.add('active');}
+    function openLightbox(img){/* simple lightbox */const ov=document.createElement('div');ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:2000;display:flex;align-items:center;justify-content:center;cursor:pointer;';const i=document.createElement('img');i.src=img.src;i.style.cssText='max-width:90vw;max-height:88vh;border-radius:12px;';ov.appendChild(i);ov.addEventListener('click',()=>ov.remove());document.body.appendChild(ov);}
+    const canvas=document.getElementById('scatterCanvas'),ctx=canvas?canvas.getContext('2d'):null;
+    const COLORS=['#e8728a','#89b4fa','#a6e3a1'];
+    function makeBlob(cx,cy,n,r,cls){const pts=[];for(let i=0;i<n;i++){const a=Math.random()*2*Math.PI,d=Math.random()*r;pts.push({x:cx+Math.cos(a)*d,y:cy+Math.sin(a)*d,c:cls});}return pts;}
+    const rawData=[...makeBlob(.25,.5,40,.15,0),...makeBlob(.55,.45,40,.18,1),...makeBlob(.75,.55,35,.13,2)];
+    const pcaData=[...makeBlob(.18,.5,40,.09,0),...makeBlob(.52,.5,40,.10,1),...makeBlob(.83,.5,35,.08,2)];
+    const wineData=[...makeBlob(.17,.28,59,.10,0),...makeBlob(.50,.72,71,.12,1),...makeBlob(.82,.28,48,.09,2)];
+    const captions={raw:'Données brutes — les groupes se chevauchent',pca:'Après ACP — les axes sont réorientés, les groupes se séparent',wine:'Vins italiens — les 3 cépages se séparent nettement sur PC1 et PC2'};
+    let curMode='raw';
+    function drawScatter(pts){if(!canvas||!ctx)return;canvas.width=canvas.parentElement.clientWidth-40;canvas.height=320;const W=canvas.width,H=canvas.height;ctx.clearRect(0,0,W,H);ctx.strokeStyle='#e0dde5';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(W*.08,H*.5);ctx.lineTo(W*.95,H*.5);ctx.stroke();ctx.beginPath();ctx.moveTo(W*.5,H*.05);ctx.lineTo(W*.5,H*.92);ctx.stroke();pts.forEach(p=>{const px=p.x*W*.85+W*.07,py=(1-p.y)*H*.85+H*.07;ctx.beginPath();ctx.arc(px,py,5,0,2*Math.PI);ctx.fillStyle=COLORS[p.c]+'cc';ctx.fill();ctx.strokeStyle=COLORS[p.c];ctx.lineWidth=1;ctx.stroke();});}
+    window.setScatterMode=function(mode,btn){curMode=mode;document.querySelectorAll('.scatter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');drawScatter(mode==='raw'?rawData:mode==='pca'?pcaData:wineData);document.getElementById('scatterCaption').textContent=captions[mode];};
+    if(canvas){drawScatter(rawData);document.getElementById('scatterCaption').textContent=captions.raw;window.addEventListener('resize',()=>drawScatter(curMode==='raw'?rawData:curMode==='pca'?pcaData:wineData));}
+  </script>
+</body>
+</html>

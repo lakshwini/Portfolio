@@ -1,0 +1,203 @@
+<svg viewBox="0 0 1520 958" xmlns="http://www.w3.org/2000/svg" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">OncoCollab — Modèle de conception de la base de données</title>
+  <desc id="d">Modèle entité-association d'OncoCollab : tables PostgreSQL reliées par clés étrangères, et stores satellites (MongoDB, Qdrant, Supabase, Imagerie, Olga) reliés par clés logiques.</desc>
+  <defs>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#be185d" flood-opacity="0.13"/></filter>
+    <marker id="one" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M8,1 L8,11" stroke="#db2777" stroke-width="1.6"/><path d="M2,6 L9,6" stroke="#db2777" stroke-width="1.6"/></marker>
+    <marker id="crow" markerWidth="14" markerHeight="14" refX="2" refY="7" orient="auto"><path d="M12,2 L2,7 L12,12 M2,7 L13,7" stroke="#db2777" stroke-width="1.4" fill="none"/></marker>
+    <marker id="dot" markerWidth="9" markerHeight="9" refX="4.5" refY="4.5" orient="auto"><circle cx="4.5" cy="4.5" r="3.4" fill="#a855f7"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="1520" height="958" fill="#fdf3ee"/>
+
+  <!-- portfolio header -->
+  <line x1="60" y1="66" x2="120" y2="66" stroke="#db2777" stroke-width="3"/>
+  <text x="60" y="56" font-size="15" font-weight="700" letter-spacing="3" fill="#c2476b">BASE DE DONNÉES</text>
+  <text x="58" y="116" font-size="44" font-weight="400" fill="#3f2d31" font-family="Georgia, 'Times New Roman', serif">Modèle de conception</text>
+  <g font-size="12.5">
+    <rect x="1090" y="62" width="14" height="14" rx="3" fill="#db2777"/><text x="1110" y="73" fill="#7a4a55">PostgreSQL (relationnel)</text>
+    <rect x="1290" y="62" width="14" height="14" rx="3" fill="#a855f7"/><text x="1310" y="73" fill="#7a4a55">Stores satellites</text>
+    <text x="1090" y="96" fill="#9b6b76">●—&lt; clé étrangère    ┃ un    &lt; plusieurs</text>
+  </g>
+
+  <!-- ============================ ENTITIES ============================ -->
+  <!-- helper note: header rose, body white, ● PK  ○ FK -->
+
+  <!-- roles -->
+  <g filter="url(#s)"><rect x="40" y="180" width="210" height="80" rx="10" fill="#fff" stroke="#eaa7bb" stroke-width="1.4"/></g>
+  <path d="M40,190 a10,10 0 0 1 10,-10 h190 a10,10 0 0 1 10,10 v12 h-210 z" fill="#db2777"/>
+  <text x="54" y="199" font-size="14.5" font-weight="700" fill="#fff">roles</text>
+  <g font-size="12.5"><text x="54" y="228" fill="#9d174d" font-weight="700">● roleid</text><text x="54" y="250" fill="#6b5258">rolename</text></g>
+
+  <!-- users -->
+  <g filter="url(#s)"><rect x="40" y="300" width="210" height="104" rx="10" fill="#fff" stroke="#eaa7bb" stroke-width="1.4"/></g>
+  <path d="M40,310 a10,10 0 0 1 10,-10 h190 a10,10 0 0 1 10,10 v12 h-210 z" fill="#db2777"/>
+  <text x="54" y="319" font-size="14.5" font-weight="700" fill="#fff">users</text>
+  <g font-size="12.5"><text x="54" y="348" fill="#9d174d" font-weight="700">● id · uuid</text><text x="54" y="370" fill="#6b5258">email · username</text><text x="54" y="392" fill="#6b5258">isActive</text></g>
+
+  <!-- patients -->
+  <g filter="url(#s)"><rect x="40" y="444" width="210" height="148" rx="10" fill="#fff" stroke="#eaa7bb" stroke-width="1.4"/></g>
+  <path d="M40,454 a10,10 0 0 1 10,-10 h190 a10,10 0 0 1 10,10 v12 h-210 z" fill="#db2777"/>
+  <text x="54" y="463" font-size="14.5" font-weight="700" fill="#fff">patients</text>
+  <g font-size="12.5"><text x="54" y="492" fill="#9d174d" font-weight="700">● patientid</text><text x="54" y="514" fill="#6b5258">patient_number</text><text x="54" y="536" fill="#6b5258">firstname · lastname</text><text x="54" y="558" fill="#6b5258">birthDate</text><text x="54" y="580" fill="#6b5258">gender</text></g>
+
+  <!-- doctors -->
+  <g filter="url(#s)"><rect x="320" y="180" width="230" height="170" rx="10" fill="#fff" stroke="#eaa7bb" stroke-width="1.4"/></g>
+  <path d="M320,190 a10,10 0 0 1 10,-10 h210 a10,10 0 0 1 10,10 v12 h-230 z" fill="#db2777"/>
+  <text x="334" y="199" font-size="14.5" font-weight="700" fill="#fff">doctors</text>
+  <g font-size="12.5"><text x="334" y="228" fill="#9d174d" font-weight="700">● doctorid</text><text x="334" y="250" fill="#6b5258">email</text><text x="334" y="272" fill="#6b5258">firstname · lastname</text><text x="334" y="294" fill="#c2476b">○ roleid → roles</text><text x="334" y="316" fill="#6b5258">is_active · password</text><text x="334" y="338" fill="#6b5258">profile_image_url</text></g>
+
+  <!-- rooms -->
+  <g filter="url(#s)"><rect x="320" y="396" width="230" height="86" rx="10" fill="#fff" stroke="#eaa7bb" stroke-width="1.4"/></g>
+  <path d="M320,406 a10,10 0 0 1 10,-10 h210 a10,10 0 0 1 10,10 v12 h-230 z" fill="#db2777"/>
+  <text x="334" y="415" font-size="14.5" font-weight="700" fill="#fff">rooms</text>
+  <g font-size="12.5"><text x="334" y="444" fill="#9d174d" font-weight="700">● id</text><text x="334" y="466" fill="#6b5258">name · isOpen</text></g>
+
+  <!-- meetings (hub) -->
+  <g filter="url(#s)"><rect x="630" y="180" width="250" height="192" rx="10" fill="#fff" stroke="#db2777" stroke-width="2.2"/></g>
+  <path d="M630,190 a10,10 0 0 1 10,-10 h230 a10,10 0 0 1 10,10 v12 h-250 z" fill="#be185d"/>
+  <text x="644" y="199" font-size="15" font-weight="700" fill="#fff">meetings</text>
+  <g font-size="12.5"><text x="644" y="228" fill="#9d174d" font-weight="700">● id</text><text x="644" y="250" fill="#6b5258">title · description</text><text x="644" y="272" fill="#6b5258">status</text><text x="644" y="294" fill="#c2476b">○ created_by → doctors</text><text x="644" y="316" fill="#6b5258">start_time · end_time</text><text x="644" y="338" fill="#7c3aed">⇢ oncovision_room_id</text><text x="644" y="360" fill="#6b5258">created_at</text></g>
+
+  <!-- meeting_participants -->
+  <g filter="url(#s)"><rect x="630" y="416" width="250" height="84" rx="10" fill="#fff" stroke="#eaa7bb" stroke-width="1.4"/></g>
+  <path d="M630,426 a10,10 0 0 1 10,-10 h230 a10,10 0 0 1 10,10 v12 h-250 z" fill="#db2777"/>
+  <text x="644" y="435" font-size="13.5" font-weight="700" fill="#fff">meeting_participants</text>
+  <g font-size="12.5"><text x="644" y="464" fill="#c2476b">○ meeting_id → meetings</text><text x="644" y="486" fill="#c2476b">○ doctor_id → doctors</text></g>
+
+  <!-- meeting_patients -->
+  <g filter="url(#s)"><rect x="630" y="528" width="250" height="84" rx="10" fill="#fff" stroke="#eaa7bb" stroke-width="1.4"/></g>
+  <path d="M630,538 a10,10 0 0 1 10,-10 h230 a10,10 0 0 1 10,10 v12 h-250 z" fill="#db2777"/>
+  <text x="644" y="547" font-size="13.5" font-weight="700" fill="#fff">meeting_patients</text>
+  <g font-size="12.5"><text x="644" y="576" fill="#c2476b">○ meeting_id → meetings</text><text x="644" y="598" fill="#c2476b">○ patient_id → patients</text></g>
+
+  <!-- meeting_transcripts -->
+  <g filter="url(#s)"><rect x="950" y="180" width="240" height="150" rx="10" fill="#fff" stroke="#eaa7bb" stroke-width="1.4"/></g>
+  <path d="M950,190 a10,10 0 0 1 10,-10 h220 a10,10 0 0 1 10,10 v12 h-240 z" fill="#db2777"/>
+  <text x="964" y="199" font-size="14" font-weight="700" fill="#fff">meeting_transcripts</text>
+  <g font-size="12.5"><text x="964" y="228" fill="#9d174d" font-weight="700">● id</text><text x="964" y="250" fill="#c2476b">○ meeting_id → meetings</text><text x="964" y="272" fill="#6b5258">raw_transcript · language</text><text x="964" y="294" fill="#6b5258">duration_seconds</text><text x="964" y="316" fill="#6b5258">transcription_source</text></g>
+
+  <!-- transcription_blocks -->
+  <g filter="url(#s)"><rect x="950" y="372" width="240" height="150" rx="10" fill="#fff" stroke="#eaa7bb" stroke-width="1.4"/></g>
+  <path d="M950,382 a10,10 0 0 1 10,-10 h220 a10,10 0 0 1 10,10 v12 h-240 z" fill="#db2777"/>
+  <text x="964" y="391" font-size="14" font-weight="700" fill="#fff">transcription_blocks</text>
+  <g font-size="12.5"><text x="964" y="420" fill="#9d174d" font-weight="700">● id</text><text x="964" y="442" fill="#c2476b">○ meeting_id → meetings</text><text x="964" y="464" fill="#c2476b">○ speaker_id → doctors</text><text x="964" y="486" fill="#6b5258">content · block_order</text><text x="964" y="508" fill="#6b5258">source</text></g>
+
+  <!-- messages -->
+  <g filter="url(#s)"><rect x="950" y="564" width="240" height="150" rx="10" fill="#fff" stroke="#eaa7bb" stroke-width="1.4"/></g>
+  <path d="M950,574 a10,10 0 0 1 10,-10 h220 a10,10 0 0 1 10,10 v12 h-240 z" fill="#db2777"/>
+  <text x="964" y="583" font-size="14" font-weight="700" fill="#fff">messages</text>
+  <g font-size="12.5"><text x="964" y="612" fill="#9d174d" font-weight="700">● id</text><text x="964" y="634" fill="#c2476b">○ meeting_id → meetings</text><text x="964" y="656" fill="#c2476b">○ room_id → rooms</text><text x="964" y="678" fill="#c2476b">○ sender_id → doctors</text><text x="964" y="700" fill="#6b5258">content · message_type</text></g>
+
+  <!-- meeting_reports -->
+  <g filter="url(#s)"><rect x="1260" y="180" width="240" height="192" rx="10" fill="#fff" stroke="#db2777" stroke-width="2.2"/></g>
+  <path d="M1260,190 a10,10 0 0 1 10,-10 h220 a10,10 0 0 1 10,10 v12 h-240 z" fill="#be185d"/>
+  <text x="1274" y="199" font-size="14.5" font-weight="700" fill="#fff">meeting_reports</text>
+  <g font-size="12.5"><text x="1274" y="228" fill="#9d174d" font-weight="700">● id</text><text x="1274" y="250" fill="#c2476b">○ meeting_id → meetings</text><text x="1274" y="272" fill="#c2476b">○ transcript_id → transcripts</text><text x="1274" y="294" fill="#6b5258">structured_data (jsonb)</text><text x="1274" y="316" fill="#7c3aed">⇢ pdf_url (Supabase)</text><text x="1274" y="338" fill="#7c3aed">⇢ qdrant_point_id</text><text x="1274" y="360" fill="#6b5258">status</text></g>
+
+  <!-- doctor_personal_files -->
+  <g filter="url(#s)"><rect x="1260" y="408" width="240" height="168" rx="10" fill="#fff" stroke="#eaa7bb" stroke-width="1.4"/></g>
+  <path d="M1260,418 a10,10 0 0 1 10,-10 h220 a10,10 0 0 1 10,10 v12 h-240 z" fill="#db2777"/>
+  <text x="1274" y="427" font-size="13.5" font-weight="700" fill="#fff">doctor_personal_files</text>
+  <g font-size="12.5"><text x="1274" y="456" fill="#9d174d" font-weight="700">● id</text><text x="1274" y="478" fill="#c2476b">○ doctor_id → doctors</text><text x="1274" y="500" fill="#c2476b">○ report_id → reports</text><text x="1274" y="522" fill="#c2476b">○ meeting_id → meetings</text><text x="1274" y="544" fill="#7c3aed">⇢ file_url (Supabase)</text><text x="1274" y="566" fill="#6b5258">is_read · access_count</text></g>
+
+  <!-- ============================ SATELLITE STORES ============================ -->
+  <!-- MongoDB prerequisites -->
+  <g filter="url(#s)"><rect x="40" y="760" width="250" height="150" rx="10" fill="#faf5ff" stroke="#c084fc" stroke-width="1.6"/></g>
+  <path d="M40,770 a10,10 0 0 1 10,-10 h230 a10,10 0 0 1 10,10 v12 h-250 z" fill="#a855f7"/>
+  <text x="54" y="779" font-size="14" font-weight="700" fill="#fff">MongoDB · prérequis</text>
+  <g font-size="12.5"><text x="54" y="808" fill="#6b21a8" font-style="italic">oncocollab_prerequisites</text><text x="54" y="832" fill="#7c3aed">⇢ meeting_id · patient_id</text><text x="54" y="854" fill="#6b5258">doctors[ ].items[ ]</text><text x="54" y="876" fill="#6b5258">status : in_progress / ready</text><text x="54" y="898" fill="#6b5258">item : pending/in_progress/done</text></g>
+
+  <!-- Imagerie OncoVision -->
+  <g filter="url(#s)"><rect x="330" y="760" width="250" height="150" rx="10" fill="#fff1f2" stroke="#fb7185" stroke-width="1.6"/></g>
+  <path d="M330,770 a10,10 0 0 1 10,-10 h230 a10,10 0 0 1 10,10 v12 h-250 z" fill="#e11d48"/>
+  <text x="344" y="779" font-size="14" font-weight="700" fill="#fff">Imagerie · OncoVision</text>
+  <g font-size="12.5"><text x="344" y="808" fill="#9f1239" font-style="italic">MySQL + MongoDB + MinIO</text><text x="344" y="832" fill="#e11d48">⇢ via oncovision_room_id</text><text x="344" y="854" fill="#6b5258">métadonnées images (MySQL)</text><text x="344" y="876" fill="#6b5258">rooms d'annotation (Mongo)</text><text x="344" y="898" fill="#6b5258">fichiers / lames (MinIO S3)</text></g>
+
+  <!-- Olga MySQL -->
+  <g filter="url(#s)"><rect x="630" y="760" width="240" height="150" rx="10" fill="#fdf4ff" stroke="#d946ef" stroke-width="1.6"/></g>
+  <path d="M630,770 a10,10 0 0 1 10,-10 h220 a10,10 0 0 1 10,10 v12 h-240 z" fill="#a21caf"/>
+  <text x="644" y="779" font-size="14" font-weight="700" fill="#fff">Olga · MySQL</text>
+  <g font-size="12.5"><text x="644" y="808" fill="#86198f" font-style="italic">via Olga API (:9091)</text><text x="644" y="832" fill="#6b5258">formulaires dynamiques</text><text x="644" y="854" fill="#6b5258">workflows / parcours</text><text x="644" y="876" fill="#6b5258">réponses &amp; schémas</text><text x="644" y="898" fill="#a21caf">alimente les prérequis</text></g>
+
+  <!-- Qdrant -->
+  <g filter="url(#s)"><rect x="950" y="760" width="240" height="150" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="1.8"/></g>
+  <path d="M950,770 a10,10 0 0 1 10,-10 h220 a10,10 0 0 1 10,10 v12 h-240 z" fill="#9333ea"/>
+  <text x="964" y="779" font-size="14" font-weight="700" fill="#fff">Qdrant · vectoriel</text>
+  <g font-size="12.5"><text x="964" y="808" fill="#6b21a8" font-style="italic">collection oncocollab_reports</text><text x="964" y="832" fill="#7c3aed">id = qdrant_point_id</text><text x="964" y="854" fill="#6b5258">vector : 384d (cosine)</text><text x="964" y="876" fill="#6b5258">payload : meeting_id, summary</text><text x="964" y="898" fill="#6b5258">→ recherche sémantique (RAG)</text></g>
+
+  <!-- Supabase Storage -->
+  <g filter="url(#s)"><rect x="1260" y="760" width="240" height="150" rx="10" fill="#f0f9ff" stroke="#38bdf8" stroke-width="1.8"/></g>
+  <path d="M1260,770 a10,10 0 0 1 10,-10 h220 a10,10 0 0 1 10,10 v12 h-240 z" fill="#0ea5e9"/>
+  <text x="1274" y="779" font-size="14" font-weight="700" fill="#fff">Supabase · Auth + Storage</text>
+  <g font-size="12.5"><text x="1274" y="808" fill="#075985" font-style="italic">cloud managé</text><text x="1274" y="832" fill="#0284c7">bucket meeting-reports</text><text x="1274" y="854" fill="#6b5258">PDF des comptes-rendus</text><text x="1274" y="876" fill="#6b5258">fichiers des médecins</text><text x="1274" y="898" fill="#0284c7">comptes &amp; JWT (auth)</text></g>
+
+  <!-- ============================ RELATIONSHIPS ============================ -->
+  <g fill="none" stroke="#db2777" stroke-width="1.5">
+    <!-- doctors.roleid -> roles -->
+    <path d="M320,290 C285,290 285,220 252,220" marker-end="url(#one)" marker-start="url(#crow)"/>
+    <!-- meetings.created_by -> doctors -->
+    <path d="M630,294 C585,294 585,250 552,250" marker-end="url(#one)" marker-start="url(#crow)"/>
+    <!-- meeting_participants.meeting_id -> meetings -->
+    <path d="M755,416 L755,374" marker-end="url(#one)" marker-start="url(#crow)"/>
+    <!-- meeting_participants.doctor_id -> doctors -->
+    <path d="M630,464 C580,464 560,330 552,316" marker-end="url(#one)" marker-start="url(#crow)"/>
+    <!-- meeting_patients.meeting_id -> meetings -->
+    <path d="M880,548 C915,548 915,300 882,300" marker-end="url(#one)" marker-start="url(#crow)"/>
+    <!-- meeting_patients.patient_id -> patients -->
+    <path d="M630,576 C440,576 360,520 252,520" marker-end="url(#one)" marker-start="url(#crow)"/>
+    <!-- meeting_transcripts.meeting_id -> meetings -->
+    <path d="M950,250 L882,250" marker-end="url(#one)" marker-start="url(#crow)"/>
+    <!-- transcription_blocks.meeting_id -> meetings -->
+    <path d="M950,442 C915,442 915,330 882,330" marker-end="url(#one)" marker-start="url(#crow)"/>
+    <!-- messages.meeting_id -> meetings -->
+    <path d="M950,634 C905,634 905,350 882,350" marker-end="url(#one)" marker-start="url(#crow)"/>
+    <!-- meeting_reports.transcript_id -> meeting_transcripts -->
+    <path d="M1260,272 C1225,272 1225,250 1192,250" marker-end="url(#one)" marker-start="url(#crow)"/>
+    <!-- meeting_reports.meeting_id -> meetings -->
+    <path d="M1260,250 C1230,250 1210,205 1190,205 L900,205" marker-end="url(#one)" marker-start="url(#crow)"/>
+    <!-- doctor_personal_files.report_id -> meeting_reports -->
+    <path d="M1380,408 L1380,374" marker-end="url(#one)" marker-start="url(#crow)"/>
+  </g>
+
+  <!-- cross-store logical links (dashed purple) -->
+  <g fill="none" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="6 4">
+    <!-- meeting_reports.qdrant_point_id -> Qdrant -->
+    <path d="M1300,372 C1250,560 1150,640 1080,760" marker-end="url(#dot)"/>
+    <!-- meeting_reports.pdf_url -> Supabase -->
+    <path d="M1400,372 C1400,560 1390,640 1385,760" marker-end="url(#dot)"/>
+    <!-- doctor_personal_files.file_url -> Supabase -->
+    <path d="M1430,576 C1445,640 1430,700 1410,760" marker-end="url(#dot)"/>
+    <!-- MongoDB prerequisites -> meetings -->
+    <path d="M200,760 C230,650 520,470 628,470" marker-end="url(#dot)"/>
+    <!-- meetings.oncovision_room_id -> Imagerie -->
+    <path d="M700,372 C610,560 480,650 455,760" marker-end="url(#dot)"/>
+    <!-- Olga -> MongoDB prerequisites (routé sous les cartes) -->
+    <path d="M700,910 L700,936 L165,936 L165,912" marker-end="url(#dot)"/>
+  </g>
+
+  <!-- edge labels -->
+  <g font-size="11" fill="#be185d" font-weight="600">
+    <text x="286" y="244">roleid</text>
+    <text x="566" y="270">created_by</text>
+    <text x="762" y="402">meeting_id</text>
+    <text x="556" y="392">doctor_id</text>
+    <text x="916" y="468">meeting_id</text>
+    <text x="430" y="566">patient_id</text>
+    <text x="900" y="244">meeting_id</text>
+    <text x="900" y="320">meeting_id</text>
+    <text x="892" y="624">meeting_id</text>
+    <text x="1205" y="266">transcript_id</text>
+    <text x="1090" y="200">meeting_id</text>
+    <text x="1388" y="398">report_id</text>
+  </g>
+  <g font-size="11" fill="#7c3aed" font-weight="600">
+    <text x="1150" y="560">qdrant_point_id</text>
+    <text x="1408" y="560">pdf_url</text>
+    <text x="1430" y="690">file_url</text>
+    <text x="300" y="640">meeting_id · patient_id</text>
+    <text x="470" y="600">oncovision_room_id</text>
+    <text x="372" y="930">formulaires ⇢ prérequis</text>
+  </g>
+
+</svg>

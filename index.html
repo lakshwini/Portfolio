@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lakshwini DANASSEGARANE | Data & IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══ NAV ══ -->
+    <nav>
+    <div class="nav-logo">Lakshwini ✦</div>
+    <ul class="nav-links">
+      <li><a href="#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()" aria-label="Changer la langue">
+        <span class="lang-flag" id="currentFlag">🌐</span>
+        <span id="currentLangLabel">FR</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option active" data-lang="fr" onclick="setLang('fr')">
+          <span class="lang-option-flag">🇫🇷</span> Français
+          <span class="lang-option-check" id="check-fr">✓</span>
+        </button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')">
+          <span class="lang-option-flag">🇬🇧</span> English
+          <span class="lang-option-check" id="check-en" style="display:none">✓</span>
+        </button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')">
+          <span class="lang-option-flag">🇮🇳</span> தமிழ்
+          <span class="lang-option-check" id="check-ta" style="display:none">✓</span>
+        </button>
+      </div>
+    </div>
+    <a href="#" class="nav-cv" download data-i18n="nav.cv">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Télécharger CV
+    </a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn active" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+    <a href="#" class="nav-mobile-cv" download data-i18n="nav.cv">Télécharger CV</a>
+  </div>
+    <a href="#" class="nav-mobile-cv" download data-i18n="nav.cv">Télécharger CV</a>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section id="accueil">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span data-i18n="hero.badge">Disponible pour alternance — 2026</span>
+      </div>
+      <p class="hero-greeting" data-i18n="hero.greeting">Bonjour, je m'appelle</p>
+      <h1 class="hero-name">Lakshwini<br><em>DANASSEGARANE</em></h1>
+      <p class="hero-tagline"><strong data-i18n="hero.tagline">Future Ingénieure Data & IA</strong> — ESIEA</p>
+      <div class="hero-location">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Paris, France
+      </div>
+      <div class="hero-buttons">
+        <a href="#projets" class="btn-primary" data-i18n="hero.btn_projects">Voir mes projets</a>
+        <a href="#contact" class="btn-secondary" data-i18n="hero.btn_contact">Me contacter</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://github.com" target="_blank" title="GitHub">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="mailto:lakshwini.danassegarane@outlook.com" title="Email">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrapper">
+      <div class="photo-ring"></div>
+      <div class="photo-ring photo-ring-2"></div>
+      <div class="float-pill pill-1">🔮 Data Science</div>
+      <div class="float-pill pill-2">✨ <span data-i18n="pill.ai">Intelligence Artificielle</span></div>
+      <div class="float-pill pill-3">⚡ Machine Learning</div>
+      <div class="hero-photo-frame">
+        <img src="img/aceuil.jpeg" alt="Lakshwini DANASSEGARANE" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ À PROPOS ══ -->
+  <section id="apropos">
+    <div class="section-eyebrow" data-i18n="about.eyebrow">Qui suis-je ?</div>
+    <div class="section-line"></div>
+    <h2 class="section-title">À <em data-i18n="about.title_em">propos</em></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-i18n="about.p1">Passionnée par la data et l'intelligence artificielle, je suis future ingénieure à l'ESIEA, spécialisée Data & IA. Mon parcours m'a conduite de l'IUT de Créteil-Vitry à des projets concrets mêlant développement, bases de données et visualisation.</p>
+        <p data-i18n="about.p2">En alternance chez NUMILOG, je développe des pipelines ETL, traite des données éditoriales complexes (XML/ONIX, FTP) et contribue à l'évolution de systèmes DRM en C#. Cette expérience m'apprend à concevoir des solutions robustes adaptées aux contraintes métier réelles.</p>
+        <p data-i18n="about.p3">Curieuse, rigoureuse et créative, je cherche une alternance de 3 ans (2 sem/2 sem) à partir de 2026 pour continuer à apprendre et contribuer à des projets data innovants.</p>
+      </div>
+      <div class="about-cards">
+        <div class="about-card"><div class="about-card-label" data-i18n="about.card_formation">Formation</div><div class="about-card-value">ESIEA — Data & IA</div></div>
+        <div class="about-card"><div class="about-card-label" data-i18n="about.card_location">Localisation</div><div class="about-card-value">Paris, France</div></div>
+        <div class="about-card"><div class="about-card-label" data-i18n="about.card_availability">Disponibilité</div><div class="about-card-value rose" data-i18n="about.card_availability_val">Alternance 2026</div></div>
+        <div class="about-card"><div class="about-card-label" data-i18n="about.card_rhythm">Rythme</div><div class="about-card-value">2 sem / 2 sem</div></div>
+        <div class="about-card"><div class="about-card-label" data-i18n="about.card_duration">Durée</div><div class="about-card-value rose" data-i18n="about.card_duration_val">3 ans</div></div>
+        <div class="about-card"><div class="about-card-label" data-i18n="about.card_languages">Langues</div><div class="about-card-value">FR · EN B2 · <span data-i18n="about.card_languages_val">Tamoul</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COMPÉTENCES ══ -->
+  <section id="competences">
+    <div class="section-eyebrow" data-i18n="skills.eyebrow">Savoir-faire</div>
+    <div class="section-line"></div>
+    <h2 class="section-title">Mes <em data-i18n="skills.title_em">compétences</em></h2>
+    <p class="section-desc" data-i18n="skills.desc">Un stack technique orienté data, développement backend et outils modernes de gestion de projet.</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-title">💻 <span data-i18n="skills.cat_languages">Langages</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">C#</span><span class="skill-tag">C</span><span class="skill-tag">PHP</span><span class="skill-tag">SQL / PL-SQL</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">🗄️ <span data-i18n="skills.cat_db">Bases de données</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag">SQL Server</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Entity Framework</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">🛠️ <span data-i18n="skills.cat_tools">Outils & Frameworks</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag">.NET</span><span class="skill-tag">API RESTful</span><span class="skill-tag">Docker</span><span class="skill-tag">Power BI</span><span class="skill-tag">Excel</span><span class="skill-tag">React</span><span class="skill-tag">Folium</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">📊 <span data-i18n="skills.cat_data">Data & IA</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag">ETL</span><span class="skill-tag" data-i18n="skill.pipelines">Pipelines de données</span><span class="skill-tag">Web Scraping</span><span class="skill-tag" data-i18n="skill.dataviz">Visualisation</span><span class="skill-tag">Machine Learning</span><span class="skill-tag" data-i18n="skill.ai_agents">Agents IA</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">🔄 <span data-i18n="skills.cat_pm">Gestion de projet</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag">GitHub / SVN / TFS</span><span class="skill-tag">Agile / Scrum</span><span class="skill-tag">Teams</span><span class="skill-tag">Slack</span><span class="skill-tag">ClickUp</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">🌸 <span data-i18n="skills.cat_soft">Soft skills</span></div>
+        <div class="skill-tags">
+          <span class="skill-tag" data-i18n="soft.teamwork">Travail en équipe</span><span class="skill-tag" data-i18n="soft.autonomy">Autonomie</span><span class="skill-tag" data-i18n="soft.adaptability">Adaptabilité</span><span class="skill-tag" data-i18n="soft.rigor">Rigueur</span><span class="skill-tag" data-i18n="soft.curiosity">Curiosité</span><span class="skill-tag" data-i18n="soft.communication">Communication</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PARCOURS ══ -->
+  <section id="parcours">
+    <div class="section-eyebrow" data-i18n="journey.eyebrow">Mon histoire</div>
+    <div class="section-line"></div>
+    <h2 class="section-title">Mon <em data-i18n="journey.title_em">parcours</em></h2>
+    <p class="section-desc" data-i18n="journey.desc">Formations et expériences qui ont forgé mon expertise en data et développement.</p>
+    <div class="parcours-grid">
+      <div>
+        <p class="parcours-col-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <span data-i18n="journey.col_exp">Expériences professionnelles</span>
+        </p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date" data-i18n="exp.numilog_date">2024 – Présent</div>
+            <div class="timeline-role" data-i18n="exp.numilog_role">Apprentie — Développeuse Orientée Data</div>
+            <div class="timeline-org">NUMILOG · Arcueil, France</div>
+            <ul class="timeline-desc">
+              <li data-i18n="exp.numilog_1">Pipelines ETL : parsing CSV/XLSX, validation métier, TVA multi-devises</li>
+              <li data-i18n="exp.numilog_2">Données éditoriales : collecte FTP, parsing XML/ONIX, import SQL Server</li>
+              <li data-i18n="exp.numilog_3">Application console C# : comparaison catalogues et détection d'anomalies</li>
+              <li data-i18n="exp.numilog_4">Évolution système DRM LCP : conversion SHA256 Go → C#</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="parcours-col-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <span data-i18n="journey.col_edu">Formations</span>
+        </p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date" data-i18n="edu.esiea_date">Prévu 2026</div>
+            <div class="timeline-role" data-i18n="edu.esiea_role">Diplôme d'ingénieur — Data & IA</div>
+            <div class="timeline-org">ESIEA Engineering School · Ivry-sur-Seine</div>
+            <p class="timeline-desc" data-i18n="edu.esiea_desc">Spécialisation en science des données, intelligence artificielle et systèmes distribués.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2023 – Présent</div>
+            <div class="timeline-role">BUT Informatique</div>
+            <div class="timeline-org">IUT Créteil-Vitry (UPEC) · Vitry-sur-Seine</div>
+            <p class="timeline-desc" data-i18n="edu.iut_desc">Parcours Administration, Gestion et Exploitation des Données.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2020 – 2023</div>
+            <div class="timeline-role" data-i18n="edu.bac_role">Baccalauréat Général</div>
+            <div class="timeline-org">Lycée Rosa Parks · Montgeron</div>
+            <p class="timeline-desc" data-i18n="edu.bac_desc">Spécialités Mathématiques, NSI et Physique-Chimie.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROJETS ══ -->
+  <section id="projets">
+    <div class="section-eyebrow" data-i18n="projects.eyebrow">Ce que j'ai construit</div>
+    <div class="section-line"></div>
+    <h2 class="section-title">Mes <em data-i18n="projects.title_em">projets</em></h2>
+    <p class="section-desc" data-i18n="projects.desc">Des projets alliant data, développement web et intelligence artificielle.</p>
+
+    <div class="carousel-wrapper">
+      <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Précédent">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-viewport" id="carouselViewport">
+        <div class="carousel-track" id="carouselTrack">
+
+          <a href="oncocollab.html" class="project-card carousel-card">
+            <div class="project-top rose-top"><div class="proj-badge badge-ia">IA</div>🧬</div>
+            <div class="project-body">
+              <div class="project-title" data-i18n="proj.onco_title">Plateforme Médicale RCP & Agents IA</div>
+              <p class="project-desc" data-i18n="proj.onco_desc">Plateforme collaborative pour les équipes médicales en oncologie — visioconférence, préparation des réunions et génération automatique de compte-rendus par IA.</p>
+              <div class="project-techs"><span class="project-tech">Python</span><span class="project-tech">React</span><span class="project-tech">Agents IA</span><span class="project-tech">SQL</span></div>
+              <span class="project-detail-link" data-i18n="proj.see_more">Voir en détail →</span>
+            </div>
+          </a>
+
+          <a href="meteorologie.html" class="project-card carousel-card">
+            <div class="project-top mauve-top"><div class="proj-badge badge-data">Data</div>🌤️</div>
+            <div class="project-body">
+              <div class="project-title" data-i18n="proj.meteo_title">Analyse & Visualisation Données Météo</div>
+              <p class="project-desc" data-i18n="proj.meteo_desc">Application web PHP/MySQL avec carte interactive, graphiques multi-années et panneau d'administration complet — données SYNOP et APIs météo en temps réel.</p>
+              <div class="project-techs"><span class="project-tech">PHP</span><span class="project-tech">MySQL</span><span class="project-tech">D3.js</span><span class="project-tech">Leaflet.js</span></div>
+              <span class="project-detail-link" data-i18n="proj.see_more">Voir en détail →</span>
+            </div>
+          </a>
+
+          <a href="cartographie.html" class="project-card carousel-card">
+            <div class="project-top peach-top"><div class="proj-badge badge-web">Data / Web</div>🎬</div>
+            <div class="project-body">
+              <div class="project-title" data-i18n="proj.carto_title">Cartographie Séances de Cinéma</div>
+              <p class="project-desc" data-i18n="proj.carto_desc">Scraping AlloCiné pour extraire 592 cinémas, géolocalisation via API data.gouv.fr et visualisation interactive de 2 948 films sur une carte Folium.</p>
+              <div class="project-techs"><span class="project-tech">Python</span><span class="project-tech">BeautifulSoup</span><span class="project-tech">Folium</span><span class="project-tech">JSON</span></div>
+              <span class="project-detail-link" data-i18n="proj.see_more">Voir en détail →</span>
+            </div>
+          </a>
+
+          <a href="neurone.html" class="project-card carousel-card">
+            <div class="project-top" style="background:linear-gradient(135deg,#f0d9eb,#fde8dc);"><div class="proj-badge badge-ia">IA / ML</div>🧠</div>
+            <div class="project-body">
+              <div class="project-title" data-i18n="proj.neurone_title">Détection Couleur par Perceptron</div>
+              <p class="project-desc" data-i18n="proj.neurone_desc">Neurone artificiel codé de zéro en Python pur — apprentissage sur des couleurs RGB pour distinguer les rouges des non-rouges, sans aucune bibliothèque ML.</p>
+              <div class="project-techs"><span class="project-tech">Python</span><span class="project-tech">Perceptron</span><span class="project-tech">RGB</span><span class="project-tech">ML</span></div>
+              <span class="project-detail-link" data-i18n="proj.see_more">Voir en détail →</span>
+            </div>
+          </a>
+
+          <a href="ecoles.html" class="project-card carousel-card">
+            <div class="project-top" style="background:linear-gradient(135deg,#fde8dc,#fef4ee);"><div class="proj-badge badge-web">Data</div>📊</div>
+            <div class="project-body">
+              <div class="project-title" data-i18n="proj.ecoles_title">Tableau de bord Effectifs Scolaires</div>
+              <p class="project-desc" data-i18n="proj.ecoles_desc">Dashboard Excel interactif sur les données du ministère de l'Éducation — 242 000 écoles, 5 rentrées, tableaux croisés dynamiques et slicers croisés.</p>
+              <div class="project-techs"><span class="project-tech">Excel</span><span class="project-tech">TCD</span><span class="project-tech">Power Query</span><span class="project-tech">Open Data</span></div>
+              <span class="project-detail-link" data-i18n="proj.see_more">Voir en détail →</span>
+            </div>
+          </a>
+
+          <a href="demographie.html" class="project-card carousel-card">
+            <div class="project-top" style="background:linear-gradient(135deg,#fde8ed,#f0d9eb);"><div class="proj-badge badge-ia">Data / BI</div>🗺️</div>
+            <div class="project-body">
+              <div class="project-title" data-i18n="proj.demo_title">Démographie française 2019</div>
+              <p class="project-desc" data-i18n="proj.demo_desc">App web JS + dashboard Power BI sur les données INSEE — pyramide des âges interactive, densité par région, répartition CSP pour 65 millions d'habitants.</p>
+              <div class="project-techs"><span class="project-tech">Plotly.js</span><span class="project-tech">Power BI</span><span class="project-tech">DAX</span><span class="project-tech">INSEE</span></div>
+              <span class="project-detail-link" data-i18n="proj.see_more">Voir en détail →</span>
+            </div>
+          </a>
+
+          <a href="acp.html" class="project-card carousel-card">
+            <div class="project-top" style="background:linear-gradient(135deg,#f0d9eb,#fde8dc);"><div class="proj-badge badge-ia">ML / Stats</div>🔬</div>
+            <div class="project-body">
+              <div class="project-title" data-i18n="proj.acp_title">Réduction de dimension — ACP</div>
+              <p class="project-desc" data-i18n="proj.acp_desc">ACP sur trois datasets : feuilles (40 espèces, 14 variables), vins italiens (3 cépages) et habitudes alimentaires UK — visualisations 2D et 3D en Python.</p>
+              <div class="project-techs"><span class="project-tech">Python</span><span class="project-tech">sklearn PCA</span><span class="project-tech">matplotlib</span><span class="project-tech">seaborn</span></div>
+              <span class="project-detail-link" data-i18n="proj.see_more">Voir en détail →</span>
+            </div>
+          </a>
+
+          <a href="cicd.html" class="project-card carousel-card">
+            <div class="project-top" style="background:linear-gradient(135deg,#fde8dc,#fef4ee);"><div class="proj-badge badge-web">DevOps</div>🚀</div>
+            <div class="project-body">
+              <div class="project-title" data-i18n="proj.cicd_title">Chaîne CI/CD complète</div>
+              <p class="project-desc" data-i18n="proj.cicd_desc">Pipeline DevOps de bout en bout : Spring Boot + Flask containerisés avec Docker, déployés sur 3 environnements via GitHub Actions et Docker Hub.</p>
+              <div class="project-techs"><span class="project-tech">Docker</span><span class="project-tech">GitHub Actions</span><span class="project-tech">Spring Boot</span><span class="project-tech">Flask</span></div>
+              <span class="project-detail-link" data-i18n="proj.see_more">Voir en détail →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+      <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Suivant">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="section-eyebrow" data-i18n="contact.eyebrow">Travaillons ensemble</div>
+      <div class="section-line" style="margin:0 auto 0.8rem;"></div>
+      <h2 class="section-title">Contactez-<em data-i18n="contact.title_em">moi</em></h2>
+      <p class="section-desc" data-i18n="contact.desc">Un projet ou une opportunité d'alternance ? N'hésitez pas, je vous répondrai rapidement !</p>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label data-i18n="contact.field_name">Nom complet</label><input type="text" data-i18n-placeholder="contact.ph_name" placeholder="Jean Dupont" required /></div>
+          <div class="form-group"><label data-i18n="contact.field_email">Adresse e-mail</label><input type="email" data-i18n-placeholder="contact.ph_email" placeholder="jean@exemple.fr" required /></div>
+        </div>
+        <div class="form-group"><label data-i18n="contact.field_subject">Sujet</label><input type="text" data-i18n-placeholder="contact.ph_subject" placeholder="Proposition d'alternance" required /></div>
+        <div class="form-group"><label data-i18n="contact.field_message">Message</label><textarea data-i18n-placeholder="contact.ph_message" placeholder="Bonjour Lakshwini..." required></textarea></div>
+        <button type="submit" class="form-submit" data-i18n="contact.btn_send">Envoyer le message ✦</button>
+      </form>
+      <div class="contact-links">
+        <a href="mailto:lakshwini.danassegarane@outlook.com" class="contact-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          lakshwini.danassegarane@outlook.com
+        </a>
+        <a href="tel:0698389113" class="contact-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          06 98 38 91 13
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;" data-i18n="footer.made">Fait avec ♥</p>
+  </footer>
+
+</section>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;" data-i18n="footer.made">Fait avec ♥</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    /* ── Nav dropdown ── */
+    function toggleLangMenu() {
+      document.getElementById('langDropdown').classList.toggle('open');
+    }
+    document.addEventListener('click', function(e) {
+      const dd = document.getElementById('langDropdown');
+      if (dd && !dd.contains(e.target)) dd.classList.remove('open');
+    });
+
+    /* ── Update dropdown display ── */
+    function updateLangUI(lang) {
+      const flags  = { fr: '🇫🇷', en: '🇬🇧', ta: '🇮🇳' };
+      const labels = { fr: 'FR',   en: 'EN',   ta: 'TA'   };
+      const flagEl  = document.getElementById('currentFlag');
+      const labelEl = document.getElementById('currentLangLabel');
+      if (flagEl)  flagEl.textContent  = flags[lang]  || '🌐';
+      if (labelEl) labelEl.textContent = labels[lang] || lang.toUpperCase();
+      ['fr','en','ta'].forEach(l => {
+        const el = document.getElementById('check-' + l);
+        if (el) el.style.display = (l === lang) ? '' : 'none';
+      });
+      document.querySelectorAll('.lang-btn, .lang-option').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    /* ── Wrap setLang so UI updates too ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      const orig = window.setLang;
+      window.setLang = function(lang) {
+        if (orig) orig(lang);
+        updateLangUI(lang);
+        // close mobile menu if open
+        closeMobile();
+        // close dropdown
+        const dd = document.getElementById('langDropdown');
+        if (dd) dd.classList.remove('open');
+      };
+      // init UI with saved lang
+      updateLangUI(typeof currentLang !== 'undefined' ? currentLang : 'fr');
+    });
+
+    /* ── Hamburger ── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      });
+    }
+    function closeMobile() {
+      if (hamburger)   hamburger.classList.remove('open');
+      if (mobileMenu)  mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    if (mobileMenu) {
+      mobileMenu.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', closeMobile));
+    }
+
+    /* ── Nav active link on scroll ── */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--rose)' : ''; });
+    });
+
+    /* ── Contact form ── */
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      const msg = typeof t === 'function' ? t('contact.success') : 'Envoyé !';
+      btn.textContent = '✓ ' + msg;
+      btn.style.background = '#a8c8b0';
+      setTimeout(() => {
+        btn.textContent = typeof t === 'function' ? t('contact.btn_send') : 'Envoyer';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    /* ── Scroll animations ── */
+    const animStyle = document.createElement('style');
+    animStyle.textContent = '.anim{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';
+    document.head.appendChild(animStyle);
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) { e.target.style.transitionDelay = (i * .07) + 's'; e.target.classList.add('visible'); }
+      });
+    }, { threshold: .1 });
+    document.querySelectorAll('.skill-card,.timeline-item,.about-card').forEach(el => { el.classList.add('anim'); obs.observe(el); });
+
+    /* ══ CAROUSEL ══ */
+    (function () {
+      const track    = document.getElementById('carouselTrack');
+      const viewport = document.getElementById('carouselViewport');
+      const btnPrev  = document.getElementById('carouselPrev');
+      const btnNext  = document.getElementById('carouselNext');
+      const dotsEl   = document.getElementById('carouselDots');
+      const cards    = Array.from(track.querySelectorAll('.carousel-card'));
+      const VISIBLE  = () => window.innerWidth < 600 ? 1 : window.innerWidth < 900 ? 2 : 3;
+      const GAP = 24;
+      let current = 0, autoTimer = null;
+      const total = cards.length;
+
+      function buildDots() {
+        dotsEl.innerHTML = '';
+        const pages = total - VISIBLE() + 1;
+        for (let i = 0; i < pages; i++) {
+          const d = document.createElement('button');
+          d.className = 'carousel-dot' + (i === current ? ' active' : '');
+          d.addEventListener('click', () => goTo(i));
+          dotsEl.appendChild(d);
+        }
+      }
+      function goTo(index) {
+        const pages = total - VISIBLE() + 1;
+        current = Math.max(0, Math.min(index, pages - 1));
+        const cardW = cards[0].getBoundingClientRect().width;
+        track.style.transform = 'translateX(-' + (current * (cardW + GAP)) + 'px)';
+        document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+        btnPrev.style.opacity = current === 0 ? '0.35' : '1';
+        btnNext.style.opacity = current >= pages - 1 ? '0.35' : '1';
+      }
+      function next() { goTo(current + 1 < total - VISIBLE() + 1 ? current + 1 : 0); }
+      function prev() { goTo(current - 1 >= 0 ? current - 1 : total - VISIBLE()); }
+      function startAuto() { autoTimer = setInterval(next, 3500); }
+      function stopAuto()  { clearInterval(autoTimer); }
+
+      btnNext.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+      btnPrev.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+      viewport.addEventListener('mouseenter', stopAuto);
+      viewport.addEventListener('mouseleave', startAuto);
+
+      let touchStartX = 0;
+      viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+      viewport.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) diff > 0 ? next() : prev();
+        startAuto();
+      });
+      window.addEventListener('resize', () => { buildDots(); goTo(current); });
+      buildDots(); goTo(0); startAuto();
+    })();
+  </script>
+</body>
+</html>

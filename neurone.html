@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Lakshwini DANASSEGARANE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="neurone.css"/>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()">
+        <span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <section class="hero-neurone">
+    <div class="hero-neurone-content">
+      <div class="neurone-nav"><a href="index.html#projets" data-i18n="nav.back">← Retour aux projets</a></div>
+      <h1 class="hero-neurone-title" data-i18n="neurone.title">Cette couleur est-elle rouge ?</h1>
+      <p class="hero-neurone-desc" data-i18n="neurone.hero_desc">Le code from-scratch d'un perceptron en Python qui apprend à classifier des couleurs RGB — sans aucune bibliothèque de ML.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">Python</span><span class="tech-tag-hero">Perceptron</span><span class="tech-tag-hero">Machine Learning</span><span class="tech-tag-hero">RGB</span>
+      </div>
+      <div class="neurone-visual">
+        <div class="neurone-visual-title" data-i18n="neurone.idea_eyebrow">Tester le neurone en live</div>
+        <div class="color-controls">
+          <div class="color-slider-group"><div class="color-slider-label">R <span id="valR">0.90</span></div><input type="range" class="color-slider" id="sliderR" min="0" max="100" value="90"/></div>
+          <div class="color-slider-group"><div class="color-slider-label">G <span id="valG">0.05</span></div><input type="range" class="color-slider" id="sliderG" min="0" max="100" value="5"/></div>
+          <div class="color-slider-group"><div class="color-slider-label">B <span id="valB">0.05</span></div><input type="range" class="color-slider" id="sliderB" min="0" max="100" value="5"/></div>
+        </div>
+        <div class="color-preview-row">
+          <div class="color-swatch" id="colorSwatch"></div>
+          <div class="neurone-result"><div class="result-badge" id="resultBadge">—</div><div class="neurone-state" id="neuroneState">p = [2.5, −1.8, −1.2]</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="neurone.idea_eyebrow">L'idée</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Qu'est-ce qu'un <em data-i18n="neurone.idea_title_em">perceptron ?</em></h2>
+      <div class="section-grid-2">
+        <div class="section-text">
+          <p data-i18n="neurone.p1">J'ai programmé de zéro un neurone artificiel capable de décider si une couleur est rouge ou non, sans utiliser aucune bibliothèque de machine learning.</p>
+          <p data-i18n="neurone.p2">Une couleur c'est trois chiffres : rouge, vert, bleu, chacun entre 0 et 1. L'objectif du neurone est de trouver la frontière dans cet espace qui sépare les rouges des non-rouges.</p>
+          <p data-i18n="neurone.p3">Tout est codé en Python pur — la logique d'apprentissage, les corrections de poids, la mesure de convergence : tout est écrit ligne par ligne.</p>
+        </div>
+        <div class="concept-cards">
+          <div class="concept-card anim"><div class="concept-card-title" data-i18n="neurone.step1_title">Initialisation</div><div class="concept-card-desc" data-i18n="neurone.step1_desc">État initial p = [1, 1, 1], pas d'apprentissage ε = 0.2</div></div>
+          <div class="concept-card anim"><div class="concept-card-title" data-i18n="neurone.step2_title">Époque</div><div class="concept-card-desc" data-i18n="neurone.step2_desc">Présentation des 15 couleurs de la liste d'entraînement, une par une</div></div>
+          <div class="concept-card anim"><div class="concept-card-title" data-i18n="neurone.step3_title">Correction</div><div class="concept-card-desc" data-i18n="neurone.step3_desc">Si erreur : pᵢ ← pᵢ ± ε·eᵢ selon le type d'erreur</div></div>
+          <div class="concept-card anim"><div class="concept-card-title" data-i18n="neurone.step4_title">Convergence</div><div class="concept-card-desc" data-i18n="neurone.step4_desc">Répétition jusqu'à ce que l'écart entre deux époques soit inférieur à 0.0001</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;background:var(--bg2);">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="neurone.how_eyebrow">Comment ça marche</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Comment le neurone <em data-i18n="neurone.how_title_em">apprend</em></h2>
+      <div class="flow-steps">
+        <div class="flow-step anim"><div class="flow-step-num">1</div><div class="flow-step-title" data-i18n="neurone.step1_title">Initialisation</div><div class="flow-step-desc" data-i18n="neurone.step1_desc">État initial p = [1, 1, 1]</div></div>
+        <div class="flow-step anim"><div class="flow-step-num">2</div><div class="flow-step-title" data-i18n="neurone.step2_title">Époque</div><div class="flow-step-desc" data-i18n="neurone.step2_desc">15 couleurs présentées une par une</div></div>
+        <div class="flow-step anim"><div class="flow-step-num">3</div><div class="flow-step-title" data-i18n="neurone.step3_title">Correction</div><div class="flow-step-desc" data-i18n="neurone.step3_desc">pᵢ ← pᵢ ± ε·eᵢ si erreur</div></div>
+        <div class="flow-step anim"><div class="flow-step-num">4</div><div class="flow-step-title" data-i18n="neurone.step4_title">Convergence</div><div class="flow-step-desc" data-i18n="neurone.step4_desc">Arrêt si écart &lt; 0.0001</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="code-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="neurone.code_eyebrow">Le code</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Ce que <em data-i18n="neurone.code_title_em">j'ai écrit</em></h2>
+      <div class="code-switcher">
+        <div class="code-switch-tabs">
+          <button class="csw-tab active" onclick="showCode('feuilles',this)">neurone.py</button>
+          <button class="csw-tab" onclick="showCode('vins',this)">couleur_rouge.py</button>
+        </div>
+        <div class="csw-panel active" id="code-feuilles">
+          <pre><span class="cm"># neurone.py</span>
+<span class="im">def</span> <span class="fn">activation</span>(p, e):
+    somme = <span class="fn">sum</span>([p[i]*e[i] <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="fn">len</span>(p))])
+    <span class="kw">return</span> somme >= <span class="nb">1</span>
+
+<span class="im">def</span> <span class="fn">apprentissage</span>(p, e, b):
+    alpha = <span class="nb">0.1</span>
+    sortie = <span class="fn">activation</span>(p, e)
+    erreur = b - sortie
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="fn">len</span>(p)):
+        p[i] += alpha * erreur * e[i]
+    <span class="kw">return</span> p
+
+<span class="im">def</span> <span class="fn">ecart</span>(p1, p2):
+    <span class="kw">return</span> <span class="fn">sum</span>((p2[i]-p1[i])**<span class="nb">2</span> <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="fn">len</span>(p1)))</pre>
+        </div>
+        <div class="csw-panel" id="code-vins">
+          <pre><span class="cm"># couleur_rouge.py</span>
+p_init = [<span class="nb">1</span>, <span class="nb">1</span>, <span class="nb">1</span>]
+seuil  = <span class="nb">0.0001</span>
+
+<span class="kw">def</span> <span class="fn">apprentissage</span>():
+    p = <span class="fn">list</span>(p_init)
+    cpt = <span class="nb">0</span>
+    <span class="kw">while</span> <span class="kw">True</span>:
+        new_p = neurone.<span class="fn">epoque_apprentissage</span>(p, liste)
+        e     = neurone.<span class="fn">ecart</span>(p, new_p)
+        <span class="kw">if</span> e &lt; seuil: <span class="kw">break</span>
+        p = <span class="fn">list</span>(new_p); cpt += <span class="nb">1</span>
+    <span class="fn">print</span>(<span class="st">f"Convergence après {cpt} itérations"</span>)
+    <span class="kw">return</span> p</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="neurone.res_eyebrow">Les résultats</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Ce que le neurone <em data-i18n="neurone.res_title_em">a appris</em></h2>
+      <div class="results-grid">
+        <div class="result-card anim"><div class="result-number">15</div><div class="result-label">couleurs d'entraînement</div></div>
+        <div class="result-card anim"><div class="result-number">&lt;20</div><div class="result-label">époques avant convergence</div></div>
+        <div class="result-card anim"><div class="result-number">100%</div><div class="result-label">précision sur le jeu de test</div></div>
+      </div>
+      <div style="margin-top:3rem;">
+        <div class="test-palette">
+          <div class="palette-chip"><div class="chip-swatch" style="background:rgb(229,0,0);"></div><div class="chip-label">(0.9, 0, 0)</div><div class="chip-verdict rouge-v">✓ rouge</div></div>
+          <div class="palette-chip"><div class="chip-swatch" style="background:rgb(255,51,51);"></div><div class="chip-label">(1, 0.2, 0.2)</div><div class="chip-verdict rouge-v">✓ rouge</div></div>
+          <div class="palette-chip"><div class="chip-swatch" style="background:rgb(0,0,255);"></div><div class="chip-label">(0, 0, 1)</div><div class="chip-verdict non-v">✗ non</div></div>
+          <div class="palette-chip"><div class="chip-swatch" style="background:rgb(255,0,255);"></div><div class="chip-label">(1, 0, 1)</div><div class="chip-verdict non-v">✗ non</div></div>
+          <div class="palette-chip"><div class="chip-swatch" style="background:rgb(255,127,0);"></div><div class="chip-label">(1, 0.5, 0)</div><div class="chip-verdict non-v">✗ non</div></div>
+          <div class="palette-chip"><div class="chip-swatch" style="background:rgb(178,127,102);"></div><div class="chip-label">(0.7, 0.5, 0.4)</div><div class="chip-verdict non-v">✗ non</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="proj.captures">Captures</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Captures <em data-i18n="neurone.captures_title_em">& démo</em></h2>
+      <div class="demo-placeholder"><span data-i18n="proj.placeholder_demo">Captures / démo à intégrer</span></div>
+            <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;">
+        <a href="index.html#projets" class="back-button" data-i18n="proj.back">← Retour aux projets</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;" data-i18n="footer.made">Fait avec ♥</p>
+  </footer>
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){
+      const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};
+      const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');
+      if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;
+      ['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});
+      document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));
+    }
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.feature-card,.result-card,.analyse-card,.insight-card,.concept-card,.flow-step,.service-card,.env-card,.dax-card,.cmd-group,.source-card,.compare-card,.viz-card,.kpi-card,.result-block,.phase-item,.pipeline-step,.skill-item,.metric-card,.resource-card,.json-file-card').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(currentLang));
+  </script>
+  <script>
+    function showCode(id,btn){document.querySelectorAll('.csw-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.csw-tab').forEach(t=>t.classList.remove('active'));document.getElementById('code-'+id).classList.add('active');btn.classList.add('active');}
+    (function(){
+      const P=[2.50,-1.80,-1.20];
+      function activation(p,e){return(p[0]*e[0]+p[1]*e[1]+p[2]*e[2])>=1;}
+      const sR=document.getElementById('sliderR'),sG=document.getElementById('sliderG'),sB=document.getElementById('sliderB');
+      const vR=document.getElementById('valR'),vG=document.getElementById('valG'),vB=document.getElementById('valB');
+      const swatch=document.getElementById('colorSwatch'),badge=document.getElementById('resultBadge'),state=document.getElementById('neuroneState');
+      function update(){
+        const r=sR.value/100,g=sG.value/100,b=sB.value/100;
+        vR.textContent=r.toFixed(2);vG.textContent=g.toFixed(2);vB.textContent=b.toFixed(2);
+        swatch.style.background='rgb('+Math.round(r*255)+','+Math.round(g*255)+','+Math.round(b*255)+')';
+        const q=(P[0]*r+P[1]*g+P[2]*b).toFixed(3),isRed=activation(P,[r,g,b]);
+        badge.textContent=isRed?'Rouge !':'Pas rouge';
+        badge.className='result-badge '+(isRed?'rouge':'pas-rouge');
+        state.textContent='q = '+q+' '+(isRed?'≥':'<')+' 1';
+      }
+      sR.addEventListener('input',update);sG.addEventListener('input',update);sB.addEventListener('input',update);update();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lakshwini DANASSEGARANE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="cartographie.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()">
+        <span class="lang-flag" id="currentFlag">🌐</span>
+        <span id="currentLangLabel">FR</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <section class="hero-cartographie">
+    <div class="hero-cartographie-content">
+      <div class="cartographie-nav"><a href="index.html#projets" data-i18n="nav.back">← Retour aux projets</a></div>
+      <h1 class="hero-cartographie-title" data-i18n="carto.title">Cartographie des Cinémas en France</h1>
+      <p class="hero-cartographie-desc" data-i18n="carto.hero_desc">J'ai automatisé la collecte de données AlloCiné pour cartographier 592 cinémas français.</p>
+      <div class="hero-image"><img src="img/scrapingImg.png" alt="Carte interactive des cinémas" /></div>
+    </div>
+  </section>
+
+  <section class="json-top-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="carto.data_eyebrow">Les données collectées</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Trois niveaux <em data-i18n="carto.data_title_em">de détail</em></h2>
+      <p style="color:var(--text-mid);font-size:0.97rem;line-height:1.85;margin-bottom:2rem;max-width:800px;" data-i18n="carto.data_p">Selon l'usage, les données sont structurées en trois fichiers JSON.</p>
+      <div class="json-grid">
+        <div class="json-file-card anim">
+          <div class="json-file-name">cinemas_simple.json</div>
+          <div class="json-file-content"><code>{"cinemas":[{"nom":"L'Amphi","ville":"Bourg-en-Bresse","lat":46.2045,"lon":5.2245}]}</code></div>
+          <p class="json-description" data-i18n="carto.s2_desc">Nom, ville et coordonnées GPS. Idéal pour afficher rapidement les marqueurs sur la carte.</p>
+        </div>
+        <div class="json-file-card anim">
+          <div class="json-file-name">cinemas_adresses.json</div>
+          <div class="json-file-content"><code>{"cinemas":[{"nom":"L'Amphi","adresse":"1 allée Brotteaux","code_postal":"01000","lat":46.2045,"url_allocine":"..."}]}</code></div>
+          <p class="json-description">Adresse complète et lien vers la page AlloCiné du cinéma.</p>
+        </div>
+        <div class="json-file-card anim">
+          <div class="json-file-name">cinemas_films.json</div>
+          <div class="json-file-content"><code>{"cinemas":[{"nom":"L'Amphi","lat":46.2045,"films":["La Vénus électrique","Michael","..."]}]}</code></div>
+          <p class="json-description">Le programme complet de chaque cinéma — 2 948 films référencés au total.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-top-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="carto.skills_eyebrow">Ce que j'ai mis en place</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Pipeline <em data-i18n="carto.skills_title_em">de A à Z</em></h2>
+      <div class="skills-grid">
+        <div class="skill-item anim">
+          <div class="skill-title" data-i18n="carto.s1_title">Scraping AlloCiné</div>
+          <div class="skill-desc" data-i18n="carto.s1_desc">BeautifulSoup parcourt les pages de cinémas, extrait noms, adresses et catalogues, et gère la pagination automatiquement.</div>
+        </div>
+        <div class="skill-item anim">
+          <div class="skill-title" data-i18n="carto.s2_title">Géolocalisation</div>
+          <div class="skill-desc" data-i18n="carto.s2_desc">Chaque adresse est convertie en coordonnées GPS via l'API data.gouv.fr — 99,8 % des cinémas géolocalisés.</div>
+        </div>
+        <div class="skill-item anim">
+          <div class="skill-title" data-i18n="carto.s3_title">Carte interactive</div>
+          <div class="skill-desc" data-i18n="carto.s3_desc">Affichage sur une carte Leaflet.js / Folium où on peut explorer par région et consulter les films à l'affiche.</div>
+        </div>
+        <div class="skill-item anim">
+          <div class="skill-title" data-i18n="carto.s4_title">Structuration JSON</div>
+          <div class="skill-desc" data-i18n="carto.s4_desc">Trois fichiers JSON selon le niveau de détail nécessaire, conçus pour être facilement réutilisables.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="carto.stats_eyebrow">En chiffres</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Le résultat <em data-i18n="carto.stats_title_em">final</em></h2>
+      <div class="metrics-grid">
+        <div class="metric-card anim"><div class="metric-number">592</div><div class="metric-label">cinémas</div></div>
+        <div class="metric-card anim"><div class="metric-number">2 948</div><div class="metric-label">films</div></div>
+        <div class="metric-card anim"><div class="metric-number">99,8%</div><div class="metric-label">géolocalisation</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-top-section">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="proj.demo_eyebrow">Démonstration</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">La carte <em data-i18n="carto.demo_title_em">en action</em></h2>
+      <video controls class="video-player" style="margin-top:2rem;" preload="metadata">
+        <source src="img/REC-20260515212924.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <section style="padding:4rem 0;">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="proj.source_eyebrow">Code source</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Repository <em>GitHub</em></h2>
+      <div class="resource-card anim" style="max-width:350px;margin:2rem auto 0;">
+        <div class="resource-title" data-i18n="proj.source_title">Repository GitHub</div>
+        <p style="font-size:0.87rem;color:var(--text-muted);margin-bottom:1rem;" data-i18n="proj.source_desc">Code source complet.</p>
+        <a href="https://github.com/lakshwini" class="resource-link" data-i18n="proj.source_link">GitHub →</a>
+      </div>
+            <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;">
+        <a href="index.html#projets" class="back-button" data-i18n="proj.back">← Retour aux projets</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox-overlay" id="lightboxModal">
+    <div class="lightbox-content"><img id="lightboxImage" src="" alt=""/><button class="lightbox-close" id="lightboxClose">&times;</button></div>
+  </div>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;" data-i18n="footer.made">Fait avec ♥</p>
+  </footer>
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){
+      const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};
+      const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');
+      if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;
+      ['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});
+      document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));
+    }
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _animS=document.createElement('style');_animS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_animS);
+    const _obs=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.feature-card,.result-card,.analyse-card,.insight-card,.concept-card,.flow-step,.service-card,.env-card,.dax-card,.cmd-group,.source-card,.compare-card,.viz-card,.kpi-card,.result-block,.phase-item,.pipeline-step').forEach(el=>{el.classList.add('anim');_obs.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(currentLang));
+  </script>
+  <script>
+    const heroImg=document.querySelector('.hero-image img'),modal=document.getElementById('lightboxModal'),lbImg=document.getElementById('lightboxImage'),lbClose=document.getElementById('lightboxClose');
+    if(heroImg){heroImg.addEventListener('click',()=>{lbImg.src=heroImg.src;modal.classList.add('active');document.body.style.overflow='hidden';});}
+    if(lbClose){lbClose.addEventListener('click',()=>{modal.classList.remove('active');document.body.style.overflow='auto';});}
+    if(modal){modal.addEventListener('click',e=>{if(e.target===modal){modal.classList.remove('active');document.body.style.overflow='auto';}});}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){modal.classList.remove('active');document.body.style.overflow='auto';}});
+  </script>
+</body>
+</html>
