@@ -14,6 +14,10 @@
     <a href="index.html" class="nav-logo">Lakshwini ✦</a>
     <ul class="nav-links">
       <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
       <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
       <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -25,11 +29,19 @@
         <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
       </div>
     </div>
+    <a href="docs/DANASSEGARANE_CV.pdf" class="nav-cv" download data-i18n="nav.cv">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Télécharger CV
+    </a>
     <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
   </nav>
   <div class="nav-mobile" id="mobileMenu">
     <ul class="nav-mobile-links">
       <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
       <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
       <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -137,64 +149,6 @@
     </div>
   </section>
 
-  <section class="docker-section">
-    <div class="section-content">
-      <div class="section-eyebrow" data-i18n="cicd.docker_eyebrow">Les Dockerfiles</div>
-      <div class="section-line"></div>
-      <h2 class="section-title">Containerisation</h2>
-      <div class="docker-grid">
-        <div class="docker-card anim">
-          <div class="docker-header"><div class="docker-dot" style="background:#ff5f57;"></div><div class="docker-dot" style="background:#febc2e;"></div><div class="docker-dot" style="background:#28c840;"></div><div class="docker-filename">Dockerfile — Spring Boot</div></div>
-          <div class="docker-body"><pre><span class="dk">FROM</span> <span class="dv">openjdk:17-jdk-slim</span>
-<span class="dk">WORKDIR</span> <span class="dv">/app</span>
-<span class="dk">COPY</span> <span class="dv">target/image-upload-service.jar app.jar</span>
-<span class="dk">EXPOSE</span> <span class="dp">8080</span>
-<span class="dk">ENTRYPOINT</span> [<span class="ds">"java"</span>, <span class="ds">"-jar"</span>, <span class="ds">"app.jar"</span>]</pre></div>
-        </div>
-        <div class="docker-card anim">
-          <div class="docker-header"><div class="docker-dot" style="background:#ff5f57;"></div><div class="docker-dot" style="background:#febc2e;"></div><div class="docker-dot" style="background:#28c840;"></div><div class="docker-filename">Dockerfile — Flask</div></div>
-          <div class="docker-body"><pre><span class="dk">FROM</span> <span class="dv">python:3.11-slim</span>
-<span class="dk">WORKDIR</span> <span class="dv">/app</span>
-<span class="dk">COPY</span> <span class="dv">requirements.txt .</span>
-<span class="dk">RUN</span> <span class="dv">pip install --no-cache-dir -r requirements.txt</span>
-<span class="dk">COPY</span> <span class="dv">. .</span>
-<span class="dk">EXPOSE</span> <span class="dp">5000</span>
-<span class="dk">CMD</span> [<span class="ds">"python"</span>, <span class="ds">"app.py"</span>]</pre></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="actions-section">
-    <div class="section-content">
-      <div class="section-eyebrow" data-i18n="cicd.actions_eyebrow">GitHub Actions</div>
-      <div class="section-line"></div>
-      <h2 class="section-title">La pipeline <em data-i18n="cicd.actions_title_em">automatisée</em></h2>
-      <p style="color:var(--text-muted);font-size:0.88rem;margin-top:0.6rem;" data-i18n="cicd.actions_desc">Déclenché automatiquement à chaque push sur main</p>
-      <div class="yaml-card anim">
-        <div class="yaml-header"><div class="yaml-filename">.github/workflows/ci-cd.yml</div><div class="yaml-badge">● live on push</div></div>
-        <div class="yaml-body"><pre><span class="yk">name:</span> <span class="yv">CI/CD Pipeline</span>
-<span class="yk">on:</span>
-  <span class="yk">push:</span>
-    <span class="yk">branches:</span> [ <span class="yv">"main"</span> ]
-<span class="yk">jobs:</span>
-  <span class="yk">build:</span>
-    <span class="yk">runs-on:</span> <span class="yv">ubuntu-latest</span>
-    <span class="yk">steps:</span>
-      - <span class="yk">uses:</span> <span class="yv">actions/checkout@v3</span>
-      - <span class="yk">name:</span> <span class="yv">Login to Docker Hub</span>
-        <span class="yk">uses:</span> <span class="yv">docker/login-action@v2</span>
-        <span class="yk">with:</span>
-          <span class="yk">username:</span> <span class="ys">${ secrets.DOCKER_USERNAME }</span>
-          <span class="yk">password:</span> <span class="ys">${ secrets.DOCKER_PASSWORD }</span>
-      - <span class="yk">name:</span> <span class="yv">Build and push Spring Boot</span>
-        <span class="yk">run:</span> |
-          <span class="yv">docker build -t laksh1929/image-upload-service:latest .</span>
-          <span class="yv">docker push laksh1929/image-upload-service:latest</span></pre></div>
-      </div>
-    </div>
-  </section>
-
   <section class="commands-section">
     <div class="section-content">
       <div class="section-eyebrow" data-i18n="cicd.cmds_eyebrow">Les commandes utiles</div>
@@ -208,15 +162,61 @@
     </div>
   </section>
 
-  <section style="padding:4rem 0;">
+  <section class="proofs-section">
     <div class="section-content">
-      <div class="section-eyebrow" data-i18n="proj.captures">Captures</div>
+      <div class="section-eyebrow">Preuves concrètes</div>
       <div class="section-line"></div>
-      <h2 class="section-title">Captures <em data-i18n="cicd.captures_title_em">et résultats</em></h2>
-      <div class="demo-placeholder"><span data-i18n="proj.placeholder_demo">Captures à intégrer</span></div>
-            <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;"><a href="index.html#projets" class="back-button" data-i18n="proj.back">← Retour aux projets</a></div>
+      <h2 class="section-title">Preuves du <em>déploiement</em></h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:0.6rem;max-width:680px;">Captures réelles des fichiers de configuration, de la pipeline et des deux services conteneurisés en fonctionnement. Cliquez sur une image pour l'agrandir.</p>
+
+      <div class="proof-group-title">⚙️ Configuration &amp; pipeline</div>
+      <div class="proof-grid">
+        <figure class="proof-card" onclick="openCicdLightbox(this.querySelector('img'))">
+          <div class="proof-img-wrap"><img src="img/dockerfile1.png" alt="Dockerfile du service" loading="lazy"/></div>
+          <figcaption class="proof-caption">Dockerfile — construction de l'image du service</figcaption>
+        </figure>
+        <figure class="proof-card" onclick="openCicdLightbox(this.querySelector('img'))">
+          <div class="proof-img-wrap"><img src="img/dokercompose.png" alt="Fichier docker-compose" loading="lazy"/></div>
+          <figcaption class="proof-caption">docker-compose.yml — orchestration des services</figcaption>
+        </figure>
+        <figure class="proof-card" onclick="openCicdLightbox(this.querySelector('img'))">
+          <div class="proof-img-wrap"><img src="img/dockercomposeprod.png" alt="docker-compose de production" loading="lazy"/></div>
+          <figcaption class="proof-caption">docker-compose.prod.yml — configuration de production</figcaption>
+        </figure>
+        <figure class="proof-card" onclick="openCicdLightbox(this.querySelector('img'))">
+          <div class="proof-img-wrap"><img src="img/actionsgit.png" alt="Pipeline GitHub Actions" loading="lazy"/></div>
+          <figcaption class="proof-caption">GitHub Actions — pipeline exécutée avec succès sur <code>main</code></figcaption>
+        </figure>
+        <figure class="proof-card" onclick="openCicdLightbox(this.querySelector('img'))">
+          <div class="proof-img-wrap"><img src="img/peivedeploiement.png" alt="Preuve de déploiement" loading="lazy"/></div>
+          <figcaption class="proof-caption">Déploiement — conteneurs en cours d'exécution</figcaption>
+        </figure>
+      </div>
+
+      <div class="proof-group-title">🚀 Services déployés &amp; fonctionnels</div>
+      <div class="proof-grid">
+        <figure class="proof-card" onclick="openCicdLightbox(this.querySelector('img'))">
+          <div class="proof-img-wrap"><img src="img/cap2.png" alt="Service Spring Boot — Image Upload Service" loading="lazy"/></div>
+          <figcaption class="proof-caption">Spring Boot déployé — <em>Image Upload Service</em> (upload &amp; stockage)</figcaption>
+        </figure>
+        <figure class="proof-card" onclick="openCicdLightbox(this.querySelector('img'))">
+          <div class="proof-img-wrap"><img src="img/cap3.png" alt="Application Flask — inscription" loading="lazy"/></div>
+          <figcaption class="proof-caption">Flask déployé — inscription utilisateur (<em>Register</em>)</figcaption>
+        </figure>
+        <figure class="proof-card" onclick="openCicdLightbox(this.querySelector('img'))">
+          <div class="proof-img-wrap"><img src="img/cap1.png" alt="Application Flask — profil utilisateur" loading="lazy"/></div>
+          <figcaption class="proof-caption">Flask déployé — affichage du profil utilisateur</figcaption>
+        </figure>
+      </div>
+
+      <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;"><a href="index.html#projets" class="back-button" data-i18n="proj.back">← Retour aux projets</a></div>
     </div>
   </section>
+
+  <div class="image-lightbox" id="cicdLightbox" onclick="closeCicdLightbox()">
+    <button class="image-lightbox-close" onclick="closeCicdLightbox()">&times;</button>
+    <img id="cicdLightboxImg" src="" alt=""/>
+  </div>
 
   <footer>
     <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>  </footer>
@@ -240,6 +240,13 @@
       const pf=document.getElementById('pipelineFlow');if(pf)pipelineObs.observe(pf);
       document.querySelectorAll('.cmd-line').forEach(el=>{el.title='Cliquer pour copier';el.addEventListener('click',()=>{navigator.clipboard.writeText(el.textContent.trim()).then(()=>{const o=el.style.background;el.style.background='#1a3a2a';setTimeout(()=>el.style.background=o,600);});});});
     })();
+  </script>
+  <script>
+    function openCicdLightbox(img){const l=document.getElementById('cicdLightbox');document.getElementById('cicdLightboxImg').src=img.src;l.classList.add('active');document.body.style.overflow='hidden';}
+    function closeCicdLightbox(){document.getElementById('cicdLightbox').classList.remove('active');document.body.style.overflow='';}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCicdLightbox();});
+    const _po=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.05)+'s';x.target.classList.add('visible');}}),{threshold:.08});
+    document.querySelectorAll('.proof-card').forEach(el=>{el.classList.add('anim');_po.observe(el);});
   </script>
 </body>
 </html>

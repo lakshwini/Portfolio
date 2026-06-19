@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Lakshwini DANASSEGARANE — Machine Learning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="ml.css"/>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()">
+        <span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <a href="docs/DANASSEGARANE_CV.pdf" class="nav-cv" download data-i18n="nav.cv">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Télécharger CV
+    </a>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero-ml">
+    <div class="hero-ml-content">
+      <div class="ml-nav"><a href="index.html#projets">← Retour aux projets</a></div>
+      <h1 class="hero-ml-title">Apprendre à une machine <em>à reconnaître des patterns</em></h1>
+      <p class="hero-ml-desc">J'ai exploré deux grandes façons d'entraîner un modèle : lui donner des exemples avec les bonnes réponses, ou le laisser trouver lui-même des groupes dans les données. Deux approches, deux projets, un même fil conducteur.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">Python</span>
+        <span class="tech-tag-hero">scikit-learn</span>
+        <span class="tech-tag-hero">KNN</span>
+        <span class="tech-tag-hero">K-Means</span>
+        <span class="tech-tag-hero">numpy</span>
+        <span class="tech-tag-hero">matplotlib</span>
+      </div>
+      <div class="hero-duo">
+        <div class="duo-pill">
+          <span class="duo-pill-num">01</span>
+          <div>
+            <div class="duo-pill-label" style="font-weight:600;color:var(--text)">Supervisé</div>
+            <div class="duo-pill-label">Classer des fleurs par ressemblance</div>
+          </div>
+        </div>
+        <div class="duo-pill">
+          <span class="duo-pill-num" style="color:var(--mauve)">02</span>
+          <div>
+            <div class="duo-pill-label" style="font-weight:600;color:var(--text)">Non supervisé</div>
+            <div class="duo-pill-label">Regrouper sans savoir à l'avance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COMPARATIF ══ -->
+  <section class="compare-section">
+    <div class="section-content">
+      <div class="section-eyebrow">Vue d'ensemble</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Deux façons d'apprendre, <em>une même logique</em></h2>
+      <div class="compare-duo">
+        <div class="compare-card supervised anim">
+          <div class="compare-card-badge badge-sup">✦ Avec des exemples</div>
+          <div class="compare-card-title">On lui montre les bonnes réponses</div>
+          <div class="compare-card-desc">Je fournis au modèle des données déjà classées — "cette fleur est une rose, celle-là une tulipe". Il apprend à reconnaître les différences et peut ensuite classer de nouvelles fleurs jamais vues.</div>
+          <div class="compare-card-examples">
+            <span class="compare-example">🎯 Classer des fleurs</span>
+            <span class="compare-example">📐 Mesurer des distances</span>
+            <span class="compare-example">✅ Réponse connue à l'avance</span>
+          </div>
+        </div>
+        <div class="compare-card unsupervised anim">
+          <div class="compare-card-badge badge-unsup">✦ Sans étiquettes</div>
+          <div class="compare-card-title">On le laisse découvrir seul</div>
+          <div class="compare-card-desc">Cette fois, aucune réponse fournie. Le modèle analyse les données et repère lui-même des groupes naturels — des points qui se ressemblent plus entre eux qu'avec les autres.</div>
+          <div class="compare-card-examples">
+            <span class="compare-example">🔵 Trouver des groupes</span>
+            <span class="compare-example">📍 Centres de gravité</span>
+            <span class="compare-example">🔍 Aucune réponse initiale</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PARTIE 1 — KNN ══ -->
+  <section class="supervised-section">
+    <div class="section-content">
+      <div class="section-eyebrow">Partie 1</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Classer par <em>ressemblance</em></h2>
+      <div class="knn-grid">
+        <div>
+          <div class="section-text">
+            <p>L'idée est simple : pour classer une nouvelle fleur, je regarde ses <strong>k voisins les plus proches</strong> dans mes données d'entraînement. Celle qui ressemble le plus à ses voisins hérite de leur catégorie.</p>
+            <p>Pour mesurer cette ressemblance, j'utilise la <strong>distance euclidienne</strong> — la même formule qu'en géométrie au lycée, étendue à plusieurs dimensions. Plus la valeur est petite, plus deux points sont proches.</p>
+            <p>J'ai appliqué ça sur le dataset Iris : 150 fleurs décrites par 4 mesures (longueur et largeur des pétales et sépales), à répartir en 3 espèces. En testant différentes valeurs de k, j'ai obtenu <strong>97% de précision</strong> avec k = 5.</p>
+          </div>
+
+          <div class="formula-box">
+            <div class="formula-label">📐 Comment on mesure la ressemblance</div>
+            <div class="formula-math">
+              d(A, B) = √ Σ (Aᵢ − Bᵢ)²
+            </div>
+            <div class="formula-desc">
+              On calcule l'écart sur chaque mesure, on l'élève au carré,<br>
+              on additionne tout, puis on prend la racine. Résultat : une seule valeur de "distance".
+            </div>
+          </div>
+        </div>
+
+        <div class="pipeline">
+          <div class="pipeline-step anim">
+            <div class="pipe-dot">1</div>
+            <div class="pipe-content">
+              <div class="pipe-title">Charger et explorer les données</div>
+              <div class="pipe-desc">150 fleurs, 4 mesures chacune, 3 espèces à distinguer.</div>
+            </div>
+          </div>
+          <div class="pipeline-step anim">
+            <div class="pipe-dot">2</div>
+            <div class="pipe-content">
+              <div class="pipe-title">Mettre les mesures à la même échelle</div>
+              <div class="pipe-desc">Une mesure en centimètres ne doit pas peser plus qu'une autre — on normalise tout avant de calculer les distances.</div>
+            </div>
+          </div>
+          <div class="pipeline-step anim">
+            <div class="pipe-dot">3</div>
+            <div class="pipe-content">
+              <div class="pipe-title">Calculer les distances</div>
+              <div class="pipe-desc">Pour chaque fleur à classer, on mesure sa distance euclidienne à toutes les fleurs connues.</div>
+            </div>
+          </div>
+          <div class="pipeline-step anim">
+            <div class="pipe-dot">4</div>
+            <div class="pipe-content">
+              <div class="pipe-title">Vote des voisins</div>
+              <div class="pipe-desc">On garde les k plus proches et on vote : l'espèce majoritaire parmi eux est retenue.</div>
+            </div>
+          </div>
+          <div class="pipeline-step anim">
+            <div class="pipe-dot">5</div>
+            <div class="pipe-content">
+              <div class="pipe-title">Trouver le meilleur k</div>
+              <div class="pipe-desc">J'ai testé k de 1 à 20 et comparé les résultats — k = 5 s'est révélé optimal.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DEMO INTERACTIVE KNN ══ -->
+  <section class="knn-demo-section">
+    <div class="section-content">
+      <div class="section-eyebrow">Essaie toi-même</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">La classification <em>en live</em></h2>
+      <div class="knn-widget">
+        <div class="knn-widget-header">
+          <div>
+            <div class="knn-widget-title">Clique sur le canvas pour placer un point</div>
+            <div class="knn-widget-subtitle">Les lignes pointillées montrent les k voisins les plus proches avec leur distance. Le point prend la couleur de la classe majoritaire.</div>
+          </div>
+          <div class="knn-controls">
+            <div class="knn-control-group">
+              <div class="knn-control-label">Nombre de voisins</div>
+              <select class="knn-select" id="kSelect">
+                <option value="1">k = 1</option>
+                <option value="3" selected>k = 3</option>
+                <option value="5">k = 5</option>
+                <option value="7">k = 7</option>
+              </select>
+            </div>
+            <button class="knn-btn primary" onclick="resetKNN()">Réinitialiser</button>
+          </div>
+        </div>
+        <canvas id="knnCanvas"></canvas>
+        <div class="knn-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#7c6af7;"></div>Setosa</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#f38ba8;"></div>Versicolor</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#a6e3a1;"></div>Virginica</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#fab387;border:2px solid #333;"></div>Ton point</div>
+        </div>
+        <div class="knn-info" id="knnInfo">👆 Clique quelque part pour voir la classification en action.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PARTIE 2 — K-MEANS ══ -->
+  <section class="unsupervised-section">
+    <div class="section-content">
+      <div class="section-eyebrow">Partie 2</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Trouver des groupes <em>sans rien savoir à l'avance</em></h2>
+
+      <div class="kmeans-flow">
+        <div class="flow-step anim">
+          <div class="flow-step-num">1</div>
+          <div class="flow-step-title">Placer des centres</div>
+          <div class="flow-step-desc">On place k points au hasard dans les données — ce seront les futurs "centres de gravité".</div>
+        </div>
+        <div class="flow-step anim">
+          <div class="flow-step-num">2</div>
+          <div class="flow-step-title">Assigner chaque point</div>
+          <div class="flow-step-desc">Chaque donnée rejoint le centre dont elle est la plus proche.</div>
+        </div>
+        <div class="flow-step anim">
+          <div class="flow-step-num">3</div>
+          <div class="flow-step-title">Recalculer les centres</div>
+          <div class="flow-step-desc">Chaque centre se déplace vers la moyenne de son groupe.</div>
+        </div>
+        <div class="flow-step anim">
+          <div class="flow-step-num">4</div>
+          <div class="flow-step-title">Répéter jusqu'à stabilité</div>
+          <div class="flow-step-desc">On recommence jusqu'à ce que les centres ne bougent plus.</div>
+        </div>
+      </div>
+
+      <div class="kmeans-desc-grid">
+        <div class="section-text">
+          <p>Sur le même dataset Iris, j'ai appliqué cette méthode <strong>sans lui dire qu'il y avait 3 espèces</strong>. Le modèle a trouvé 3 groupes cohérents tout seul — très proches des vraies espèces.</p>
+          <p>Pour choisir le bon nombre de groupes, j'ai tracé la "courbe du coude" : on teste plusieurs valeurs et on cherche le point où ajouter un groupe supplémentaire n'apporte plus grand chose.</p>
+          <p>Résultat : un score de cohérence (Silhouette) de <strong>0.68</strong> — les groupes trouvés sont bien séparés et cohérents entre eux.</p>
+        </div>
+        <div>
+          <div class="formula-box" style="border-color:rgba(201,127,168,0.25);background:linear-gradient(135deg,rgba(201,127,168,0.08),rgba(201,127,168,0.03));">
+            <div class="formula-label" style="color:var(--mauve);">🎯 Ce que le modèle minimise</div>
+            <div class="formula-math" style="font-size:1.3rem;">
+              J = Σ<sub>k</sub> Σ<sub>x∈Cₖ</sub> ‖x − μₖ‖²
+            </div>
+            <div class="formula-desc">
+              La somme des distances de chaque point à son centre de groupe.<br>
+              Plus ce nombre est petit, plus les groupes sont compacts.
+            </div>
+          </div>
+          <div class="pipeline" style="margin-top:1.5rem;">
+            <div class="pipeline-step anim">
+              <div class="pipe-dot rose">A</div>
+              <div class="pipe-content">
+                <div class="pipe-title">Trouver le bon nombre de groupes</div>
+                <div class="pipe-desc">Tester de 1 à 10 groupes et tracer la courbe du coude.</div>
+              </div>
+            </div>
+            <div class="pipeline-step anim">
+              <div class="pipe-dot rose">B</div>
+              <div class="pipe-content">
+                <div class="pipe-title">Lancer le regroupement</div>
+                <div class="pipe-desc">Plusieurs initialisations pour éviter de tomber sur un mauvais départ.</div>
+              </div>
+            </div>
+            <div class="pipeline-step anim">
+              <div class="pipe-dot rose">C</div>
+              <div class="pipe-content">
+                <div class="pipe-title">Mesurer la qualité</div>
+                <div class="pipe-desc">Le score de cohérence évalue si les groupes sont bien séparés (entre -1 et 1).</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CODE ══ -->
+  <section class="code-section">
+    <div class="section-content">
+      <div class="section-eyebrow">Le code</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Ce que <em>j'ai écrit</em></h2>
+      <div class="code-tabs-wrapper">
+        <div class="code-switcher">
+          <div class="code-switch-tabs">
+            <button class="csw-tab active">classification.py</button>
+          </div>
+          <div class="csw-panel active" id="code-knn">
+<pre><span class="cm"># Classification par voisinage (KNN)</span>
+<span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier
+<span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split
+<span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler
+<span class="im">import</span> numpy <span class="im">as</span> np
+
+<span class="cm"># Mesure de ressemblance entre deux points</span>
+<span class="kw">def</span> <span class="fn">distance_euclidienne</span>(A, B):
+    <span class="kw">return</span> np.<span class="fn">sqrt</span>(np.<span class="fn">sum</span>((A - B) ** <span class="nb">2</span>))
+
+<span class="cm"># Séparation entraînement / test et normalisation</span>
+X_train, X_test, y_train, y_test = <span class="fn">train_test_split</span>(
+    X, y, test_size=<span class="nb">0.2</span>, random_state=<span class="nb">42</span>
+)
+scaler = <span class="fn">StandardScaler</span>()
+X_train = scaler.<span class="fn">fit_transform</span>(X_train)
+X_test  = scaler.<span class="fn">transform</span>(X_test)
+
+<span class="cm"># Trouver la meilleure valeur de k</span>
+best_k, best_acc = <span class="nb">1</span>, <span class="nb">0</span>
+<span class="kw">for</span> k <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">1</span>, <span class="nb">21</span>):
+    knn = <span class="fn">KNeighborsClassifier</span>(n_neighbors=k)
+    knn.<span class="fn">fit</span>(X_train, y_train)
+    acc = knn.<span class="fn">score</span>(X_test, y_test)
+    <span class="kw">if</span> acc > best_acc:
+        best_k, best_acc = k, acc
+
+<span class="fn">print</span>(<span class="st">f"Meilleur k = {best_k} → {best_acc:.0%} de précision"</span>)</pre>
+          </div>
+        </div>
+        <div class="code-switcher">
+          <div class="code-switch-tabs">
+            <button class="csw-tab active">regroupement.py</button>
+          </div>
+          <div class="csw-panel active" id="code-kmeans">
+<pre><span class="cm"># Regroupement automatique (K-Means)</span>
+<span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans
+<span class="im">from</span> sklearn.metrics <span class="im">import</span> silhouette_score
+<span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+
+<span class="cm"># Chercher le bon nombre de groupes</span>
+compacites = []
+<span class="kw">for</span> k <span class="kw">in</span> <span class="fn">range</span>(<span class="nb">1</span>, <span class="nb">11</span>):
+    km = <span class="fn">KMeans</span>(n_clusters=k, n_init=<span class="nb">10</span>, random_state=<span class="nb">42</span>)
+    km.<span class="fn">fit</span>(X)
+    compacites.<span class="fn">append</span>(km.inertia_)
+
+<span class="cm"># Courbe du coude</span>
+plt.<span class="fn">plot</span>(<span class="fn">range</span>(<span class="nb">1</span>,<span class="nb">11</span>), compacites, <span class="st">'o-'</span>)
+plt.<span class="fn">xlabel</span>(<span class="st">'Nombre de groupes'</span>)
+plt.<span class="fn">ylabel</span>(<span class="st">'Compacité des groupes'</span>)
+
+<span class="cm"># Regroupement final avec 3 groupes</span>
+modele = <span class="fn">KMeans</span>(n_clusters=<span class="nb">3</span>, n_init=<span class="nb">10</span>, random_state=<span class="nb">42</span>)
+groupes = modele.<span class="fn">fit_predict</span>(X)
+
+score = <span class="fn">silhouette_score</span>(X, groupes)
+<span class="fn">print</span>(<span class="st">f"Cohérence des groupes : {score:.2f} / 1"</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RÉSULTATS ══ -->
+  <section style="padding:4rem 0;">
+    <div class="section-content">
+      <div class="section-eyebrow">Résultats</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Ce que <em>les modèles ont produit</em></h2>
+      <div class="metrics-row">
+        <div class="metric-card anim">
+          <div class="metric-number">97%</div>
+          <div class="metric-label">Fleurs correctement classées<br>(avec réponses)</div>
+        </div>
+        <div class="metric-card anim">
+          <div class="metric-number">k = 5</div>
+          <div class="metric-label">Nombre de voisins<br>le plus efficace</div>
+        </div>
+        <div class="metric-card anim">
+          <div class="metric-number rose">3</div>
+          <div class="metric-label">Groupes trouvés seul<br>(sans aucune étiquette)</div>
+        </div>
+        <div class="metric-card anim">
+          <div class="metric-number rose">0.68</div>
+          <div class="metric-label">Cohérence des groupes<br>(score sur 1)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ INSIGHTS ══ -->
+  <section class="insights-section">
+    <div class="section-content">
+      <div class="section-eyebrow">Ce que j'en retiens</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">3 choses <em>que ce projet m'a apprises</em></h2>
+      <div class="insights-grid">
+        <div class="insight-card anim">
+          <div class="insight-title">L'échelle, ça change tout</div>
+          <div class="insight-desc">Quand on mesure des distances, une mesure en grands chiffres écrase les autres. Remettre tout à la même échelle avant de calculer est indispensable.</div>
+        </div>
+        <div class="insight-card rose anim">
+          <div class="insight-title">Ni trop près, ni trop loin</div>
+          <div class="insight-desc">Avec k = 1, le modèle retient chaque cas par cœur mais rate les nouveaux. Avec k trop grand, il ne voit plus les nuances. k = 5 a trouvé le bon équilibre ici.</div>
+        </div>
+        <div class="insight-card anim">
+          <div class="insight-title">La structure était déjà là</div>
+          <div class="insight-desc">Le modèle non supervisé a retrouvé les 3 espèces de fleurs sans qu'on le lui dise. Les données contenaient la réponse — il a juste fallu la faire émerger.</div>
+        </div>
+      </div>
+      <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;">
+        <a href="index.html#projets" class="back-button">← Retour aux projets</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;">Fait avec ♥</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){
+      const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};
+      const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');
+      if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;
+      ['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});
+      document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));
+    }
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.compare-card,.pipeline-step,.flow-step,.insight-card,.metric-card').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(typeof currentLang!=='undefined'?currentLang:'fr'));
+  </script>
+
+  <script>
+  (function(){
+    const canvas = document.getElementById('knnCanvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const kSelect = document.getElementById('kSelect');
+    const infoEl = document.getElementById('knnInfo');
+
+    const COLORS = {
+      A: { fill:'#7c6af7', stroke:'#5b4de0', label:'Setosa' },
+      B: { fill:'#f38ba8', stroke:'#d6547a', label:'Versicolor' },
+      C: { fill:'#a6e3a1', stroke:'#6dbf67', label:'Virginica' }
+    };
+    const CLASS_KEYS = ['A','B','C'];
+
+    const trainData = [
+      {x:.10,y:.15,cls:'A'},{x:.18,y:.22,cls:'A'},{x:.08,y:.30,cls:'A'},
+      {x:.22,y:.12,cls:'A'},{x:.15,y:.35,cls:'A'},{x:.25,y:.28,cls:'A'},
+      {x:.12,y:.42,cls:'A'},{x:.30,y:.18,cls:'A'},{x:.05,y:.20,cls:'A'},
+      {x:.45,y:.40,cls:'B'},{x:.55,y:.50,cls:'B'},{x:.50,y:.35,cls:'B'},
+      {x:.60,y:.42,cls:'B'},{x:.42,y:.55,cls:'B'},{x:.52,y:.60,cls:'B'},
+      {x:.38,y:.45,cls:'B'},{x:.65,y:.55,cls:'B'},{x:.48,y:.68,cls:'B'},
+      {x:.75,y:.70,cls:'C'},{x:.82,y:.80,cls:'C'},{x:.88,y:.65,cls:'C'},
+      {x:.70,y:.85,cls:'C'},{x:.90,y:.75,cls:'C'},{x:.80,y:.90,cls:'C'},
+      {x:.68,y:.72,cls:'C'},{x:.85,y:.55,cls:'C'},{x:.92,y:.85,cls:'C'}
+    ];
+
+    let testPoint = null;
+
+    function resize(){ canvas.width=canvas.offsetWidth; canvas.height=canvas.offsetHeight; draw(); }
+
+    function euclidean(a,b){ return Math.sqrt((a.x-b.x)**2+(a.y-b.y)**2); }
+
+    function toPx(p){
+      const PAD=30;
+      return { x: PAD+p.x*(canvas.width-2*PAD), y: PAD+p.y*(canvas.height-2*PAD) };
+    }
+    function fromPx(e){
+      const r=canvas.getBoundingClientRect(), PAD=30;
+      return { x:(e.clientX-r.left-PAD)/(canvas.width-2*PAD), y:(e.clientY-r.top-PAD)/(canvas.height-2*PAD) };
+    }
+
+    function draw(){
+      const W=canvas.width, H=canvas.height;
+      ctx.clearRect(0,0,W,H);
+      ctx.strokeStyle='rgba(0,0,0,0.05)'; ctx.lineWidth=1;
+      for(let i=0;i<=10;i++){
+        const x=30+i*(W-60)/10, y=30+i*(H-60)/10;
+        ctx.beginPath(); ctx.moveTo(x,30); ctx.lineTo(x,H-30); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(30,y); ctx.lineTo(W-30,y); ctx.stroke();
+      }
+      trainData.forEach(p=>{
+        const {x,y}=toPx(p), c=COLORS[p.cls];
+        ctx.beginPath(); ctx.arc(x,y,7,0,2*Math.PI);
+        ctx.fillStyle=c.fill+'cc'; ctx.fill();
+        ctx.strokeStyle=c.stroke; ctx.lineWidth=1.5; ctx.stroke();
+      });
+      if(!testPoint) return;
+      const k=parseInt(kSelect.value);
+      const tp=toPx(testPoint);
+      const withDist=trainData.map(p=>({...p,d:euclidean(testPoint,p)}));
+      withDist.sort((a,b)=>a.d-b.d);
+      const neighbors=withDist.slice(0,k);
+      neighbors.forEach(n=>{
+        const np=toPx(n);
+        ctx.beginPath(); ctx.moveTo(tp.x,tp.y); ctx.lineTo(np.x,np.y);
+        ctx.strokeStyle=COLORS[n.cls].fill+'88'; ctx.lineWidth=2; ctx.setLineDash([5,4]); ctx.stroke(); ctx.setLineDash([]);
+        const mx=(tp.x+np.x)/2, my=(tp.y+np.y)/2;
+        const dist=(n.d*100).toFixed(1);
+        ctx.fillStyle='rgba(255,255,255,0.9)';
+        ctx.beginPath(); ctx.roundRect(mx-22,my-10,44,18,5); ctx.fill();
+        ctx.fillStyle='#333'; ctx.font='bold 9px Jost,sans-serif'; ctx.textAlign='center';
+        ctx.fillText(dist+'u',mx,my+4);
+      });
+      neighbors.forEach(n=>{
+        const np=toPx(n);
+        ctx.beginPath(); ctx.arc(np.x,np.y,11,0,2*Math.PI);
+        ctx.strokeStyle=COLORS[n.cls].stroke; ctx.lineWidth=3; ctx.stroke();
+      });
+      const votes={A:0,B:0,C:0};
+      neighbors.forEach(n=>votes[n.cls]++);
+      const winner=CLASS_KEYS.reduce((a,b)=>votes[a]>=votes[b]?a:b);
+      ctx.beginPath(); ctx.arc(tp.x,tp.y,11,0,2*Math.PI);
+      ctx.fillStyle=COLORS[winner].fill+'ee'; ctx.fill();
+      ctx.strokeStyle='#222'; ctx.lineWidth=2.5; ctx.stroke();
+      ctx.fillStyle='white'; ctx.font='bold 11px Jost,sans-serif'; ctx.textAlign='center';
+      ctx.fillText('?',tp.x,tp.y+4);
+      const voteStr=CLASS_KEYS.filter(c=>votes[c]>0).map(c=>`${votes[c]}×${COLORS[c].label}`).join(', ');
+      infoEl.textContent=`→ Résultat : ${COLORS[winner].label} (vote : ${voteStr} sur ${k} voisin${k>1?'s':''})`;
+      infoEl.style.color=COLORS[winner].fill;
+    }
+
+    canvas.addEventListener('click',e=>{ testPoint=fromPx(e); draw(); });
+    kSelect.addEventListener('change',()=>{ if(testPoint) draw(); });
+    window.resetKNN=function(){ testPoint=null; infoEl.textContent='👆 Clique quelque part pour voir la classification en action.'; infoEl.style.color=''; draw(); };
+    window.addEventListener('resize',resize);
+    resize();
+  })();
+  </script>
+</body>
+</html>

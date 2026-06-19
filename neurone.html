@@ -15,6 +15,10 @@
     <a href="index.html" class="nav-logo">Lakshwini ✦</a>
     <ul class="nav-links">
       <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
       <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
       <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -29,11 +33,19 @@
         <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
       </div>
     </div>
+    <a href="docs/DANASSEGARANE_CV.pdf" class="nav-cv" download data-i18n="nav.cv">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Télécharger CV
+    </a>
     <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
   </nav>
   <div class="nav-mobile" id="mobileMenu">
     <ul class="nav-mobile-links">
       <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
       <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
       <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -177,7 +189,17 @@ seuil  = <span class="nb">0.0001</span>
       <div class="section-eyebrow" data-i18n="proj.captures">Captures</div>
       <div class="section-line"></div>
       <h2 class="section-title">Captures <em data-i18n="neurone.captures_title_em">& démo</em></h2>
-      <div class="demo-placeholder"><span data-i18n="proj.placeholder_demo">Captures / démo à intégrer</span></div>
+      <div style="display:flex;justify-content:center;margin-top:2rem;">
+        <div style="background:#0d0d0d;border-radius:14px;overflow:hidden;border:1.5px solid #2a2a2a;box-shadow:0 8px 32px rgba(0,0,0,0.25);max-width:580px;width:100%;">
+          <div style="padding:0.6rem 1rem;background:#1a1a1a;border-bottom:1px solid #2a2a2a;display:flex;gap:6px;align-items:center;">
+            <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+            <span style="margin-left:0.5rem;font-size:0.72rem;color:#666;font-family:monospace;">neurone.py — résultats</span>
+          </div>
+          <img id="neuroneCapture" alt="Résultats du perceptron — jeu de test" style="width:100%;display:block;min-height:60px;"/>
+        </div>
+      </div>
             <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;">
         <a href="index.html#projets" class="back-button" data-i18n="proj.back">← Retour aux projets</a>
       </div>
@@ -185,8 +207,15 @@ seuil  = <span class="nb">0.0001</span>
   </section>
 
   <footer>
-    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>  </footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+  </footer>
   <script src="i18n.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var el = document.getElementById('neuroneCapture');
+      if(el){ el.src = 'img/neurone.png'; }
+    });
+  </script>
   <script>
     function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
     document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});

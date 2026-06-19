@@ -284,3 +284,58 @@
   .pipeline-node { width: 90px; }
   .node-circle { width: 46px; height: 46px; font-size: 1rem; }
 }
+
+/* ══════════════════════════════════
+   PREUVES DU DÉPLOIEMENT — galerie
+══════════════════════════════════ */
+.proofs-section { padding: 4rem 0; }
+
+.proof-group-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 600; color: var(--text);
+  margin: 2.4rem 0 1.2rem;
+}
+
+.proof-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.4rem;
+}
+
+.proof-card {
+  margin: 0; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+  cursor: pointer; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.proof-card:hover { transform: translateY(-4px); border-color: var(--peach); box-shadow: 0 14px 40px rgba(244,160,122,0.16); }
+
+.proof-img-wrap { background: #11111b; display: flex; align-items: center; justify-content: center; }
+.proof-img-wrap img { width: 100%; height: auto; display: block; }
+
+.proof-caption {
+  padding: 0.85rem 1.1rem; font-size: 0.84rem; line-height: 1.5;
+  color: var(--text-mid); border-top: 1px solid var(--border);
+}
+.proof-caption code {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 5px;
+  padding: 0.05rem 0.35rem; font-size: 0.8em; color: var(--peach);
+}
+.proof-caption em { color: var(--text); font-style: italic; }
+
+/* Lightbox */
+.image-lightbox {
+  display: none; position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.88); backdrop-filter: blur(4px);
+  align-items: center; justify-content: center; cursor: zoom-out;
+}
+.image-lightbox.active { display: flex; }
+.image-lightbox img { max-width: 92vw; max-height: 90vh; border-radius: 12px; }
+.image-lightbox-close {
+  position: absolute; top: 1rem; right: 1.2rem;
+  width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(255,255,255,0.15); color: #fff; font-size: 1.5rem; line-height: 1;
+}
+.image-lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+@media (max-width: 700px) {
+  .proof-grid { grid-template-columns: 1fr; }
+}

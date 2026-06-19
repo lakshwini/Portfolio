@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Lakshwini DANASSEGARANE | Collaboration &amp; gestion de projet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="experience-collaboration.css"/>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()"><span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <a href="docs/DANASSEGARANE_CV.pdf" class="nav-cv" download data-i18n="nav.cv">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Télécharger CV
+    </a>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero-collab">
+    <div class="hero-collab-content">
+      <div class="collab-nav"><a href="index.html#experiences" data-i18n="anom.back">← Retour aux expériences</a></div>
+
+      <h1 class="hero-collab-title" data-i18n="collab.title">Collaboration &amp; <em>gestion de projet</em></h1>
+      <p class="hero-collab-desc" data-i18n="collab.hero_desc">Au-delà du développement technique : ma méthode de travail avec mon tuteur et les équipes métier, de la collecte du besoin jusqu'à la mise en production.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">Agile / Scrum</span><span class="tech-tag-hero">Slack</span><span class="tech-tag-hero">Suivi de projet</span><span class="tech-tag-hero">Communication</span><span class="tech-tag-hero">Tests</span><span class="tech-tag-hero">Production</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTEXTE ══ -->
+  <section class="collab-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="collab.ctx_eyebrow">Le contexte</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Travailler en <em data-i18n="collab.ctx_title_em">alternance</em>, avec méthode</h2>
+      <div class="collab-text">
+        <p data-i18n="collab.ctx_p1">En tant qu'apprentie, je ne suis pas seule face au code : chaque fonctionnalité ou correctif que je développe doit être compris, validé et déployé en lien avec mon tuteur et les équipes qui portent les besoins métier.</p>
+        <p data-i18n="collab.ctx_p2">Cette organisation m'a appris à structurer mon travail, à anticiper les questions de mon tuteur et à formaliser clairement ce que j'ai développé, pourquoi, et comment le tester.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MÉTHODE — 4 ÉTAPES ══ -->
+  <section class="collab-block alt">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="collab.flow_eyebrow">Ma méthode de travail</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Du test à la <em data-i18n="collab.flow_title_em">production</em></h2>
+      <p class="collab-sub" data-i18n="collab.flow_sub">Un processus en quatre étapes qui garantit qu'aucune fonctionnalité n'arrive en production sans double validation.</p>
+
+      <div class="collab-flow" id="collabFlow">
+        <div class="collab-node">
+          <div class="collab-node-icon">🧪</div>
+          <div class="collab-node-label" data-i18n="collab.s1_label">Dév. &amp; tests</div>
+          <div class="collab-node-sub" data-i18n="collab.s1_sub">Je développe chaque fonctionnalité ou correctif en environnement de test, avec mes propres jeux de données.</div>
+        </div>
+        <div class="collab-arrow">→</div>
+        <div class="collab-node">
+          <div class="collab-node-icon">✅</div>
+          <div class="collab-node-label" data-i18n="collab.s2_label">Auto-validation</div>
+          <div class="collab-node-sub" data-i18n="collab.s2_sub">Je vérifie le bon fonctionnement, les cas limites et la non-régression avant de transmettre mon travail.</div>
+        </div>
+        <div class="collab-arrow">→</div>
+        <div class="collab-node">
+          <div class="collab-node-icon">🔍</div>
+          <div class="collab-node-label" data-i18n="collab.s3_label">Revue du tuteur</div>
+          <div class="collab-node-sub" data-i18n="collab.s3_sub">Mon tuteur reprend le travail, le teste et le valide en environnement de production.</div>
+        </div>
+        <div class="collab-arrow">→</div>
+        <div class="collab-node">
+          <div class="collab-node-icon">🚀</div>
+          <div class="collab-node-label" data-i18n="collab.s4_label">Déploiement</div>
+          <div class="collab-node-sub" data-i18n="collab.s4_sub">Une fois validé des deux côtés, la solution part en production.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LES INTERLOCUTEURS ══ -->
+  <section class="collab-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="collab.team_eyebrow">Les interlocuteurs</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Travailler avec <em data-i18n="collab.team_title_em">plusieurs équipes</em></h2>
+      <p class="collab-sub" data-i18n="collab.team_sub">Comprendre un besoin métier suppose d'échanger avec les bonnes personnes, avant même d'écrire la première ligne de code.</p>
+      <div class="collab-ops">
+        <div class="collab-op">
+          <div class="collab-op-num">1</div>
+          <div>
+            <h3 class="collab-op-title" data-i18n="collab.op1_title">Mon tuteur</h3>
+            <p class="collab-op-desc" data-i18n="collab.op1_desc">Échanges réguliers sur Slack pour discuter des besoins, valider les choix techniques et assurer la qualité des développements.</p>
+          </div>
+        </div>
+        <div class="collab-op">
+          <div class="collab-op-num">2</div>
+          <div>
+            <h3 class="collab-op-title" data-i18n="collab.op2_title">Équipe SAV</h3>
+            <p class="collab-op-desc" data-i18n="collab.op2_desc">Remontée des retours utilisateurs et des anomalies terrain, à analyser pour les transformer en correctifs ou en améliorations.</p>
+          </div>
+        </div>
+        <div class="collab-op">
+          <div class="collab-op-num">3</div>
+          <div>
+            <h3 class="collab-op-title" data-i18n="collab.op3_title">Partenaires &amp; éditeurs</h3>
+            <p class="collab-op-desc" data-i18n="collab.op3_desc">Via les interlocuteurs en relation avec eux, je comprends les besoins métier des partenaires pour les traduire en solutions techniques adaptées.</p>
+          </div>
+        </div>
+        <div class="collab-op">
+          <div class="collab-op-num">4</div>
+          <div>
+            <h3 class="collab-op-title" data-i18n="collab.op4_title">Équipe projet</h3>
+            <p class="collab-op-desc" data-i18n="collab.op4_desc">Coordination avec les responsables de projet pour prioriser les tâches et tenir les délais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MON IMPLICATION ══ -->
+  <section class="collab-block alt">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="collab.contrib_eyebrow">Mon implication</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Suivi, communication &amp; <em data-i18n="collab.contrib_title_em">amélioration continue</em></h2>
+      <ul class="collab-list">
+        <li data-i18n="collab.contrib1">Prise de notes structurée lors des échanges, pour ne perdre aucune exigence métier.</li>
+        <li data-i18n="collab.contrib2">Communication régulière de l'avancement de mes tâches à mon tuteur et aux équipes concernées.</li>
+        <li data-i18n="collab.contrib3">Capacité à challenger une solution technique envisagée si elle ne répond pas pleinement au besoin exprimé.</li>
+        <li data-i18n="collab.contrib4">Itération sur des fonctionnalités déjà en production, à partir des retours utilisateurs et de l'équipe SAV.</li>
+        <li data-i18n="collab.contrib5">Autonomie dans la priorisation de mes tâches, tout en restant alignée avec les objectifs définis collectivement.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ ENJEUX ══ -->
+  <section class="collab-block">
+    <div class="section-content">
+      <div class="section-eyebrow" data-i18n="collab.stakes_eyebrow">Ce que ça démontre</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Une approche <em data-i18n="collab.stakes_title_em">professionnelle</em></h2>
+      <div class="collab-cards">
+        <div class="collab-card">
+          <div class="collab-card-icon">💬</div>
+          <h3 class="collab-card-title" data-i18n="collab.stake1_title">Communication claire</h3>
+          <p class="collab-card-desc" data-i18n="collab.stake1_desc">Formuler un besoin technique de façon compréhensible pour des interlocuteurs non-développeurs, et inversement.</p>
+        </div>
+        <div class="collab-card">
+          <div class="collab-card-icon">🤝</div>
+          <h3 class="collab-card-title" data-i18n="collab.stake2_title">Travail en équipe</h3>
+          <p class="collab-card-desc" data-i18n="collab.stake2_desc">S'intégrer dans un processus de validation à plusieurs niveaux, sans bloquer l'avancement du projet.</p>
+        </div>
+        <div class="collab-card">
+          <div class="collab-card-icon">🔄</div>
+          <h3 class="collab-card-title" data-i18n="collab.stake3_title">Amélioration continue</h3>
+          <p class="collab-card-desc" data-i18n="collab.stake3_desc">Voir chaque retour utilisateur comme une occasion de fiabiliser une solution déjà en place.</p>
+        </div>
+      </div>
+
+      <div class="collab-backwrap"><a href="index.html#experiences" class="back-button" data-i18n="anom.back">← Retour aux expériences</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));}
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.06)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.collab-op,.collab-card,.collab-list li').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(typeof currentLang!=='undefined'?currentLang:'fr'));
+    /* Animation séquentielle du flow */
+    (function(){
+      const obs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){const nodes=document.querySelectorAll('.collab-node'),arrows=document.querySelectorAll('.collab-arrow');nodes.forEach((n,i)=>setTimeout(()=>n.classList.add('visible'),i*150));arrows.forEach((a,i)=>setTimeout(()=>a.classList.add('visible'),i*150+120));obs.disconnect();}},{threshold:.3});
+      const f=document.getElementById('collabFlow');if(f)obs.observe(f);
+    })();
+  </script>
+</body>
+</html>

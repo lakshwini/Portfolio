@@ -15,6 +15,10 @@
     <a href="index.html" class="nav-logo">Lakshwini ✦</a>
     <ul class="nav-links">
       <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
       <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
       <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -29,11 +33,19 @@
         <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
       </div>
     </div>
+    <a href="docs/DANASSEGARANE_CV.pdf" class="nav-cv" download data-i18n="nav.cv">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Télécharger CV
+    </a>
     <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
   </nav>
   <div class="nav-mobile" id="mobileMenu">
     <ul class="nav-mobile-links">
       <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
       <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
       <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -94,22 +106,23 @@
       </div>
       <div class="tab-panel active" id="panel-leaves">
         <div class="results-grid">
-          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Décroissance des valeurs propres</div></div><div class="result-block-body"><div class="variance-badge">PC1 : 40.6% — PC2 : 30.1% — PC3 : 15.2%</div><img src="acp_leaf_variance.jpg" alt="Variance feuilles" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">Le coude est net après la PC3 — les trois premiers axes expliquent ~86% de la variance totale.</div></div></div>
-          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 2D (PC1 vs PC2)</div></div><div class="result-block-body"><div class="variance-badge">70.7% de variance capturée</div><img src="acp_leaf_2d.jpg" alt="Projection 2D feuilles" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">Des groupes émergent mais restent diffus — 40 espèces dans un plan à 2D, c'est beaucoup.</div></div></div>
-          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 3D</div></div><div class="result-block-body"><div class="variance-badge">+15% de variance avec PC3</div><img src="acp_leaf_3d.jpg" alt="Projection 3D feuilles" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">La troisième dimension améliore nettement la séparation visuelle.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Décroissance des valeurs propres</div></div><div class="result-block-body"><div class="variance-badge">PC1 : 40.6% — PC2 : 30.1% — PC3 : 15.2%</div><img data-file="Capture d-ecran 2026-06-19 a 15.56.18.png" alt="Variance expliquée par composante — Feuilles" class="result-img acp-img" onclick="openLightbox(this)"/><div class="result-block-insight">Le coude est net après la PC3 — les trois premiers axes expliquent ~86% de la variance totale.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 2D (PC1 vs PC2)</div></div><div class="result-block-body"><div class="variance-badge">70.7% de variance capturée</div><img data-file="Capture d-ecran 2026-06-19 a 15.56.28.png" alt="Projection sur les 2 premiers axes — Feuilles" class="result-img acp-img" onclick="openLightbox(this)"/><div class="result-block-insight">Des groupes émergent mais restent diffus — 40 espèces dans un plan à 2D, c'est beaucoup.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 3D</div></div><div class="result-block-body"><div class="variance-badge">+15% de variance avec PC3</div><img data-file="Capture d-ecran 2026-06-19 a 15.56.34.png" alt="Projection 3D PC1 PC2 PC3 — Feuilles" class="result-img acp-img" onclick="openLightbox(this)"/><div class="result-block-insight">La troisième dimension améliore nettement la séparation visuelle.</div></div></div>
         </div>
       </div>
       <div class="tab-panel" id="panel-wine">
         <div class="results-grid">
-          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Décroissance des valeurs propres</div></div><div class="result-block-body"><div class="variance-badge">PC1 : 36.2% — PC2 : 19.3%</div><img src="acp_wine_variance.jpg" alt="Variance vins" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">Décroissance plus progressive — les 13 variables chimiques apportent toutes une information utile.</div></div></div>
-          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 2D — résultat fort</div></div><div class="result-block-body"><div class="variance-badge">Séparation nette des 3 cépages</div><img src="acp_wine_2d.jpg" alt="Projection 2D vins" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">Les trois cépages se séparent clairement dès la projection en 2D. La composition chimique encode vraiment l'origine.</div></div></div>
-          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 3D</div></div><div class="result-block-body"><div class="variance-badge">67.3% avec les 3 axes</div><img src="acp_wine_3d.jpg" alt="Projection 3D vins" class="result-img" onclick="openLightbox(this)"/><div class="result-block-insight">La troisième dimension consolide la séparation des cépages.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Décroissance des valeurs propres</div></div><div class="result-block-body"><div class="variance-badge">PC1 : 36.2% — PC2 : 19.3%</div><img data-file="Capture d-ecran 2026-06-19 a 15.56.40.png" alt="Variance expliquée — Vins" class="result-img acp-img" onclick="openLightbox(this)"/><div class="result-block-insight">Décroissance plus progressive — les 13 variables chimiques apportent toutes une information utile.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 2D — résultat fort</div></div><div class="result-block-body"><div class="variance-badge">Séparation nette des 3 cépages</div><img data-file="Capture d-ecran 2026-06-19 a 15.56.47.png" alt="Projection des vins sur les 2 premiers axes" class="result-img acp-img" onclick="openLightbox(this)"/><div class="result-block-insight">Les trois cépages se séparent clairement dès la projection en 2D. La composition chimique encode vraiment l'origine.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection 3D</div></div><div class="result-block-body"><div class="variance-badge">67.3% avec les 3 axes</div><img data-file="Capture d-ecran 2026-06-19 a 15.56.52.png" alt="Similarités entre les vins Projection 3D" class="result-img acp-img" onclick="openLightbox(this)"/><div class="result-block-insight">La troisième dimension consolide la séparation des cépages.</div></div></div>
         </div>
       </div>
       <div class="tab-panel" id="panel-uk">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-top:0.5rem;">
-          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection des pays</div></div><div class="result-block-body"><div class="variance-badge">PC1 : 62% — PC2 : 29%</div><div class="demo-placeholder"><span data-i18n="proj.placeholder_img">Capture à intégrer</span></div><div class="result-block-insight">L'Irlande du Nord se distingue nettement sur l'axe PC1.</div></div></div>
-          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Cercle de corrélation</div></div><div class="result-block-body"><div class="variance-badge">17 variables projetées</div><div class="demo-placeholder"><span data-i18n="proj.placeholder_img">Capture à intégrer</span></div><div class="result-block-insight">"Graisses et huiles" et "Pommes de terre fraîches" jouent un rôle clé sur PC1.</div></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.4rem;margin-top:0.5rem;">
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Décroissance des valeurs propres</div></div><div class="result-block-body"><div class="variance-badge">PC1 : 61.87% — PC2 : 28.59%</div><img data-file="Capture d-ecran 2026-06-19 a 15.55.41.png" alt="Éboulis des valeurs propres UK" class="result-img acp-img" onclick="openLightbox(this)"/><div class="result-block-insight">Deux composantes suffisent — PC1 et PC2 capturent plus de 90% de la variance.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Projection des pays</div></div><div class="result-block-body"><div class="variance-badge">4 nations bien séparées</div><img data-file="Capture d-ecran 2026-06-19 a 15.55.31.png" alt="Projection des pays sur le premier plan factoriel" class="result-img acp-img" onclick="openLightbox(this)"/><div class="result-block-insight">L'Irlande du Nord se distingue nettement sur l'axe PC1.</div></div></div>
+          <div class="result-block anim"><div class="result-block-header"><div class="result-block-title">Cercle de corrélation</div></div><div class="result-block-body"><div class="variance-badge">17 variables alimentaires</div><img data-file="Capture d-ecran 2026-06-19 a 15.55.00.png" alt="Cercle de corrélation des variables Aliments" class="result-img acp-img" onclick="openLightbox(this)"/><div class="result-block-insight">"Graisses et huiles" et "Pommes de terre fraîches" jouent un rôle clé sur PC1.</div></div></div>
         </div>
       </div>
     </div>
@@ -150,8 +163,17 @@
   </section>
 
   <footer>
-    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>  </footer>
+    <p data-i18n="footer.copy">© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+  </footer>
   <script src="i18n.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('img.acp-img[data-file]').forEach(function(img){
+      var file = img.getAttribute('data-file');
+      img.src = 'img/' + file.replace(/ /g, '%20');
+    });
+  });
+  </script>
   <script>
     function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
     document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});

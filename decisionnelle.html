@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Lakshwini DANASSEGARANE — Décisionnel & Data Warehouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="decisionnelle.css"/>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lakshwini ✦</a>
+    <ul class="nav-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-toggle" onclick="toggleLangMenu()">
+        <span class="lang-flag" id="currentFlag">🌐</span><span id="currentLangLabel">FR</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="lang-option-flag">🇫🇷</span> Français<span class="lang-option-check" id="check-fr">✓</span></button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="lang-option-flag">🇬🇧</span> English<span class="lang-option-check" id="check-en" style="display:none">✓</span></button>
+        <button class="lang-option" data-lang="ta" onclick="setLang('ta')"><span class="lang-option-flag">🇮🇳</span> தமிழ்<span class="lang-option-check" id="check-ta" style="display:none">✓</span></button>
+      </div>
+    </div>
+    <a href="docs/DANASSEGARANE_CV.pdf" class="nav-cv" download data-i18n="nav.cv">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Télécharger CV
+    </a>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="index.html#apropos" data-i18n="nav.about">À propos</a></li>
+      <li><a href="index.html#competences" data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="index.html#parcours" data-i18n="nav.journey">Parcours</a></li>
+      <li><a href="index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
+      <li><a href="index.html#projets" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-lang">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr');closeMobile()">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en');closeMobile()">EN</button>
+      <button class="lang-btn" data-lang="ta" onclick="setLang('ta');closeMobile()">தமிழ்</button>
+    </div>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero-dw">
+    <div class="hero-dw-content">
+      <div class="dw-nav"><a href="index.html#projets">← Retour aux projets</a></div>
+      <h1 class="hero-dw-title">Organiser les données pour <em>décider mieux</em></h1>
+      <p class="hero-dw-desc">J'ai conçu et implémenté un entrepôt de données — une base pensée non pas pour stocker, mais pour analyser. L'objectif : permettre à une entreprise de répondre à ses questions stratégiques en quelques secondes.</p>
+      <div class="tech-tags-hero">
+        <span class="tech-tag-hero">PostgreSQL</span>
+        <span class="tech-tag-hero">SQL / PL-SQL</span>
+        <span class="tech-tag-hero">ClickHouse</span>
+        <span class="tech-tag-hero">Python</span>
+        <span class="tech-tag-hero">pandas</span>
+        <span class="tech-tag-hero">OLAP</span>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-pill">
+          <div class="stat-num">★</div>
+          <div class="stat-label">Schéma étoile<br>modélisé</div>
+        </div>
+        <div class="hero-stat-pill">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Dimensions<br>d'analyse</div>
+        </div>
+        <div class="hero-stat-pill">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Moteurs de base<br>PostgreSQL & ClickHouse</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTEXTE ══ -->
+  <section class="context-section">
+    <div class="section-content">
+      <div class="section-eyebrow">Le contexte</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Pas une base classique — <em>une base pour décider</em></h2>
+      <div class="context-grid">
+        <div class="context-card anim">
+          <div class="context-card-icon">🏭</div>
+          <div class="context-card-title">Une base classique répond à "quoi"</div>
+          <div class="context-card-desc">Elle stocke les faits : une commande passée, un client enregistré, un produit vendu. Elle est pensée pour les opérations du quotidien.</div>
+        </div>
+        <div class="context-card anim">
+          <div class="context-card-icon">🔭</div>
+          <div class="context-card-title">Un entrepôt répond à "pourquoi"</div>
+          <div class="context-card-desc">Il agrège, croise, compare. Qui vend le plus ? Dans quelle région ? Sur quelle période ? C'est la base qui alimente les décisions stratégiques.</div>
+        </div>
+        <div class="context-card anim">
+          <div class="context-card-icon">⚡</div>
+          <div class="context-card-title">Deux moteurs, deux usages</div>
+          <div class="context-card-desc">J'ai travaillé avec PostgreSQL pour la modélisation relationnelle, et ClickHouse pour les requêtes analytiques sur de gros volumes — un moteur orienté colonnes, bien plus rapide pour les agrégations.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SCHÉMA ÉTOILE INTERACTIF ══ -->
+  <section class="star-section">
+    <div class="section-content">
+      <div class="section-eyebrow">La structure</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Le schéma étoile <em>que j'ai conçu</em></h2>
+      <div class="star-widget">
+        <div class="star-widget-header">
+          <div>
+            <div class="star-widget-title">Schéma étoile interactif — Faits de vente</div>
+            <div class="star-widget-subtitle">Au centre ce qu'on mesure, autour les axes d'analyse.</div>
+          </div>
+          <div class="star-hint">👆 Clique sur une table pour explorer</div>
+        </div>
+        <canvas id="starCanvas"></canvas>
+        <div class="star-detail-panel" id="starDetail">
+          <div class="star-detail-icon" id="starIcon">✦</div>
+          <div>
+            <div class="star-detail-title" id="starTitle">Clique sur une table pour voir son contenu</div>
+            <div class="star-detail-desc" id="starDesc">Le schéma étoile organise les données autour d'un fait central — ici les ventes — relié à 4 dimensions d'analyse.</div>
+            <div class="star-detail-tags" id="starTags"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PIPELINE ══ -->
+  <section class="pipeline-section">
+    <div class="section-content">
+      <div class="section-eyebrow">La démarche</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Comment j'ai <em>construit l'entrepôt</em></h2>
+      <div class="pipeline-dw">
+        <div class="pipe-step anim">
+          <div class="pipe-step-num">1</div>
+          <div class="pipe-step-title">Analyser le besoin</div>
+          <div class="pipe-step-desc">Quelles questions l'entreprise doit-elle pouvoir poser ? On part toujours de l'usage.</div>
+        </div>
+        <div class="pipe-step anim">
+          <div class="pipe-step-num">2</div>
+          <div class="pipe-step-title">Modéliser le schéma</div>
+          <div class="pipe-step-desc">Identifier le fait central, les dimensions et leurs niveaux de détail.</div>
+        </div>
+        <div class="pipe-step anim">
+          <div class="pipe-step-num">3</div>
+          <div class="pipe-step-title">Créer les tables</div>
+          <div class="pipe-step-desc">Implémenter en PostgreSQL, définir les clés et contraintes d'intégrité.</div>
+        </div>
+        <div class="pipe-step anim">
+          <div class="pipe-step-num">4</div>
+          <div class="pipe-step-title">Charger les données</div>
+          <div class="pipe-step-desc">Transformer les données sources avec Python/pandas et les injecter dans l'entrepôt.</div>
+        </div>
+        <div class="pipe-step anim">
+          <div class="pipe-step-num">5</div>
+          <div class="pipe-step-title">Interroger & analyser</div>
+          <div class="pipe-step-desc">Écrire les requêtes OLAP pour répondre aux questions métier.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ OLAP ══ -->
+  <section class="olap-section">
+    <div class="section-content">
+      <div class="section-eyebrow">Les analyses</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Trois façons d'explorer <em>les mêmes données</em></h2>
+      <div class="olap-cards">
+        <div class="olap-card anim">
+          <div class="olap-card-title">Zoomer sur une période</div>
+          <div class="olap-card-desc">On peut descendre du global vers le détail — regarder les ventes de l'année, puis du trimestre, puis du mois — sans changer de base.</div>
+          <div class="olap-ops">
+            <span class="olap-op">Année → Trimestre</span>
+            <span class="olap-op">→ Mois → Jour</span>
+            <span class="olap-op">GROUP BY</span>
+          </div>
+        </div>
+        <div class="olap-card anim">
+          <div class="olap-card-title">Croiser les dimensions</div>
+          <div class="olap-card-desc">Qui vend quoi, où et quand ? On croise vendeur × produit × région × période pour faire apparaître les tendances cachées.</div>
+          <div class="olap-ops">
+            <span class="olap-op">Vendeur × Produit</span>
+            <span class="olap-op">Région × Période</span>
+            <span class="olap-op">ROLLUP</span>
+          </div>
+        </div>
+        <div class="olap-card anim">
+          <div class="olap-card-title">Calculer des tendances</div>
+          <div class="olap-card-desc">Calculer la moyenne glissante du chiffre d'affaires sur deux ans pour lisser les variations saisonnières et voir l'évolution réelle.</div>
+          <div class="olap-ops">
+            <span class="olap-op">Moyenne glissante</span>
+            <span class="olap-op">WINDOW FUNCTION</span>
+            <span class="olap-op">OVER()</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CODE ══ -->
+  <section class="code-section">
+    <div class="section-content">
+      <div class="section-eyebrow">Le code</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">Ce que <em>j'ai écrit</em></h2>
+      <div class="code-switcher">
+        <div class="code-switch-tabs">
+          <button class="csw-tab active" onclick="showCode('schema',this)">schema_etoile.sql</button>
+          <button class="csw-tab" onclick="showCode('olap',this)">analyse_olap.sql</button>
+          <button class="csw-tab" onclick="showCode('trend',this)">tendances.sql</button>
+        </div>
+        <div class="csw-panel active" id="code-schema">
+<pre><span class="cm">-- Table centrale : les faits de vente</span>
+<span class="kw">CREATE TABLE</span> fait_vente (
+  id_vente     <span class="fn">SERIAL</span> <span class="kw">PRIMARY KEY</span>,
+  id_temps     <span class="fn">INT</span> <span class="kw">REFERENCES</span> dim_temps(id_temps),
+  id_produit   <span class="fn">INT</span> <span class="kw">REFERENCES</span> dim_produit(id_produit),
+  id_vendeur   <span class="fn">INT</span> <span class="kw">REFERENCES</span> dim_vendeur(id_vendeur),
+  id_lieu      <span class="fn">INT</span> <span class="kw">REFERENCES</span> dim_lieu(id_lieu),
+  chiffre_affaires  <span class="fn">DECIMAL</span>(<span class="nb">12,2</span>),
+  quantite          <span class="fn">INT</span>,
+  plus_value        <span class="fn">DECIMAL</span>(<span class="nb">12,2</span>)
+);
+
+<span class="cm">-- Dimension Temps avec hiérarchie année → mois → jour</span>
+<span class="kw">CREATE TABLE</span> dim_temps (
+  id_temps   <span class="fn">SERIAL</span> <span class="kw">PRIMARY KEY</span>,
+  date_vente <span class="fn">DATE</span>,
+  jour       <span class="fn">INT</span>,
+  mois       <span class="fn">INT</span>,
+  trimestre  <span class="fn">INT</span>,
+  annee      <span class="fn">INT</span>
+);
+
+<span class="cm">-- Dimension Lieu avec hiérarchie ville → région → pays</span>
+<span class="kw">CREATE TABLE</span> dim_lieu (
+  id_lieu    <span class="fn">SERIAL</span> <span class="kw">PRIMARY KEY</span>,
+  ville      <span class="fn">VARCHAR</span>(<span class="nb">100</span>),
+  region     <span class="fn">VARCHAR</span>(<span class="nb">100</span>),
+  pays       <span class="fn">VARCHAR</span>(<span class="nb">100</span>)
+);</pre>
+        </div>
+        <div class="csw-panel" id="code-olap">
+<pre><span class="cm">-- Chiffre d'affaires par vendeur et trimestre</span>
+<span class="kw">SELECT</span>
+  v.nom_vendeur,
+  t.annee,
+  t.trimestre,
+  <span class="fn">SUM</span>(f.chiffre_affaires) <span class="kw">AS</span> ca_total,
+  <span class="fn">SUM</span>(f.quantite)         <span class="kw">AS</span> nb_ventes,
+  <span class="fn">ROUND</span>(<span class="fn">AVG</span>(f.plus_value), <span class="nb">2</span>)  <span class="kw">AS</span> plus_value_moy
+<span class="kw">FROM</span> fait_vente f
+<span class="kw">JOIN</span> dim_vendeur v  <span class="kw">ON</span> f.id_vendeur = v.id_vendeur
+<span class="kw">JOIN</span> dim_temps   t  <span class="kw">ON</span> f.id_temps   = t.id_temps
+<span class="kw">GROUP BY ROLLUP</span>(v.nom_vendeur, t.annee, t.trimestre)
+<span class="kw">ORDER BY</span> ca_total <span class="kw">DESC</span>;
+
+<span class="cm">-- Qui réalise les meilleures plus-values ?</span>
+<span class="kw">SELECT</span>
+  v.nom_vendeur,
+  <span class="fn">SUM</span>(f.plus_value) <span class="kw">AS</span> pv_totale,
+  <span class="fn">RANK</span>() <span class="kw">OVER</span> (<span class="kw">ORDER BY</span> <span class="fn">SUM</span>(f.plus_value) <span class="kw">DESC</span>) <span class="kw">AS</span> classement
+<span class="kw">FROM</span> fait_vente f
+<span class="kw">JOIN</span> dim_vendeur v <span class="kw">ON</span> f.id_vendeur = v.id_vendeur
+<span class="kw">GROUP BY</span> v.nom_vendeur;</pre>
+        </div>
+        <div class="csw-panel" id="code-trend">
+<pre><span class="cm">-- Moyenne glissante du CA sur 2 ans (marché locatif)</span>
+<span class="kw">SELECT</span>
+  t.annee,
+  t.mois,
+  <span class="fn">SUM</span>(f.chiffre_affaires) <span class="kw">AS</span> ca_mensuel,
+  <span class="fn">AVG</span>(<span class="fn">SUM</span>(f.chiffre_affaires)) <span class="kw">OVER</span> (
+    <span class="kw">ORDER BY</span> t.annee, t.mois
+    <span class="kw">ROWS BETWEEN</span> <span class="nb">23</span> <span class="kw">PRECEDING AND CURRENT ROW</span>
+  ) <span class="kw">AS</span> moy_glissante_24mois
+<span class="kw">FROM</span> fait_vente f
+<span class="kw">JOIN</span> dim_temps t <span class="kw">ON</span> f.id_temps = t.id_temps
+<span class="kw">GROUP BY</span> t.annee, t.mois
+<span class="kw">ORDER BY</span> t.annee, t.mois;</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ INSIGHTS ══ -->
+  <section class="insights-section">
+    <div class="section-content">
+      <div class="section-eyebrow">Ce que j'en retiens</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">3 choses que <em>ce projet m'a apprises</em></h2>
+      <div class="insights-grid">
+        <div class="insight-card anim">
+          <div class="insight-title">On part toujours du besoin</div>
+          <div class="insight-desc">Avant de créer une seule table, j'ai dû répondre à "quelles questions veut-on poser ?". La structure technique découle de ça, pas l'inverse.</div>
+        </div>
+        <div class="insight-card anim">
+          <div class="insight-title">La granularité change tout</div>
+          <div class="insight-desc">Stocker par jour permet d'agréger au mois et à l'année. Stocker par mois interdit de descendre au jour. Le choix du niveau de détail est irréversible.</div>
+        </div>
+        <div class="insight-card anim">
+          <div class="insight-title">ClickHouse, un autre monde</div>
+          <div class="insight-desc">Sur des millions de lignes, ClickHouse répond en millisecondes là où PostgreSQL met plusieurs secondes. Les bases orientées colonnes sont faites pour ça.</div>
+        </div>
+      </div>
+      <div style="margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;">
+        <a href="index.html#projets" class="back-button">← Retour aux projets</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Lakshwini DANASSEGARANE — Tous droits réservés.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--rose);font-style:italic;">Fait avec ♥</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    function toggleLangMenu(){document.getElementById('langDropdown').classList.toggle('open');}
+    document.addEventListener('click',function(e){const d=document.getElementById('langDropdown');if(d&&!d.contains(e.target))d.classList.remove('open');});
+    function updateLangUI(lang){
+      const flags={fr:'🇫🇷',en:'🇬🇧',ta:'🇮🇳'},labels={fr:'FR',en:'EN',ta:'TA'};
+      const f=document.getElementById('currentFlag'),l=document.getElementById('currentLangLabel');
+      if(f)f.textContent=flags[lang]||'🌐';if(l)l.textContent=labels[lang]||lang;
+      ['fr','en','ta'].forEach(x=>{const e=document.getElementById('check-'+x);if(e)e.style.display=x===lang?'':'none';});
+      document.querySelectorAll('.lang-btn,.lang-option').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));
+    }
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+    if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});}
+    function closeMobile(){if(hamburger)hamburger.classList.remove('open');if(mobileMenu)mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    if(mobileMenu)mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+    const _aS=document.createElement('style');_aS.textContent='.anim{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}.anim.visible{opacity:1;transform:none}';document.head.appendChild(_aS);
+    const _ob=new IntersectionObserver(e=>e.forEach((x,i)=>{if(x.isIntersecting){x.target.style.transitionDelay=(i*.07)+'s';x.target.classList.add('visible');}}),{threshold:.1});
+    document.querySelectorAll('.context-card,.pipe-step,.olap-card,.insight-card').forEach(el=>{el.classList.add('anim');_ob.observe(el);});
+    document.addEventListener('DOMContentLoaded',()=>updateLangUI(typeof currentLang!=='undefined'?currentLang:'fr'));
+
+    /* --- Code tabs --- */
+    function showCode(id,btn){
+      document.querySelectorAll('.csw-panel').forEach(p=>p.classList.remove('active'));
+      document.querySelectorAll('.csw-tab').forEach(t=>t.classList.remove('active'));
+      document.getElementById('code-'+id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+
+  <!-- ══ STAR SCHEMA INTERACTIF ══ -->
+  <script>
+  (function(){
+    const canvas = document.getElementById('starCanvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    /* --- Data --- */
+    const FACT = {
+      id: 'fact',
+      label: 'FAIT VENTE',
+      icon: '★',
+      color: '#c9913a',
+      fields: ['chiffre_affaires', 'quantité', 'plus_value'],
+      detail: {
+        icon: '★',
+        title: 'Table centrale — Fait de vente',
+        desc: "C'est le cœur du schéma. Elle contient ce qu'on mesure : le chiffre d'affaires, la quantité vendue, la plus-value. Chaque ligne est une vente, reliée à ses 4 dimensions.",
+        tags: ['chiffre_affaires', 'quantite', 'plus_value', 'clés étrangères ×4']
+      }
+    };
+
+    const DIMS = [
+      {
+        id: 'temps', label: 'TEMPS', icon: '📅', color: '#7c6af7', angle: -90,
+        fields: ['jour', 'mois', 'trimestre', 'année'],
+        detail: {
+          icon: '📅',
+          title: 'Dimension Temps',
+          desc: "Permet d'analyser les ventes sur n'importe quelle période. J'ai stocké 4 niveaux de détail : jour, mois, trimestre, année — pour pouvoir zoomer ou dézoomer à volonté.",
+          tags: ['jour', 'mois', 'trimestre', 'année', 'Profondeur : 4']
+        }
+      },
+      {
+        id: 'produit', label: 'PRODUIT', icon: '📦', color: '#f38ba8', angle: 0,
+        fields: ['nom', 'catégorie', 'famille'],
+        detail: {
+          icon: '📦',
+          title: 'Dimension Produit',
+          desc: "Décrit ce qui est vendu. La hiérarchie va du produit spécifique à la catégorie puis à la famille — utile pour comparer les performances par gamme.",
+          tags: ['produit', 'catégorie', 'famille', 'Profondeur : 3']
+        }
+      },
+      {
+        id: 'vendeur', label: 'VENDEUR', icon: '👤', color: '#a6e3a1', angle: 90,
+        fields: ['nom', 'équipe', 'région'],
+        detail: {
+          icon: '👤',
+          title: 'Dimension Vendeur',
+          desc: "Qui vend quoi ? Cette dimension permet de comparer les performances individuelles, par équipe ou par zone géographique.",
+          tags: ['nom', 'équipe', 'région', 'Profondeur : 3']
+        }
+      },
+      {
+        id: 'lieu', label: 'LIEU', icon: '📍', color: '#fab387', angle: 180,
+        fields: ['ville', 'région', 'pays'],
+        detail: {
+          icon: '📍',
+          title: 'Dimension Lieu',
+          desc: "Où se déroulent les ventes ? La hiérarchie ville → région → pays permet d'analyser la répartition géographique à différentes échelles.",
+          tags: ['ville', 'région', 'pays', 'Profondeur : 3']
+        }
+      }
+    ];
+
+    let hovered = null;
+    let positions = {};
+
+    function resize(){
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      computePositions();
+      draw();
+    }
+
+    function computePositions(){
+      const W = canvas.width, H = canvas.height;
+      const cx = W/2, cy = H/2;
+      const R = Math.min(W, H) * 0.33;
+      positions['fact'] = {x: cx, y: cy};
+      DIMS.forEach(d => {
+        const rad = (d.angle - 90) * Math.PI / 180;
+        positions[d.id] = {
+          x: cx + Math.cos(rad) * R,
+          y: cy + Math.sin(rad) * R
+        };
+      });
+    }
+
+    function drawRoundRect(x, y, w, h, r, fill, stroke, sw){
+      ctx.beginPath();
+      ctx.roundRect(x - w/2, y - h/2, w, h, r);
+      ctx.fillStyle = fill; ctx.fill();
+      if(stroke){ ctx.strokeStyle = stroke; ctx.lineWidth = sw || 2; ctx.stroke(); }
+    }
+
+    function draw(){
+      const W = canvas.width, H = canvas.height;
+      ctx.clearRect(0,0,W,H);
+
+      /* Background subtle grid */
+      ctx.strokeStyle = 'rgba(201,145,58,0.06)'; ctx.lineWidth = 1;
+      for(let i=0;i<W;i+=40){ ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i,H); ctx.stroke(); }
+      for(let i=0;i<H;i+=40){ ctx.beginPath(); ctx.moveTo(0,i); ctx.lineTo(W,i); ctx.stroke(); }
+
+      const fp = positions['fact'];
+
+      /* Lines from fact to dims */
+      DIMS.forEach(d => {
+        const dp = positions[d.id];
+        const isHov = hovered === d.id;
+        ctx.beginPath();
+        ctx.moveTo(fp.x, fp.y);
+        ctx.lineTo(dp.x, dp.y);
+        ctx.strokeStyle = isHov ? d.color + 'cc' : 'rgba(201,145,58,0.2)';
+        ctx.lineWidth = isHov ? 2.5 : 1.5;
+        ctx.setLineDash(isHov ? [] : [6, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        /* Relationship label on line */
+        const mx = (fp.x + dp.x)/2, my = (fp.y + dp.y)/2;
+        if(isHov){
+          ctx.fillStyle = 'rgba(255,255,255,0.9)';
+          ctx.beginPath(); ctx.roundRect(mx-18, my-9, 36, 18, 5); ctx.fill();
+          ctx.fillStyle = d.color;
+          ctx.font = 'bold 9px Jost, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          ctx.fillText('FK', mx, my);
+        }
+      });
+
+      /* Dim tables */
+      const cardW = Math.min(120, canvas.width * 0.18);
+      const cardH = 64;
+      DIMS.forEach(d => {
+        const dp = positions[d.id];
+        const isHov = hovered === d.id;
+        const scale = isHov ? 1.08 : 1;
+
+        ctx.save();
+        ctx.translate(dp.x, dp.y);
+        ctx.scale(scale, scale);
+        ctx.translate(-dp.x, -dp.y);
+
+        /* Shadow */
+        if(isHov){
+          ctx.shadowColor = d.color + '44'; ctx.shadowBlur = 20;
+        }
+        drawRoundRect(dp.x, dp.y, cardW, cardH, 12,
+          isHov ? d.color + '18' : 'white',
+          isHov ? d.color : 'rgba(201,145,58,0.25)', isHov ? 2.5 : 1.5);
+        ctx.shadowBlur = 0;
+
+        /* Icon */
+        ctx.font = '18px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(d.icon, dp.x, dp.y - 10);
+
+        /* Label */
+        ctx.fillStyle = isHov ? d.color : '#555';
+        ctx.font = `bold ${Math.max(8, cardW * 0.09)}px Jost, sans-serif`;
+        ctx.fillText(d.label, dp.x, dp.y + 10);
+
+        /* Fields hint */
+        ctx.fillStyle = 'rgba(0,0,0,0.3)';
+        ctx.font = `${Math.max(7, cardW * 0.075)}px Jost, sans-serif`;
+        ctx.fillText(d.fields.slice(0,2).join(' · '), dp.x, dp.y + 24);
+
+        ctx.restore();
+      });
+
+      /* Fact table (center) */
+      const isHovFact = hovered === 'fact';
+      const factW = Math.min(140, canvas.width * 0.2);
+      const factH = 72;
+      if(isHovFact){ ctx.shadowColor = '#c9913a44'; ctx.shadowBlur = 24; }
+      drawRoundRect(fp.x, fp.y, factW, factH, 16,
+        isHovFact ? 'rgba(201,145,58,0.15)' : 'rgba(201,145,58,0.07)',
+        isHovFact ? '#c9913a' : 'rgba(201,145,58,0.5)', isHovFact ? 3 : 2);
+      ctx.shadowBlur = 0;
+
+      ctx.font = '22px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText('★', fp.x, fp.y - 14);
+      ctx.fillStyle = isHovFact ? '#c9913a' : '#333';
+      ctx.font = `bold ${Math.max(9, factW * 0.09)}px Jost, sans-serif`;
+      ctx.fillText('FAIT VENTE', fp.x, fp.y + 4);
+      ctx.fillStyle = 'rgba(0,0,0,0.35)';
+      ctx.font = `${Math.max(7, factW * 0.08)}px Jost, sans-serif`;
+      ctx.fillText('CA · Qté · Plus-value', fp.x, fp.y + 20);
+    }
+
+    /* --- Hit detection --- */
+    function getHit(mx, my){
+      const fp = positions['fact'];
+      if(Math.abs(mx-fp.x) < 80 && Math.abs(my-fp.y) < 44) return 'fact';
+      for(const d of DIMS){
+        const dp = positions[d.id];
+        if(Math.abs(mx-dp.x) < 70 && Math.abs(my-dp.y) < 40) return d.id;
+      }
+      return null;
+    }
+
+    function updateDetail(id){
+      const titleEl = document.getElementById('starTitle');
+      const descEl  = document.getElementById('starDesc');
+      const iconEl  = document.getElementById('starIcon');
+      const tagsEl  = document.getElementById('starTags');
+      const data = id === 'fact' ? FACT.detail : DIMS.find(d=>d.id===id)?.detail;
+      if(!data) return;
+      iconEl.textContent = data.icon;
+      titleEl.textContent = data.title;
+      descEl.textContent  = data.desc;
+      tagsEl.innerHTML = data.tags.map(t=>`<span class="star-detail-tag">${t}</span>`).join('');
+    }
+
+    canvas.addEventListener('mousemove', e => {
+      const r = canvas.getBoundingClientRect();
+      const hit = getHit(e.clientX - r.left, e.clientY - r.top);
+      if(hit !== hovered){ hovered = hit; draw(); canvas.style.cursor = hit ? 'pointer' : 'default'; }
+    });
+    canvas.addEventListener('mouseleave', () => { hovered = null; draw(); canvas.style.cursor = 'default'; });
+    canvas.addEventListener('click', e => {
+      const r = canvas.getBoundingClientRect();
+      const hit = getHit(e.clientX - r.left, e.clientY - r.top);
+      if(hit) updateDetail(hit);
+    });
+
+    window.addEventListener('resize', resize);
+    resize();
+  })();
+  </script>
+</body>
+</html>
